@@ -2,9 +2,14 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Gedmo\Timestampable\Traits\Timestampable;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Class User
@@ -12,9 +17,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @author Willem Slaghekke <w.slaghekke@recognize.nl>
  *
  * @ORM\Entity()
+ * @Vich\Uploadable()
  */
 class User extends BaseUser
 {
+    use TimestampableEntity;
+
     /**
      * @ORM\Id()
      * @ORM\Column(type="integer")
@@ -23,48 +31,78 @@ class User extends BaseUser
     protected $id;
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
-    private $phoneNumber;
+    private $phoneNumber = '';
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
-    private $firstName;
+    private $firstName = '';
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
-    private $lastName;
+    private $lastName = '';
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
-    private $street;
+    private $street = '';
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
-    private $streetNumber;
+    private $streetNumber = '';
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
-    private $zipcode;
+    private $zipcode = '';
     /**
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
      */
-    private $city;
+    private $city = '';
     /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $avatar;
     /**
+     * @Vich\UploadableField(mapping="general_image", fileNameProperty="avatar")
+     */
+    private $avatarFile;
+    /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $coverPhoto;
     /**
-     * @ORM\Column(type="json_array")
+     * @Vich\UploadableField(mapping="general_image", fileNameProperty="coverPhoto")
+     */
+    private $coverPhotoFile;
+    /**
+     * @ORM\Column(type="array")
      */
     private $tags;
     /**
      * @ORM\OneToMany(targetEntity="Training", mappedBy="user")
      */
     private $trainings;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->tags = [];
+        $this->trainings = new ArrayCollection();
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+        $this->setUsername($email);
+
+        return $this;
+    }
 
     /**
      * Set phoneNumber
@@ -309,11 +347,11 @@ class User extends BaseUser
     /**
      * Add training
      *
-     * @param \AppBundle\Entity\Training $training
+     * @param Training $training
      *
      * @return User
      */
-    public function addTraining(\AppBundle\Entity\Training $training)
+    public function addTraining(Training $training)
     {
         $this->trainings[] = $training;
 
@@ -323,9 +361,9 @@ class User extends BaseUser
     /**
      * Remove training
      *
-     * @param \AppBundle\Entity\Training $training
+     * @param Training $training
      */
-    public function removeTraining(\AppBundle\Entity\Training $training)
+    public function removeTraining(Training $training)
     {
         $this->trainings->removeElement($training);
     }
@@ -338,5 +376,55 @@ class User extends BaseUser
     public function getTrainings()
     {
         return $this->trainings;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAvatarFile()
+    {
+        return $this->avatarFile;
+    }
+
+    /**
+     * @param mixed $avatarFile
+     * @return $this
+     */
+    public function setAvatarFile($avatarFile)
+    {
+        $this->avatarFile = $avatarFile;
+
+        if ($avatarFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCoverPhotoFile()
+    {
+        return $this->coverPhotoFile;
+    }
+
+    /**
+     * @param mixed $coverPhotoFile
+     * @return $this
+     */
+    public function setCoverPhotoFile($coverPhotoFile)
+    {
+        $this->coverPhotoFile = $coverPhotoFile;
+
+        if ($coverPhotoFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+
+        return $this;
     }
 }

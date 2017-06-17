@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,7 +29,7 @@ class Training
      */
     private $description;
     /**
-     * @ORM\Column(type="json_array")
+     * @ORM\Column(type="array")
      */
     private $tags;
     /**
@@ -46,7 +47,7 @@ class Training
      */
     public function __construct()
     {
-        $this->prices = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->prices = new ArrayCollection();
     }
 
     /**

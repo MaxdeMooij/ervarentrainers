@@ -12,7 +12,15 @@
 !/var/sessions
 /var/sessions/*
 !var/sessions/.gitkeep
+!/var/upload/avatar
+/var/upload/avatar/*
+!var/upload/avatar/.gitkeep
+!/var/upload/image
+/var/upload/image/*
+!var/upload/image/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+/web/media/cache/*
+!/web/media/cache/.gitkeep
 /.idea

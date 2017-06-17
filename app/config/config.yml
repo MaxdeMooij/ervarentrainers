@@ -5,8 +5,6 @@ imports:
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
-parameters:
-    locale: en
 
 framework:
     #esi: ~
@@ -73,11 +71,61 @@ fos_user:
     firewall_name: main
     user_class: AppBundle\Entity\User
     from_email:
-        address: "%mailer_user%"
-        sender_name: "%mailer_user%"
+        address: "%mailer_from_email%"
+        sender_name: "%mailer_from_email%"
 
 easy_admin:
+    design:
+        form_theme: ['horizontal', 'form/admin_vich_image_widget.html.twig']
     entities:
-        - AppBundle\Entity\User
-        - AppBundle\Entity\Training
-#        - AppBundle\Entity\TrainingPrice
+        User:
+            class: AppBundle\Entity\User
+            form:
+                fields:
+                    - firstName
+                    - lastName
+                    - email
+                    - phoneNumber
+                    - street
+                    - streetNumber
+                    - zipcode
+                    - city
+                    - enabled
+                    # if administrators are allowed to edit users' passwords and roles, add this:
+                    - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                    - { property: 'roles', type: 'choice', required: false, type_options: { multiple: true, expanded: true, choices: { 'Admin': 'ROLE_ADMIN' } } }
+                    - { property: 'avatarFile', type: 'vich_image', type_options: {imagine_pattern: 'basic_thumbnail'} }
+                    - { property: 'coverPhotoFile', type: 'vich_image', type_options: {imagine_pattern: 'basic_thumbnail'} }
+        Training:
+            class: AppBundle\Entity\Training
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        general_image:
+            uri_prefix:         /upload/image
+            upload_destination: '%kernel.root_dir%/../var/upload/image'
+            namer:              vich_uploader.namer_uniqid
+            inject_on_load:     true
+
+liip_imagine:
+    resolvers:
+        default:
+            web_path: ~
+    loaders:
+        default:
+            filesystem:
+                data_root: '%kernel.root_dir%/../var/'
+    filter_sets:
+        cache: ~
+        basic_thumbnail:
+            quality: 75
+            filters:
+                thumbnail: { size: [128,128], mode: outbound }
+        optimize_only:
+            quality: 75
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
