@@ -12,7 +12,7 @@
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
         {% endif %}
 
-        <label for="username">{{ 'security.login.username'|trans }}</label>
+        <label for="username">{{ 'form.email'|trans }}</label>
         <input type="text" id="username" name="_username" value="{{ last_username }}" required="required"/>
 
         <label for="password">{{ 'security.login.password'|trans }}</label>
@@ -23,4 +23,6 @@
 
         <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"/>
     </form>
+
+    <a href="{{ path('fos_user_resetting_request') }}">{{ 'security.reset_password'|trans({}, 'messages') }}</a>
 {% endblock fos_user_content %}

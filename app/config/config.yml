@@ -62,6 +62,7 @@ doctrine:
 swiftmailer:
     transport: '%mailer_transport%'
     host: '%mailer_host%'
+    port: '%mailer_port%'
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
@@ -73,6 +74,11 @@ fos_user:
     from_email:
         address: "%mailer_from_email%"
         sender_name: "%mailer_from_email%"
+    registration:
+        confirmation:
+            enabled: true
+        form:
+            type: \AppBundle\Form\RegistrationType
 
 easy_admin:
     design:

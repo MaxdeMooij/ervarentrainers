@@ -22,7 +22,7 @@
             </div>
 
             <div>
-                <a href="{{ path('app_user_register') }}">Register here</a><br>
+                <a href="{{ path('fos_user_registration_register') }}">Register here</a><br>
                 {% if app.user %}
                     {% if app.user.avatar %}
                         <img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}"
