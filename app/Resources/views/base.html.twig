@@ -4,9 +4,50 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <!-- Styles -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/easyadmin/stylesheet/bootstrap.min.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/easyfrontend/style.css') }}" />
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:200,400,700" rel="stylesheet">
+
     </head>
     <body>
+
+        <nav>
+            <div class="container">
+
+                <div class="left-menu">
+                    <img src="" alt="logo">
+                    <a href="#">Home</a>
+                    <a href="#">Vind een training</a>
+                    <a href="#">Vind een trainer</a>
+                </div>
+                <div class="middle-menu">
+                    <input type="text" placeholder="Zoek een training of trainer" class="search">
+                </div>
+                <div class="right-menu">
+                    {% if app.user %}
+                        {% if app.user.avatar %}
+                            <img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}"
+                                 alt="Avatar"><br>
+                        {% endif %}
+                        Ingelogd als {{ app.user.firstName }} {{ app.user.lastName }}<br>
+                        <a href="{{ path('fos_user_security_logout') }}">Uitloggen</a><br>
+                    {% else %}
+                        <a href="{{ path('fos_user_registration_register') }}" class="registrer">Registreren als trainer</a>
+                        <a href="{{ path('fos_user_security_login') }}" class="login">Inloggen voor trainers</a>
+                    {% endif %}
+                    {#<a href="#" class="login">Inloggen voor trainers</a>#}
+                </div>
+
+
+            </div>
+        </nav>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
