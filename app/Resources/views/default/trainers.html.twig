@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper" class="home">
+        <div id="container">
+            <div id="header">
+                <div class="content">
+                    <h1>Vind de ervaren trainers die bij je passen</h1>
+                    <div class="search-area">
+                        <input type="text" class="search"><div class="search-button">Zoeken</div>
+                    </div>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <th>Voornaam</th>
+                    <th>Achternaam</th>
+                    <th>Telefoonnummer</th>
+                </tr>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.firstName }}</td>
+                        <td>{{ item.lastName }}</td>
+                        <td>{{ item.phoneNumber }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
+

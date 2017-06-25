@@ -18,4 +18,28 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("/trainers")
+     */
+    public function trainerListAction(Request $request)
+    {
+        $repo = $this->getDoctrine()->getRepository('AppBundle:User');
+
+        return $this->render('default/trainers.html.twig', [
+            'items' => $repo->findBy(['enabled' => true])
+        ]);
+    }
+
+    /**
+     * @Route("/trainings")
+     */
+    public function trainingListAction(Request $request)
+    {
+        $repo = $this->getDoctrine()->getRepository('AppBundle:Training');
+
+        return $this->render('default/trainings.html.twig', [
+            'items' => $repo->findBy([])
+        ]);
+    }
 }
