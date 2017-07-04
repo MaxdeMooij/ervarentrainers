@@ -12,17 +12,17 @@
                 </div>
             </div>
             <table>
-                <tr>
-                    <th>Naam training</th>
-                    <th>Trainer</th>
-                    <th>Tags</th>
-                </tr>
+                {#<tr>#}
+                    {#<th>Naam training</th>#}
+                    {#<th>Trainer</th>#}
+                    {#<th>Tags</th>#}
+                {#</tr>#}
                 {% for item in items %}
-                    <tr>
-                        <td>{{ item.title }}</td>
-                        <td>{% if item.user is not null %}{{ item.user.firstName }} {{ item.user.lastName }}{% endif %}</td>
-                        <td>{{ item.tags|join(', ') }}</td>
-                    </tr>
+                    <div class="trainingblock">
+                        <h3 class="titel">{{ item.title }}</h3>
+                        <span class="trainer">{% if item.user is not null %}{{ item.user.firstName }} {{ item.user.lastName }}{% endif %}</span>
+                        <span class="tags">{{ item.tags|join(', ') }}</span>
+                    </div>
                 {% endfor %}
             </table>
         </div>

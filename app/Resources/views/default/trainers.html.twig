@@ -11,20 +11,19 @@
                     </div>
                 </div>
             </div>
-            <table>
-                <tr>
-                    <th>Voornaam</th>
-                    <th>Achternaam</th>
-                    <th>Telefoonnummer</th>
-                </tr>
-                {% for item in items %}
-                    <tr>
-                        <td>{{ item.firstName }}</td>
-                        <td>{{ item.lastName }}</td>
-                        <td>{{ item.phoneNumber }}</td>
-                    </tr>
-                {% endfor %}
-            </table>
+            <div class="container">
+                <div class="row">
+                    {% for item in items %}
+                        <div class="trainerblock col-md-3">
+                            <img class="coverphoto" src="{{ asset('upload/image/'~item.coverPhoto) | imagine_filter('cover_thumbnail') }}" />
+                            <div class="content">
+                                <img class="avatar" src="/media/cache/basic_thumbnail/upload/image/{{ item.avatar }}"/>
+                                <h3>{{ item.firstName }} {{ item.lastName }}</h3>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
