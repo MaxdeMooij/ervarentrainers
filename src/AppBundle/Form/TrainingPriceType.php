@@ -17,6 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class TrainingPriceType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('type', TextType::class)
@@ -31,7 +32,5 @@ class TrainingPriceType extends AbstractType
             'data_class' => TrainingPrice::class
         ]);
     }
-
-
 
 }

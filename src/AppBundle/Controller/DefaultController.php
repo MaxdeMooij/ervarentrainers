@@ -32,7 +32,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/trainings")
+     * @Route("/trainingen")
      */
     public function trainingListAction(Request $request)
     {

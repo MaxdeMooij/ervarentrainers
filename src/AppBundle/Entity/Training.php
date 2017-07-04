@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -34,6 +35,11 @@ class Training
      * @ORM\Column(type="text")
      */
     private $description;
+    /**
+     * @ORM\Column(type="string", unique=true, nullable=true)
+     * @Gedmo\Slug(fields={"title"})
+     */
+    private $slug;
     /**
      * @ORM\Column(type="array")
      */
@@ -243,6 +249,25 @@ class Training
             // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();
         }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     * @return Training
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
 
         return $this;
     }
