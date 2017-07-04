@@ -128,6 +128,14 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [128,128], mode: outbound }
+        cover_thumbnail:
+            quality: 75
+            filters:
+                thumbnail: { size: [1920,300], mode: inset }
+        cover_full:
+            quality: 75
+            filters:
+                thumbnail: { size: [1920,800], mode: inset }
         optimize_only:
             quality: 75
 
