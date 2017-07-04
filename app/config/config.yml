@@ -96,6 +96,7 @@ easy_admin:
                     - streetNumber
                     - zipcode
                     - city
+                    - description
                     - enabled
                     # if administrators are allowed to edit users' passwords and roles, add this:
                     - { property: 'plainPassword', type: 'text', type_options: { required: false } }
@@ -104,6 +105,20 @@ easy_admin:
                     - { property: 'coverPhotoFile', type: 'vich_image', type_options: {imagine_pattern: 'basic_thumbnail'} }
         Training:
             class: AppBundle\Entity\Training
+            form:
+                fields:
+                - title
+                - description
+                - tags
+                - property: 'photoFile'
+                  type: 'vich_image'
+                  type_options: {imagine_pattern: 'basic_thumbnail'}
+                - property: 'prices'
+                  type: '\Symfony\Component\Form\Extension\Core\Type\CollectionType'
+                  type_options:
+                    entry_type: '\AppBundle\Form\TrainingPriceType'
+                    allow_add: true
+                    allow_delete: true
 
 vich_uploader:
     db_driver: orm

@@ -65,6 +65,10 @@ class User extends BaseUser
      */
     private $city = '';
     /**
+     * @ORM\Column(type="text", options={"default": ""})
+     */
+    private $description = '';
+    /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $avatar;
@@ -424,6 +428,25 @@ class User extends BaseUser
             // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();
         }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     * @return User
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
 
         return $this;
     }
