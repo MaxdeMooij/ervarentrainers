@@ -10,6 +10,29 @@ nav {
     background-color: #fff;
 }
 
+.navbar {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0px;
+}
+
+.navbar-nav {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+
+    align-items: center;
+}
+
+.navbar-nav>li>a {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 nav .container {
     position: relative;
     width: 100%;
@@ -59,7 +82,7 @@ nav .search {
 }
 
 .login {
-    padding: 10px 20px;
+    padding: 10px 20px !important;
     color: #85BAFF;
     border: 2px solid #85BAFF;
     -webkit-border-radius: 100px;

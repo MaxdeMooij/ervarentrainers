@@ -18,42 +18,73 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:200,400,700" rel="stylesheet">
 
         <!-- Scripts -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
     <body>
+        <div class="container">
+            <nav class="navbar navbar-fluid">
 
-        <nav>
-            <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarcollapse" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Brand</a>
+                    </div>
 
-                <div class="left-menu">
-                    <img src="" alt="logo">
-                    <a href="{{ path('app_default_index') }}">Home</a>
-                    <a href="{{ path('app_default_traininglist') }}">Vind een training</a>
-                    <a href="{{ path('app_default_trainerlist') }}">Vind een trainer</a>
+                    <div class="collapse navbar-collapse" id="navbarcollapse">
+
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a href="{{ path('app_default_index') }}">Home</a></li>
+                            <li><a href="{{ path('app_default_traininglist') }}">Vind een training</a></li>
+                            <li><a href="{{ path('app_default_trainerlist') }}">Vind een trainer</a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            {% if app.user %}
+                                {% if app.user.avatar %}
+                                    <img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}"
+                                         alt="Avatar"><br>
+                                {% endif %}
+                                Ingelogd als {{ app.user.firstName }} {{ app.user.lastName }}<br>
+                                <li><a href="{{ path('fos_user_security_logout') }}">Uitloggen</a></li><br>
+                            {% else %}
+                                <li><a href="{{ path('fos_user_registration_register') }}" class="registrer">Registreren als trainer</a></li>
+                                <li><a href="{{ path('fos_user_security_login') }}" class="login">Inloggen voor trainers</a></li>
+                            {% endif %}
+                        </ul>
+
+
+                    {#<div class="left-menu">#}
+                        {#<img src="" alt="logo">#}
+                        {#<a href="{{ path('app_default_index') }}">Home</a>#}
+                        {#<a href="{{ path('app_default_traininglist') }}">Vind een training</a>#}
+                        {#<a href="{{ path('app_default_trainerlist') }}">Vind een trainer</a>#}
+                    {#</div>#}
+                    {#<div class="middle-menu">#}
+                        {#<input type="text" placeholder="Zoek een training of trainer" class="search">#}
+                    {#</div>#}
+                    {#<div class="right-menu">#}
+                        {#{% if app.user %}#}
+                            {#{% if app.user.avatar %}#}
+                                {#<img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}"#}
+                                     {#alt="Avatar"><br>#}
+                            {#{% endif %}#}
+                            {#Ingelogd als {{ app.user.firstName }} {{ app.user.lastName }}<br>#}
+                            {#<a href="{{ path('fos_user_security_logout') }}">Uitloggen</a><br>#}
+                        {#{% else %}#}
+                            {#<a href="{{ path('fos_user_registration_register') }}" class="registrer">Registreren als trainer</a>#}
+                            {#<a href="{{ path('fos_user_security_login') }}" class="login">Inloggen voor trainers</a>#}
+                        {#{% endif %}#}
+                        {#<a href="#" class="login">Inloggen voor trainers</a>#}
+                    {#</div>#}
+
                 </div>
-                <div class="middle-menu">
-                    <input type="text" placeholder="Zoek een training of trainer" class="search">
-                </div>
-                <div class="right-menu">
-                    {% if app.user %}
-                        {% if app.user.avatar %}
-                            <img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}"
-                                 alt="Avatar"><br>
-                        {% endif %}
-                        Ingelogd als {{ app.user.firstName }} {{ app.user.lastName }}<br>
-                        <a href="{{ path('fos_user_security_logout') }}">Uitloggen</a><br>
-                    {% else %}
-                        <a href="{{ path('fos_user_registration_register') }}" class="registrer">Registreren als trainer</a>
-                        <a href="{{ path('fos_user_security_login') }}" class="login">Inloggen voor trainers</a>
-                    {% endif %}
-                    {#<a href="#" class="login">Inloggen voor trainers</a>#}
-                </div>
-
-
-            </div>
-        </nav>
-
+            </nav>
+        </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
