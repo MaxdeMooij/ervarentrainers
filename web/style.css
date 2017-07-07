@@ -43,7 +43,7 @@ nav a {
 }
 
 nav .search {
-    padding: 15px 20px;
+    padding: 7px 20px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -51,7 +51,7 @@ nav .search {
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px;
-
+    min-width: 260px;
 }
 
 .search:focus {
@@ -99,7 +99,7 @@ nav .search {
 }
 
 #header .content {
-    margin: 100px 0px;
+    margin: 100px 0;
     text-align: center;
 }
 
@@ -111,7 +111,7 @@ nav .search {
 #header .search {
     width: 855px;
     max-width: 80%;
-    box-shadow: 0px 14px 43px rgba(0,0,0,0.06);
+    box-shadow: 0 14px 43px rgba(0,0,0,0.06);
     font-size: 16px;
     color: gray;
     padding: 15px 20px;
@@ -130,7 +130,7 @@ nav .search {
     width: 130px;
     font-size: 16px;
     font-weight: 200;
-    box-shadow: 0px 14px 43px rgba(255, 206, 133, 0.43);
+    box-shadow: 0 14px 43px rgba(255, 206, 133, 0.43);
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px;
@@ -160,7 +160,7 @@ p, nav a {
 h1 {
     color: #FFA621;
     font-size: 33px;
-    margin: 0px;
+    margin: 0;
 
 }
 
@@ -169,9 +169,9 @@ h1 {
 .trainingblock {
     background-color: #fff;
     box-sizing: border-box;
-    -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.04);
-    -moz-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.04);
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.04);
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
 }
 
 .trainerblock .content,
@@ -184,7 +184,7 @@ h1 {
 .trainingblock .coverphoto {
     width: 100%;
     position: absolute;
-    left: 0px;
+    left: 0;
 }
 
 .trainerblock .avatar,
