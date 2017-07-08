@@ -32,13 +32,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Brand</a>
+
+                    <a href="{{ path('app_default_index') }}"><img src="/media/test_logo.png" class="navbar-brand"></a>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarcollapse">
 
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a href="{{ path('app_default_index') }}">Home</a></li>
                         <li><a href="{{ path('app_default_traininglist') }}">Vind een training</a></li>
                         <li><a href="{{ path('app_default_trainerlist') }}">Vind een trainer</a></li>
                     </ul>

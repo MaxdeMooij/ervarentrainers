@@ -2,29 +2,21 @@
 
 {% block body %}
     <div id="wrapper" class="home">
-        <div id="container">
-            <div id="header">
-                <div class="content">
-                    <h1>Vind de ervaren trainers die bij je passen</h1>
-                    <div class="search-area">
-                        <input type="text" class="search"><div class="search-button">Zoeken</div>
-                    </div>
-                </div>
+        <div id="header">
+            <div class="content">
+                <h1>Naam van het zoekwoord</h1>
             </div>
-            <table>
-                {#<tr>#}
-                    {#<th>Naam training</th>#}
-                    {#<th>Trainer</th>#}
-                    {#<th>Tags</th>#}
-                {#</tr>#}
+        </div>
+        <div class="container">
+            <div class="row">
                 {% for item in items %}
-                    <div class="trainingblock">
+                    <div class="trainingblock col-md-3">
                         <h3 class="titel">{{ item.title }}</h3>
                         <span class="trainer">{% if item.user is not null %}{{ item.user.firstName }} {{ item.user.lastName }}{% endif %}</span>
                         <span class="tags">{{ item.tags|join(', ') }}</span>
                     </div>
                 {% endfor %}
-            </table>
+            </div>
         </div>
     </div>
 {% endblock %}

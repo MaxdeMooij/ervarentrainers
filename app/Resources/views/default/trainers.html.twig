@@ -2,31 +2,30 @@
 
 {% block body %}
     <div id="wrapper" class="home">
-        <div id="container">
-            <div id="header">
-                <div class="content">
-                    <h1>Vind de ervaren trainers die bij je passen</h1>
-                    <div class="search-area">
-                        <input type="text" class="search"><div class="search-button">Zoeken</div>
-                    </div>
+        <div id="header">
+            <div class="content">
+                <h1>Vind de ervaren trainers die bij je passen</h1>
+                <div class="search-area">
+                    <input type="text" class="search"><div class="search-button">Zoeken</div>
                 </div>
             </div>
-            <div class="container">
-                <div class="row">
-                    <h2>Trainers</h2>
-                </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <h2>Trainers</h2>
+            </div>
 
-                <div class="row">
-                    {% for item in items %}
-                        <div class="trainerblock col-md-3">
-                            <img class="coverphoto" src="/media/cache/cover_thumbnail/upload/image/{{ item.coverPhoto }}" />
-                            <div class="content">
-                                <img class="avatar" src="/media/cache/basic_thumbnail/upload/image/{{ item.avatar }}"/>
-                                <h3>{{ item.firstName }} {{ item.lastName }}</h3>
-                            </div>
+            <div class="row">
+                {% for item in items %}
+                    <div class="trainerblock col-md-3">
+                        <img class="coverphoto" src="/media/cache/cover_thumbnail/upload/image/{{ item.coverPhoto }}" >
+                        <div class="content">
+                            <img class="avatar" src="/media/cache/basic_thumbnail/upload/image/{{ item.avatar }}">
+                            <h3>{{ item.firstName }} {{ item.lastName }}</h3>
+                            <p>{{ item.description }}</p>
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

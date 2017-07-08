@@ -67,6 +67,29 @@ nav a {
     display: inline-block;
 }
 
+.navbar-left {
+    margin-left: 30px;
+}
+
+/* Logo part */
+.navbar-header {
+    position: relative;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-header a,
+.navbar-header img {
+    padding: 0;
+}
+
+.navbar-header img {
+    height: auto;
+}
+
+/* Search bar */
 nav .search {
     padding: 7px 20px;
     -webkit-box-sizing: border-box;
@@ -79,14 +102,11 @@ nav .search {
     min-width: 260px;
 }
 
-nav i {
-    margin-right: 15px;
-}
-
 .search:focus {
     outline: none;
 }
 
+/* Right side */
 .login {
     padding: 10px 20px !important;
     color: #85BAFF;
@@ -96,11 +116,16 @@ nav i {
     border-radius: 100px;
 }
 
+/* Logged in */
+nav i {
+margin-right: 15px;
+}
+
 .user-menu a {
     padding: 0 !important;
 }
 .user-menu img {
-    height: 55px;
+    height: 45px;
 }
 
 .user-menu li {
@@ -134,6 +159,14 @@ nav i {
 .nav>li>a:focus, .nav>li>a:hover {
     background-color: transparent;
 }
+
+
+
+
+
+
+
+
 
 /* Home page */
 
@@ -254,4 +287,17 @@ h1 {
 .trainingblock .avatar {
     position: relative;
     margin-top: 64px;
+    border: 5px solid #fff;
+}
+
+
+
+
+
+/* Trainer detail page */
+
+.trainer-header {
+    background-size: cover;
+    background-position-y: center;
+    height: 300px;
 }
