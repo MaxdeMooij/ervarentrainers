@@ -20,6 +20,7 @@
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/df3219cf9e.js"></script>
     </head>
     <body>
         <div class="container">
@@ -53,7 +54,10 @@
                                 {% endif %}
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ path('fos_user_security_logout') }}">Uitloggen</a></li><br>
+                                <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Profiel</a></li>
+                                <li><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Mijn trainingen</a></li>
+                                <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Aanmeldingen</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Uitloggen</a></li>
                             </ul>
                         </li>
                         {% else %}
