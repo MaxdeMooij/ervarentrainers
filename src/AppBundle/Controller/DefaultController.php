@@ -42,4 +42,18 @@ class DefaultController extends Controller
             'items' => $repo->findBy([])
         ]);
     }
+
+    /**
+     * @Route("/trainers/{slug}")
+     */
+    public function trainerdetailAction(Request $request, $slug)
+    {
+        $repo = $this->getDoctrine()->getRepository('AppBundle:User');
+
+        return $this->render('default/trainer_detail.html.twig', [
+            'item' => $repo->findOneBy(['enabled' => true, 'slug' => $slug])
+        ]);
+    }
+
+
 }
