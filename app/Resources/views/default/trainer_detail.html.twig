@@ -4,13 +4,13 @@
     <div id="wrapper">
         <div id="header" class="trainer-header">
             <div class="cover"></div>
-            <div class="coverphoto" style="background-image: url('{{ asset('upload/image/'~app.user.coverPhoto) | imagine_filter('cover_full') }}')">
+            <div class="coverphoto" style="background-image: url('{{ asset('upload/image/'~item.coverPhoto) | imagine_filter('cover_full') }}')">
         </div>
         <div class="container">
             <div class="row">
                 <div class="col col-sm-4 trainerprofile">
 
-                    <img class="profile-photo" src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('avatar_profile') }}">
+                    <img class="profile-photo" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_profile') }}">
                     <div class="content">
                         <h1>{{ item.firstName }} {{ item.lastName }}</h1>
                         <h2>Communicatietrainer</h2>
