@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="wrapper" class="home">
-        <div id="header" class="trainer-header" style="background-image: url('/media/cache/cover_thumbnail/upload/image/{{ item.coverPhoto }}')">
-            <div class="content"></div>
+    <div id="wrapper">
+        <div id="header" class="trainer-header">
+            <div class="cover"></div>
+            <div class="coverphoto" style="background-image: url('{{ asset('upload/image/'~app.user.coverPhoto) | imagine_filter('cover_full') }}')">
         </div>
         <div class="container">
             <div class="row">
-                <div class="col col-md-3 trainerprofile">
-                    <span class="experience">15 jaar ervaring</span>
-                    <img class="profile-photo" src="/media/cache/basic_thumbnail/upload/image/{{ item.avatar }}">
+                <div class="col col-sm-4 trainerprofile">
+
+                    <img class="profile-photo" src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}">
                     <div class="content">
                         <h1>{{ item.firstName }} {{ item.lastName }}</h1>
                         <h2>Communicatietrainer</h2>
@@ -30,16 +31,18 @@
                     </div>
 
                 </div>
-                <div class="trainer-about col col-md-8 col-md-offset-1">
+                <div class="general-info col-sm-7 col-sm-offset-1">
+                    <span class="experience">15 jaar ervaring</span>
+                </div>
+                <div class="trainer-about col col-sm-7 col-sm-offset-1">
                     <div class="content">
                         <h3>Over mij</h3>
                         <p>{{ item.description }}</p>
                     </div>
                 </div>
-                <div class="trainings col-md-8 col-md-offset-1">
+                <div class="trainings col-sm-7 col-sm-offset-1">
                     <div class="row">
                         <!-- Trainings of the trainer go here -->
-
 
                     </div>
 

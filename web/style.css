@@ -5,10 +5,15 @@
 }
 
 body {
-    background-color: #fbfbfb;
+    background-color: #F6F6F6;
 }
 
 .col {
+    background-color: #fff;
+    padding: 0;
+}
+
+.background-white {
     background-color: #fff;
 }
 
@@ -208,7 +213,7 @@ margin-right: 15px;
     align-items: center;
 }
 
-#header .content {
+.home #header .content {
     margin: 100px 0;
     text-align: center;
 }
@@ -255,6 +260,7 @@ margin-right: 15px;
 
 
 
+
 /* Fonts */
 
 h1, h2, h3 {
@@ -264,6 +270,9 @@ h1, h2, h3 {
 p, nav a {
     font-family: 'Roboto', sans-serif;
 }
+
+
+
 
 /* Title styles */
 
@@ -275,6 +284,10 @@ h1 {
 }
 
 
+
+
+/* Trainer and training page */
+
 .trainerblock,
 .trainingblock {
     background-color: #fff;
@@ -282,6 +295,12 @@ h1 {
     -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
     -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
+    padding: 0;
+}
+
+.trainerblock h3,
+.trainingblock h3 {
+    margin-top: 0;
 }
 
 .trainerblock .content,
@@ -300,8 +319,7 @@ h1 {
 .trainerblock .avatar,
 .trainingblock .avatar {
     position: relative;
-    margin-top: 64px;
-    border: 5px solid #fff;
+    width: 100%;
 }
 
 
@@ -310,18 +328,41 @@ h1 {
 
 /* Trainer detail page */
 
-.trainer-header {
+.trainer-header,
+.trainer-header .coverphoto{
+    height: 300px;
+    width: 100%;
+    position: relative;
+}
+
+.trainer-header .cover {
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1;
+
+    background: rgba(0,0,0,0.3); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(transparent, rgba(255,255,255,0.3)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(transparent, rgba(255,255,255,0.3)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(transparent, rgba(255,255,255,0.3)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(transparent, rgba(255,255,255,0.3)); /* Standard syntax */
+}
+
+.trainer-header .coverphoto {
     background-size: cover;
     background-position-y: center;
-    height: 300px;
 }
 
 .trainerprofile {
     background-color: #fff;
+    position: relative;
+    z-index: 2;
     box-sizing: border-box;
     padding: 0;
     margin-top: -140px;
-    border: 4px solid #fff;
+    /*border: 4px solid #fff;*/
 }
 
 .trainerprofile h1 {
@@ -364,7 +405,7 @@ h1 {
 }
 
 .trainerprofile .content {
-    padding: 0px 20px;
+    padding: 0px 40px;
     margin: 30px 0px;
     text-align: left;
 }
@@ -377,9 +418,15 @@ h1 {
     margin-right: 10px;
 }
 
-.trainerprofile .experience {
+.general-info {
+    position: relative;
+    z-index: 2;
+}
+
+.general-info .experience {
     position: absolute;
-    top: -70px;
+    top: -80px;
+    left: 0px;
     background-color: #ffa621;
     padding: 10px 16px;
     color: #fff;
