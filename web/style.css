@@ -36,7 +36,7 @@ nav {
 .navbar {
     border: none;
     border-radius: 0;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .navbar-nav {
@@ -75,7 +75,6 @@ nav .container {
     -ms-flex-pack: justify;
     justify-content: space-between;
     -webkit-align-content: flex-start;
-    -ms-flex-line-pack: start;
     align-content: flex-start;
     -webkit-align-items: center;
     -ms-flex-align: center;
@@ -166,8 +165,8 @@ margin-right: 15px;
 
 .dropdown-menu {
     border-radius: 0;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -210,7 +209,6 @@ margin-right: 15px;
     -ms-flex-pack: center;
     justify-content: center;
     -webkit-align-content: center;
-    -ms-flex-line-pack: center;
     align-content: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
@@ -253,7 +251,7 @@ margin-right: 15px;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px;
-    padding: 15px 0px;
+    padding: 15px 0;
     display: inline-block;
     vertical-align: middle;
     margin-left: -130px;
@@ -343,8 +341,8 @@ h1 {
     width: 100%;
     height: 150px;
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     z-index: 1;
 
     background: rgba(0,0,0,0.3); /* For browsers that do not support gradients */
@@ -409,8 +407,8 @@ h1 {
 }
 
 .trainerprofile .content {
-    padding: 0px 40px;
-    margin: 30px 0px;
+    padding: 0 40px;
+    margin: 30px 0;
     text-align: left;
 }
 
@@ -430,7 +428,7 @@ h1 {
 .general-info .experience {
     position: absolute;
     top: -80px;
-    left: 0px;
+    left: 0;
     background-color: #ffa621;
     padding: 10px 16px;
     color: #fff;
