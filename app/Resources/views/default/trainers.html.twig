@@ -10,13 +10,15 @@
         <div class="container">
             <div class="row">
                 {% for item in items %}
-                    <div class="trainerblock col-md-3">
-                        <img class="avatar" src="/media/cache/basic_thumbnail/upload/image/{{ item.avatar }}">
-                        <div class="content">
-                            <h3>{{ item.firstName }} {{ item.lastName }}</h3>
-                            <p>{{ item.description }}</p>
+                    <a href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}">
+                        <div class="trainerblock col-md-3">
+                            <img class="avatar" src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('avatar_overview') }}">
+                            <div class="content">
+                                <h3>{{ item.firstName }} {{ item.lastName }}</h3>
+                                <p>{{ item.description|length > 150 ? item.description|slice(0, 150) ~ '...' : item.description }}</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 {% endfor %}
             </div>
         </div>

@@ -17,6 +17,10 @@ body {
     background-color: #fff;
 }
 
+.fa {
+    min-width: 20px;
+}
+
 /* Navigation */
 
 .navwrapper {
@@ -306,7 +310,7 @@ h1 {
 .trainerblock .content,
 .trainingblock .content {
     padding: 30px 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .trainerblock .coverphoto,
