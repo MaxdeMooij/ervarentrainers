@@ -1,0 +1,65 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block fos_user_content %}
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    <div>
+        {{ form_label(form.email) }}
+        {{ form_errors(form.email) }}
+        {{ form_widget(form.email) }}
+    </div>
+    <div>
+        {{ form_errors(form.plainPassword) }}
+        {{ form_widget(form.plainPassword) }}
+    </div>
+    <div>
+        {{ form_label(form.firstName) }}
+        {{ form_errors(form.firstName) }}
+        {{ form_widget(form.firstName) }}
+    </div>
+    <div>
+        {{ form_label(form.lastName) }}
+        {{ form_errors(form.lastName) }}
+        {{ form_widget(form.lastName) }}
+    </div>
+    <div>
+        {{ form_label(form.phoneNumber) }}
+        {{ form_errors(form.phoneNumber) }}
+        {{ form_widget(form.phoneNumber) }}
+    </div>
+    <div>
+        {{ form_label(form.street) }}
+        {{ form_errors(form.street) }}
+        {{ form_widget(form.street) }}
+    </div>
+    <div>
+        {{ form_label(form.streetNumber) }}
+        {{ form_errors(form.streetNumber) }}
+        {{ form_widget(form.streetNumber) }}
+    </div>
+    <div>
+        {{ form_label(form.zipcode) }}
+        {{ form_errors(form.zipcode) }}
+        {{ form_widget(form.zipcode) }}
+    </div>
+    <div>
+        {{ form_label(form.city) }}
+        {{ form_errors(form.city) }}
+        {{ form_widget(form.city) }}
+    </div>
+    <div>
+        {{ form_label(form.avatarFile) }}
+        {{ form_errors(form.avatarFile) }}
+        {{ form_widget(form.avatarFile) }}
+    </div>
+    <div>
+        {{ form_label(form.coverPhotoFile) }}
+        {{ form_errors(form.coverPhotoFile) }}
+        {{ form_widget(form.coverPhotoFile) }}
+    </div>
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}"/>
+    </div>
+    {{ form_end(form) }}
+{% endblock fos_user_content %}
+
