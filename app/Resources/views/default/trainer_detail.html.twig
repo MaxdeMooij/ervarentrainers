@@ -3,17 +3,47 @@
 {% block body %}
     <div id="wrapper" class="home">
         <div id="header" class="trainer-header" style="background-image: url('/media/cache/cover_thumbnail/upload/image/{{ item.coverPhoto }}')">
-            <div class="content">
-                {#<h1>Vind de ervaren trainers die bij je passen</h1>#}
-                {#<div class="search-area">#}
-                    {#<input type="text" class="search"><div class="search-button">Zoeken</div>#}
-                {#</div>#}
-            </div>
+            <div class="content"></div>
         </div>
         <div class="container">
             <div class="row">
-                <img class="avatar" src="/media/cache/basic_thumbnail/upload/image/{{ item.avatar }}">
-                <h1>{{ item.firstName }} {{ item.lastName }}</h1>
+                <div class="col col-md-3 trainerprofile">
+                    <span class="experience">15 jaar ervaring</span>
+                    <img class="profile-photo" src="/media/cache/basic_thumbnail/upload/image/{{ item.avatar }}">
+                    <div class="content">
+                        <h1>{{ item.firstName }} {{ item.lastName }}</h1>
+                        <h2>Communicatietrainer</h2>
+                    </div>
+
+                    <div class="content block">
+                        <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Opleiding</h3>
+                        <span class="education">Human Information Design & Strategy</span>
+                        <span class="school">Aan Saxion Hogeschool Deventer</span>
+                        <span class="duration">augustus 2013 - juli 2017</span>
+                    </div>
+
+                    <div class="content block">
+                        <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Opleiding</h3>
+                        <span class="education">Human Information Design & Strategy</span>
+                        <span class="school">Aan Saxion Hogeschool Deventer</span>
+                        <span class="duration">augustus 2013 - juli 2017</span>
+                    </div>
+
+                </div>
+                <div class="trainer-about col col-md-8 col-md-offset-1">
+                    <div class="content">
+                        <h3>Over mij</h3>
+                        <p>{{ item.description }}</p>
+                    </div>
+                </div>
+                <div class="trainings col-md-8 col-md-offset-1">
+                    <div class="row">
+                        <!-- Trainings of the trainer go here -->
+
+
+                    </div>
+
+                </div>
             </div>
         </div>
         </div>

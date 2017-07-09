@@ -21,10 +21,11 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/df3219cf9e.js"></script>
+
     </head>
     <body>
-        <div class="container">
-            <nav class="navbar navbar-fluid">
+        <div class="navwrapper">
+            <nav class="navbar container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarcollapse" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
@@ -34,7 +35,6 @@
                     </button>
 
                     <a href="{{ path('app_default_index') }}"><img src="/media/test_logo.png" class="navbar-brand"></a>
-
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarcollapse">
@@ -45,7 +45,6 @@
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-
                         {% if app.user %}
                         <li class="dropdown user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -65,20 +64,6 @@
                             <li><a href="{{ path('fos_user_registration_register') }}" class="registrer">Registreren als trainer</a></li>
                             <li><a href="{{ path('fos_user_security_login') }}" class="login">Inloggen voor trainers</a></li>
                         {% endif %}
-                        {##}
-                        {#{% if app.user %}#}
-
-                            {#{{ app.user.firstName }} {{ app.user.lastName }}<br>#}
-                            {#{% if app.user.avatar %}#}
-                                {#<img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}"#}
-                                     {#alt="Avatar"><br>#}
-                            {#{% endif %}#}
-
-                            {#<li><a href="{{ path('fos_user_security_logout') }}">Uitloggen</a></li><br>#}
-                        {#{% else %}#}
-                            {#<li><a href="{{ path('fos_user_registration_register') }}" class="registrer">Registreren als trainer</a></li>#}
-                            {#<li><a href="{{ path('fos_user_security_login') }}" class="login">Inloggen voor trainers</a></li>#}
-                        {#{% endif %}#}
                     </ul>
                 </div>
             </nav>
