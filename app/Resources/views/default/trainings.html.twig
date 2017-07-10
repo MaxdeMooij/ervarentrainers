@@ -3,22 +3,22 @@
 {% block body %}
     <div id="wrapper" class="home">
         <div id="header">
-            <div class="content">
-                <h1>Naam van het zoekwoord</h1>
-            </div>
+            <h1>Naam van het zoekwoord</h1>
         </div>
         <div class="container">
             <div class="row">
                 {% for item in items %}
-                    <div class="trainingblock col-md-3">
-                        <img class="avatar" src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('avatar_overview') }}">
-                        <div class="content">
-                            <h3 class="titel">{{ item.title }}</h3>
-                            <p>{{ item.description|length > 150 ? item.description|slice(0, 150) ~ '...' : item.description }}</p>
-                            <span class="trainer">{% if item.user is not null %}{{ item.user.firstName }} {{ item.user.lastName }}{% endif %}</span>
-                            <span class="tags">{{ item.tags|join(', ') }}</span>
+                    <a href="#">
+                        <div class="trainingblock col-md-3">
+                            <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}">
+                            <div class="content">
+                                <h3 class="titel">{{ item.title }}</h3>
+                                <p>{{ item.description|length > 150 ? item.description|slice(0, 150) ~ '...' : item.description }}</p>
+                                <span class="trainer">{% if item.user is not null %}{{ item.user.firstName }} {{ item.user.lastName }}{% endif %}</span>
+                                <span class="tags">{{ item.tags|join(', ') }}</span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 {% endfor %}
             </div>
         </div>

@@ -3,11 +3,12 @@
 {% extends "@FOSUser/layout.html.twig" %}
 
 {% block fos_user_content %}
-    <div class="container register">
+    <div class="container login">
+        <div id="header">
+            <h1>Inloggen</h1>
+        </div>
 
-        <h1>Inloggen</h1>
-
-        <div class="content col-md-4">
+        <div class="content col-md-4 col-centered">
 
             {% if error %}
                 <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -27,10 +28,10 @@
                 <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
                 <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
 
-                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"/>
+                <input class="btnfirst" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"/>
             </form>
 
-            <a href="{{ path('fos_user_resetting_request') }}">{{ 'security.reset_password'|trans({}, 'messages') }}</a>
+            <a class="passforget" href="{{ path('fos_user_resetting_request') }}">{{ 'security.reset_password'|trans({}, 'messages') }}</a>
 
         </div>
     </div>

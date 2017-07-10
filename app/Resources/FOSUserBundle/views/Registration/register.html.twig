@@ -2,10 +2,11 @@
 {% block body %}
 
     <div class="container register">
+        <div id="header">
+            <h1>Maak een gratis profiel aan</h1>
+        </div>
 
-        <h1>Maak een gratis profiel aan</h1>
-
-        <div class="content col-md-4">
+        <div class="content col-md-4 col-centered">
             {% trans_default_domain 'FOSUserBundle' %}
             {% block fos_user_content %}
                     {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
@@ -58,7 +59,7 @@
                     {{ form_widget(form.plainPassword) }}
                 </div>
                 <div>
-                    <input type="submit" value="{{ 'Profiel aanmaken'|trans }}"/>
+                    <input class="btnfirst" type="submit" value="{{ 'Profiel aanmaken'|trans }}"/>
                 </div>
                 {{ form_widget(form._token) }}
                 {{ form_end(form, {'render_rest': false}) }}

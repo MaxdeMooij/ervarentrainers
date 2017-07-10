@@ -8,27 +8,94 @@ body {
     background-color: #F6F6F6;
 }
 
+p, label {
+    color: #545454
+}
+
+#header>h1 {
+    margin: 80px 0px;
+    text-align: center;
+}
+
+.btnfirst {
+    padding: 10px 20px !important;
+    color: #85BAFF;
+    border: 2px solid #ffa621;
+    background-color: #ffa621;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    color: #fff;
+    margin-top: 25px;
+}
+
+.btnsecond {
+    padding: 10px 20px !important;
+    color: #85BAFF;
+    border: 2px solid #85BAFF;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+
 .col {
     background-color: #fff;
     padding: 0;
 }
 
-.background-white {
-    background-color: #fff;
+.col-centered {
+    float: none;
+    margin: 0 auto;
 }
 
-.fa {
-    min-width: 20px;
+.row {  margin: 0;  }
+
+.background-white {  background-color: #fff;  }
+
+.fa {  min-width: 20px;  }
+
+.content {
+    background-color: #fff;
+    padding: 40px;
 }
 
 input {
     padding: 5px 10px;
+    width: 100%;
+    border: 2px solid #C5C5C5;
+
 }
 
 input:focus {
     outline: none;
     border: 2px solid #FFA621;
     color: #FFA621;
+}
+
+input[type='checkbox'] {
+    width: inherit !important;
+    margin-right: 10px;
+}
+
+input[type='checkbox'] + label {
+    display: inline-block
+}
+
+label {
+    display: block;
+    margin-top: 25px;
+}
+
+.login label:first-of-type {
+    margin-top: 0 !important;
+}
+
+.passforget {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    color: #545454;
 }
 
 /* Navigation */
@@ -138,16 +205,6 @@ nav .search {
     outline: none;
 }
 
-/* Right side */
-.login {
-    padding: 10px 20px !important;
-    color: #85BAFF;
-    border: 2px solid #85BAFF;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 100px;
-}
-
 /* Logged in */
 nav i {
 margin-right: 15px;
@@ -225,7 +282,7 @@ margin-right: 15px;
     align-items: center;
 }
 
-.home #header .content {
+.home #header .headerbox {
     margin: 100px 0;
     text-align: center;
 }
@@ -476,30 +533,4 @@ h1 {
 
 /* Register */
 
-.register .row {
-    margin: 0;
-}
 
-.register label {
-    display: block;
-    margin-top: 25px;
-}
-
-.register input {
-    width: 100%;
-}
-
-.register input[type='submit'] {
-    background-color: #ffa621;
-    color: #fff;
-    padding: 15px;
-    margin-top: 25px;
-    font-weight: bold;
-    font-family: "Roboto Slab";
-    border: none;
-}
-
-.register .content {
-    background-color: #fff;
-    padding: 40px;
-}
