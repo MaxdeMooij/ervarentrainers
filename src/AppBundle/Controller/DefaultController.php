@@ -55,5 +55,17 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/trainingen/{slug}")
+     */
+    public function trainingdetailAction(Request $request, $slug)
+    {
+        $repo = $this->getDoctrine()->getRepository('AppBundle:Training');
+
+        return $this->render('default/training_detail.html.twig', [
+            'item' => $repo->findOneBy(['slug' => $slug])
+        ]);
+    }
+
 
 }

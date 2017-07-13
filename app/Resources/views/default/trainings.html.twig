@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 {% for item in items %}
-                    <a href="#">
+                    <a href="{{ path('app_default_trainingdetail', {'slug': item.slug }) }}">
                         <div class="trainingblock col-md-3">
                             <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}">
                             <div class="content">

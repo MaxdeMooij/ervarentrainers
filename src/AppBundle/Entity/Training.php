@@ -36,7 +36,7 @@ class Training
      */
     private $description;
     /**
-     * @ORM\Column(type="string", unique=true, nullable=true)
+     * @ORM\Column(type="string", unique=true)
      * @Gedmo\Slug(fields={"title"})
      */
     private $slug;
