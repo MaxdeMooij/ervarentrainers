@@ -30,6 +30,8 @@ framework:
     assets: ~
     php_errors:
         log: true
+    profiler:
+        collect: false
 
 # Twig Configuration
 twig:
@@ -90,6 +92,13 @@ easy_admin:
                 fields:
                     - firstName
                     - lastName
+                    - ervaring
+                    - typeTrainer
+                    - motto
+                    - geboorteDatum
+                    - geslacht
+                    - vog
+                    - verified
                     - email
                     - phoneNumber
                     - street
