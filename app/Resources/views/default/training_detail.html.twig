@@ -10,9 +10,9 @@
                 <div class="row">
                     <div class="col col-sm-4 trainerprofile">
 
-                        {#<img class="profile-photo" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_profile') }}">#}
+                        <img class="profile-photo" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_profile') }}">
                         <div class="content">
-                            {#<h1>{{ item.firstName }} {{ item.lastName }}</h1>#}
+                            <h1>{{ item.user.firstName }} {{ item.user.lastName }}</h1>
                             <h2>Communicatietrainer</h2>
                         </div>
 

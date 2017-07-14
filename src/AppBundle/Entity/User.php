@@ -46,6 +46,41 @@ class User extends BaseUser
      */
     private $lastName = '';
     /**
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     */
+    private $ervaring = '';
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     */
+    private $typeTrainer = '';
+    /**
+     * @ORM\Column(type="text")
+     *
+     */
+    private $motto = '';
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     */
+    private $geboorteDatum = '';
+    /**
+     * @ORM\Column(type="boolean")
+     * @Assert\NotBlank()
+     */
+    private $geslacht = '';
+    /**
+     * @ORM\Column(type="boolean")
+     *
+     */
+    private $vog = '';
+    /**
+     * @ORM\Column(type="boolean")
+     *
+     */
+    private $verified = '';
+    /**
      * @ORM\Column(type="string", unique=true)
      * @Gedmo\Slug(fields={"firstName", "lastName"})
      */
@@ -184,6 +219,174 @@ class User extends BaseUser
     public function getLastName()
     {
         return $this->lastName;
+    }
+
+    /**
+     * Set ervaring
+     *
+     * @param string $ervaring
+     *
+     * @return User
+     */
+    public function setErvaring($ervaring)
+    {
+        $this->ervaring = $ervaring;
+
+        return $this;
+    }
+
+    /**
+     * Get ervaring
+     *
+     * @return string
+     */
+    public function getErvaring()
+    {
+        return $this->ervaring;
+    }
+
+    /**
+     * Set typeTrainer
+     *
+     * @param string $typeTrainer
+     *
+     * @return User
+     */
+    public function setTypeTrainer($typeTrainer)
+    {
+        $this->typeTrainer = $typeTrainer;
+
+        return $this;
+    }
+
+    /**
+     * Get typeTrainer
+     *
+     * @return string
+     */
+    public function getTypeTrainer()
+    {
+        return $this->typeTrainer;
+    }
+
+    /**
+     * Set motto
+     *
+     * @param string $motto
+     *
+     * @return User
+     */
+    public function setMotto($motto)
+    {
+        $this->motto = $motto;
+
+        return $this;
+    }
+
+    /**
+     * Get motto
+     *
+     * @return string
+     */
+    public function getMotto()
+    {
+        return $this->motto;
+    }
+
+    /**
+     * Set geboorteDatum
+     *
+     * @param string $geboorteDatum
+     *
+     * @return User
+     */
+    public function setGeboorteDatum($geboorteDatum)
+    {
+        $this->geboorteDatum = $geboorteDatum;
+
+        return $this;
+    }
+
+    /**
+     * Get geboorteDatum
+     *
+     * @return string
+     */
+    public function getGeboorteDatum()
+    {
+        return $this->geboorteDatum;
+    }
+
+    /**
+     * Set geslacht
+     *
+     * @param string $geslacht
+     *
+     * @return User
+     */
+    public function setGeslacht($geslacht)
+    {
+        $this->geslacht = $geslacht;
+
+        return $this;
+    }
+
+    /**
+     * Get geslacht
+     *
+     * @return string
+     */
+    public function getGeslacht()
+    {
+        return $this->geslacht;
+    }
+
+    /**
+     * Set vog
+     *
+     * @param string $vog
+     *
+     * @return User
+     */
+    public function setVog($vog)
+    {
+        $this->vog = $vog;
+
+        return $this;
+    }
+
+    /**
+     * Get vog
+     *
+     * @return string
+     */
+    public function getVog()
+    {
+        return $this->vog;
+    }
+
+    /**
+     * Set verified
+     *
+     * @param string $verified
+     *
+     * @return User
+     */
+    public function setVerified($verified)
+    {
+        $this->verified = $verified;
+
+        return $this;
+    }
+
+    /**
+     * Get verified
+     *
+     * @return string
+     */
+    public function getVerified()
+    {
+        return $this->verified;
     }
 
     /**
