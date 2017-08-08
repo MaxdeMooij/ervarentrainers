@@ -67,5 +67,19 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/trainers/{slug}/bewerken")
+     */
+    public function editProfile(Request $request, $slug)
+    {
+        $repo = $this->getDoctrine()->getRepository('AppBundle:User');
+
+        return $this->render('default/edit_profile.html.twig', [
+            'item' => $repo->findOneBy(['enabled' => true, 'slug' => $slug])
+        ]);
+    }
+
+
+
 
 }
