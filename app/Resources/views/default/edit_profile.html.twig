@@ -3,52 +3,218 @@
 {% block body %}
     <div id="wrapper">
         <div id="header" class="trainer-header">
-            <div class="cover"></div>
-            {#<div class="coverphoto" style="background-image: url('{{ asset('upload/image/'~item.coverPhoto) | imagine_filter('cover_full') }}')">#}
+            {#<div class="cover"></div>#}
+            <div class="coverphoto" style="background-image: url('{{ asset('upload/image/'~item.coverPhoto) | imagine_filter('cover_full') }}')">
             </div>
             <div class="container">
-                <div class="row">
-                    <div class="col col-sm-4 trainerprofile">
+                <div class="row editprofile">
+                    <div class=" col col-sm-8">
+                        <form action="#" method="POST">
 
-                        <img class="profile-photo" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_profile') }}">
-                        <div class="content">
-                            <h1>{{ item.firstName }} {{ item.lastName }}</h1>
-                            <h2>Communicatietrainer</h2>
+                            <div class="content">
+                                <h3>Jouw gegevens</h3>
+
+                                <label>Voornaam</label>
+                                <input type="text" value="{{item.firstName}}">
+
+                                <label>Achternaam</label>
+                                <input type="text" value="{{item.lastName}}">
+
+                                <label>E-mailadres</label>
+                                <input type="email" value="{{item.email}}">
+
+                                <label>Telefoonnummer</label>
+                                <input type="tel" value="{{item.phoneNumber}}">
+
+                                <label>Straatnaam</label>
+                                <input type="text" value="{{item.street}}">
+
+                                <label>Straatnummer (en toevoeging)</label>
+                                <input type="text" value="{{item.streetNumber}}">
+
+                                <label>Postcode</label>
+                                <input type="text" value="{{item.zipcode}}">
+
+                                <label>Stad</label>
+                                <input type="text" value="{{item.city}}">
+
+                                <label>Geboortedatum</label>
+                                <input type="date" value="{{item.geboorteDatum}}">
+
+                                <label>Geslacht</label>
+                                <input type="checkbox" name="geslacht" value="Man"> Man<br>
+                                <input type="checkbox" name="geslacht" value="Vrouw"> Vrouw<br>
+                            </div>
+
+                            <div class="content">
+                                <h3>Over jou</h3>
+
+                                <label>Profielfoto</label>
+                                <input type="file" name="pic" accept="image/*">
+
+                                <label>Omslagfoto</label>
+                                <input type="file" name="pic" accept="image/*">
+
+                                <label>Functie</label>
+                                <input type="text" value="{{item.typeTrainer}}">
+
+                                <label>Jouw motto</label>
+                                <input type="text" value="{{item.motto}}">
+
+                                <label>Een omschrijving van jezelf</label>
+                                <textarea rows="10">{{item.description}}</textarea>
+
+                                <label>Aantal jaar ervaring</label>
+                                <input type="number" value="{{item.ervaring}}">
+
+                                <!-- Multiple USP's are possible. Users can create their own USP's if they're not in the options -->
+                                <label for="select_usps">Wat zijn jouw USP's?</label>
+                                <p>Gebruik enter om nieuwe toe te voegen</p>
+                                <select name="select_usps" id="select_usps" class="js-example-tags">
+                                    <option value="dynamisch">Dynamisch</option>
+                                    <option value="Lessen op maat">Lessen op maat</option>
+                                    <option value="Een USP">Een USP</option>
+                                </select>
+
+                                <label for="vog">Verklaring omtrend gedrag</label>
+                                <input type="checkbox" value="vog" name="vog"> Ja, ik kan een verklaring omtrend gedrag (VOG) aanleveren<br>
+                            </div>
+
+                            <div class="content">
+                                <h3>Opleidingen</h3>
+
+                                <div class="edit_education">
+                                    <div class="added_education">
+                                        <h4>Opleiding</h4>
+
+                                        <div class="remove_education_wrapper"></div>
+
+                                        <label>Naam van de instantie</label>
+                                        <input type="text" value="">
+
+                                        <label>Naam van het diploma</label>
+                                        <input type="text" value="">
+
+                                        <label>Startdatum</label>
+                                        <select>
+                                            <option value="januari">januari</option>
+                                            <option value="februari">februari</option>
+                                            <option value="maart">maart</option>
+                                            <option value="april">april</option>
+                                            <option value="april">mei</option>
+                                            <option value="april">juni</option>
+                                            <option value="april">juli</option>
+                                            <option value="april">augustus</option>
+                                            <option value="april">september</option>
+                                            <option value="april">oktober</option>
+                                            <option value="april">november</option>
+                                            <option value="april">december</option>
+                                        </select>
+                                        <input type="number" placeholder="jaar">
+
+                                        <label>Einddatum</label>
+                                        <select>
+                                            <option value="januari">januari</option>
+                                            <option value="februari">februari</option>
+                                            <option value="maart">maart</option>
+                                            <option value="april">april</option>
+                                            <option value="april">mei</option>
+                                            <option value="april">juni</option>
+                                            <option value="april">juli</option>
+                                            <option value="april">augustus</option>
+                                            <option value="april">september</option>
+                                            <option value="april">oktober</option>
+                                            <option value="april">november</option>
+                                            <option value="april">december</option>
+                                        </select>
+                                        <input type="number" placeholder="jaar">
+                                    </div>
+
+
+                                    <span class="btn add_education">Een opleiding toevoegen</span>
+
+                                </div>
+                                {#<div class="new_education"></div>#}
+
+                            </div>
+
+                            <div class="content">
+                                <h3>Wachtwoord veranderen</h3>
+
+                                <label>Oude wachtwoord</label>
+                                <input type="password">
+
+                                <label>Nieuwe wachtwoord</label>
+                                <input type="password">
+                            </div>
+
+                            <div class="content">
+                                <h3>Account</h3>
+
+                                <label>Je account tijdelijk pauzeren</label>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+
+                                <label>Je account definitief verwijderen</label>
+                                <button>Verwijder mijn account</button>
+                            </div>
                         </div>
+                        {#<div class="col col-sm-3 col-sm-offset-1 sidemenu">#}
 
-                        <div class="content block">
-                            <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Opleiding</h3>
-                            <span class="education">Human Information Design & Strategy</span>
-                            <span class="school">Aan Saxion Hogeschool Deventer</span>
-                            <span class="duration">augustus 2013 - juli 2017</span>
-                        </div>
-
-                        <div class="content block">
-                            <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Opleiding</h3>
-                            <span class="education">Human Information Design & Strategy</span>
-                            <span class="school">Aan Saxion Hogeschool Deventer</span>
-                            <span class="duration">augustus 2013 - juli 2017</span>
-                        </div>
-
-                    </div>
-                    <div class="general-info col-sm-7 col-sm-offset-1">
-                        <span class="experience">15 jaar ervaring</span>
-                    </div>
-                    <div class="trainer-about col col-sm-7 col-sm-offset-1">
-                        <div class="content">
-                            <h3>Over mij</h3>
-                            <p>{{ item.description }}</p>
-                        </div>
-                    </div>
-                    <div class="trainings col-sm-7 col-sm-offset-1">
-                        <div class="row">
-                            <!-- Trainings of the trainer go here -->
-
-                        </div>
-
-                    </div>
+                            {#<ul>#}
+                                {#<li><a href="">Algemene gegevens</a></li>#}
+                                {#<hr>#}
+                                {#<li><a href="">Over jou</a></li>#}
+                                {#<hr>#}
+                                {#<li><a href="">Wachtwoord herstellen</a></li>#}
+                                {#<hr>#}
+                                {#<li><a href="">Meldingen</a></li>#}
+                            {#</ul>#}
+                        {#</div>#}
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $('select').select2();
+
+        $(".js-example-tags").select2({
+            tags: true
+        });
+
+        $(document).on('click', '.add_education', function (e) {
+
+
+            $('.added_education').last().clone().insertAfter(this);
+            $('.edit_education').append('<span class="btn add_education">Een opleiding toevoegen</span>');
+
+            $('.remove_education_wrapper').children().remove();
+            $('.remove_education_wrapper').append('<div class="btn remove_education">Verwijderen</div>');
+
+            $(this).remove();
+
+        });
+
+        $(document).on('click', '.remove_education', function (e) {
+
+            $(this).parent().parent().remove();
+
+            // Have to fix the fact that the user can delete all educations. One has to remain on the page. But I need sleep.
+
+//            if($('.added_education').is(':last-of-type')){
+//                $('.remove_education').remove();
+//            } else {
+//
+//            }
+
+
+
+        });
+
+
+    </script>
 {% endblock %}

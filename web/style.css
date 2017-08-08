@@ -17,6 +17,10 @@ p, label {
     text-align: center;
 }
 
+hr {
+    margin: 0px;
+}
+
 .btnfirst {
     padding: 10px 20px !important;
     color: #85BAFF;
@@ -57,16 +61,22 @@ p, label {
 .content {
     background-color: #fff;
     padding: 40px;
+    text-align: left;
 }
 
-input {
+.block {
+    margin: 20px 0px;
+}
+
+input, textarea {
     padding: 5px 10px;
     width: 100%;
     border: 2px solid #C5C5C5;
 
 }
 
-input:focus {
+input:focus,
+textarea:focus {
     outline: none;
     border: 2px solid #FFA621;
     color: #FFA621;
@@ -78,7 +88,7 @@ input[type='checkbox'] {
 }
 
 input[type='checkbox'] + label {
-    display: inline-block
+    display: inline-block;
 }
 
 label {
@@ -345,6 +355,10 @@ p, nav a {
 
 /* Title styles */
 
+h1, h2, h3, h4 {
+    margin-top: 0px;
+}
+
 h1 {
     color: #FFA621;
     font-size: 33px;
@@ -367,14 +381,8 @@ h1 {
     padding: 0;
 }
 
-.trainerblock h3,
-.trainingblock h3 {
-    margin-top: 0;
-}
-
 .trainerblock .content,
 .trainingblock .content {
-    padding: 30px 20px;
     text-align: left;
 }
 
@@ -474,8 +482,6 @@ h1 {
 }
 
 .trainerprofile .content {
-    padding: 0 40px;
-    margin: 30px 0;
     text-align: left;
 }
 
@@ -520,10 +526,6 @@ h1 {
     border-right: 30px solid white;
 }
 
-.trainer-about .content {
-    padding: 25px 40px;
-}
-
 .trainer-about p {
     font-size: 16px;
     line-height: 1.5em;
@@ -534,3 +536,106 @@ h1 {
 /* Register */
 
 
+
+
+
+/* Edit profile */
+
+.editprofile {
+    margin-top: -140px;
+}
+
+.editprofile ul {
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.editprofile ul li {
+    list-style: none;
+}
+
+.editprofile ul li:first-of-type a {
+    padding-top: 40px;
+}
+
+.editprofile ul li:last-of-type a {
+    padding-bottom: 40px;
+}
+
+.editprofile ul li a {
+    color: #545454;
+    padding: 20px 40px;
+    display: block;
+    font-size: 16px;
+}
+
+.editprofile ul li a:hover {
+    text-decoration: none;
+    color: #FFA621;
+}
+
+.added_education {
+    border: 2px solid #c5c5c5;
+    padding: 40px;
+}
+
+
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
