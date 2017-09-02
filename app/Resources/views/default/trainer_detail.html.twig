@@ -34,7 +34,9 @@
                 </div>
                 <div class="general-info col-sm-7 col-sm-offset-1">
                     <span class="experience">{{ item.ervaring }} jaar ervaring</span>
-                    <a class="bewerken" href="{{ path('app_default_trainerdetail', {'slug': app.user.slug }) }}/bewerken">Profiel bewerken</a>
+                    {% if app.user %}
+                        <a class="bewerken" href="{{ path('app_default_trainerdetail', {'slug': app.user.slug }) }}/bewerken">Profiel bewerken</a>
+                    {% endif %}
                 </div>
                 <div class="trainer-about col col-sm-7 col-sm-offset-1">
                     <div class="content">
