@@ -70,7 +70,7 @@
                                 <!-- Multiple USP's are possible. Users can create their own USP's if they're not in the options -->
                                 <label for="select_usps">Wat zijn jouw USP's?</label>
                                 <p>Gebruik enter om nieuwe toe te voegen</p>
-                                <select name="select_usps" id="select_usps" class="js-example-tags">
+                                <select name="select_usps" id="select_usps" class="js-example-tags" multiple="multiple">
                                     <option value="dynamisch">Dynamisch</option>
                                     <option value="Lessen op maat">Lessen op maat</option>
                                     <option value="Een USP">Een USP</option>
@@ -96,7 +96,7 @@
                                         <input type="text" value="">
 
                                         <label>Startdatum</label>
-                                        <select>
+                                        <select class="basic-select2">
                                             <option value="januari">januari</option>
                                             <option value="februari">februari</option>
                                             <option value="maart">maart</option>
@@ -113,7 +113,7 @@
                                         <input type="number" placeholder="jaar">
 
                                         <label>Einddatum</label>
-                                        <select>
+                                        <select class="basic-select2">
                                             <option value="januari">januari</option>
                                             <option value="februari">februari</option>
                                             <option value="maart">maart</option>
@@ -180,7 +180,7 @@
     </div>
 
     <script type="text/javascript">
-        $('select').select2();
+        $('.basic-select2').select2();
 
         $(".js-example-tags").select2({
             tags: true
