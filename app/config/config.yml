@@ -88,6 +88,13 @@ easy_admin:
     entities:
         User:
             class: AppBundle\Entity\User
+            list:
+                fields:
+                    - firstName
+                    - lastName
+                    - email
+                    - createdAt
+                    - updatedAt
             form:
                 fields:
                     - firstName
@@ -95,8 +102,13 @@ easy_admin:
                     - ervaring
                     - typeTrainer
                     - motto
-                    - geboorteDatum
-                    - geslacht
+                    - { property: 'geboorteDatum', type: 'date' }
+                    - property: 'geslacht'
+                      type: 'choice'
+                      type_options:
+                          choices:
+                              male: !php/const:\AppBundle\Entity\User::GENDER_MALE
+                              female: !php/const:\AppBundle\Entity\User::GENDER_FEMALE
                     - vog
                     - verified
                     - email
@@ -112,6 +124,18 @@ easy_admin:
                     - { property: 'roles', type: 'choice', required: false, type_options: { multiple: true, expanded: true, choices: { 'Admin': 'ROLE_ADMIN' } } }
                     - { property: 'avatarFile', type: 'vich_image', type_options: {imagine_pattern: 'basic_thumbnail'} }
                     - { property: 'coverPhotoFile', type: 'vich_image', type_options: {imagine_pattern: 'basic_thumbnail'} }
+                    - property: 'education'
+                      type: '\Symfony\Component\Form\Extension\Core\Type\CollectionType'
+                      type_options:
+                        entry_type: '\AppBundle\Form\EducationType'
+                        allow_add: true
+                        allow_delete: true
+                    - property: 'usps'
+                      type: '\Symfony\Component\Form\Extension\Core\Type\CollectionType'
+                      type_options:
+                        entry_type: '\Symfony\Component\Form\Extension\Core\Type\TextType'
+                        allow_add: true
+                        allow_delete: true
         Training:
             class: AppBundle\Entity\Training
             form:

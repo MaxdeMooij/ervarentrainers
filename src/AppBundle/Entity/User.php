@@ -24,6 +24,9 @@ class User extends BaseUser
 {
     use TimestampableEntity;
 
+    const GENDER_MALE = 'male';
+    const GENDER_FEMALE = 'female';
+
     /**
      * @ORM\Id()
      * @ORM\Column(type="integer")
@@ -61,12 +64,12 @@ class User extends BaseUser
      */
     private $motto = '';
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="datetime")
      * @Assert\NotBlank()
      */
     private $geboorteDatum = '';
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string")
      * @Assert\NotBlank()
      */
     private $geslacht = '';
@@ -130,9 +133,17 @@ class User extends BaseUser
      */
     private $tags;
     /**
+     * @ORM\Column(type="array")
+     */
+    private $usps;
+    /**
      * @ORM\OneToMany(targetEntity="Training", mappedBy="user")
      */
     private $trainings;
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Education", mappedBy="user")
+     */
+    private $education;
 
     public function __construct()
     {
@@ -676,6 +687,40 @@ class User extends BaseUser
     {
         $this->slug = $slug;
 
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEducation()
+    {
+        return $this->education;
+    }
+
+    /**
+     * @param mixed $education
+     */
+    public function setEducation($education)
+    {
+        $this->education = $education;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsps()
+    {
+        return $this->usps;
+    }
+
+    /**
+     * @param mixed $usps
+     * @return User
+     */
+    public function setUsps($usps)
+    {
+        $this->usps = $usps;
         return $this;
     }
 }
