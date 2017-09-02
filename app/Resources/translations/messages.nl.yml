@@ -1,1 +1,3 @@
 security.reset_password: "Wachtwoord vergeten."
+male: "Man"
+female: "Vrouw"

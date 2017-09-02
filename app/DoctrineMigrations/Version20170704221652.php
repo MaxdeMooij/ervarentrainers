@@ -46,35 +46,6 @@ class Version20170704221652 extends AbstractMigration implements ContainerAwareI
     /**
      * @param Schema $schema
      */
-    public function postUp(Schema $schema)
-    {
-
-        // Get all trainings from the database, and update updatedAt to trigger slug generation
-        $em = $this->container->get('doctrine.orm.entity_manager');
-        $trainings = $em->getRepository(Training::class)->findAll();
-        /** @var Training $training */
-        foreach($trainings as $training) {
-            $training->setUpdatedAt(new \DateTime());
-            $training->setSlug(Urlizer::urlize($training->getTitle()));
-            $em->persist($training);
-        }
-        $em->flush();
-        $em->clear();
-
-        // Same for users
-        $users = $em->getRepository(User::class)->findAll();
-        /** @var User $user */
-        foreach($users as $user) {
-            $user->setUpdatedAt(new \DateTime());
-            $user->setSlug(strtolower(Urlizer::urlize($user->getFirstName().'-'.$user->getLastName())));
-            $em->persist($user);
-        }
-        $em->flush();
-    }
-
-    /**
-     * @param Schema $schema
-     */
     public function down(Schema $schema)
     {
         // this down() migration is auto-generated, please modify it to your needs

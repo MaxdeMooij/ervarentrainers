@@ -39,7 +39,7 @@
                                 <input type="text" value="{{item.city}}">
 
                                 <label>Geboortedatum</label>
-                                <input type="date" value="{{item.geboorteDatum}}">
+                                <input type="date" value="{{item.geboorteDatum|date("d-m-Y")}}">
 
                                 <label>Geslacht</label>
                                 <input type="checkbox" name="geslacht" value="Man"> Man<br>
