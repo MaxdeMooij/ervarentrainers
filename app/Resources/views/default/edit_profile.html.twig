@@ -130,6 +130,53 @@
                                         <input type="number" placeholder="jaar">
                                     </div>
 
+                                    {#Empty for adding a new form#}
+                                    <div class="make_new_education">
+                                        <h4>Opleiding</h4>
+
+                                        <div class="remove_education_wrapper"></div>
+
+                                        <label>Naam van de instantie</label>
+                                        <input type="text" value="">
+
+                                        <label>Naam van het diploma</label>
+                                        <input type="text" value="">
+
+                                        <label>Startdatum</label>
+                                        <select class="basic-select2">
+                                            <option value="januari">januari</option>
+                                            <option value="februari">februari</option>
+                                            <option value="maart">maart</option>
+                                            <option value="april">april</option>
+                                            <option value="april">mei</option>
+                                            <option value="april">juni</option>
+                                            <option value="april">juli</option>
+                                            <option value="april">augustus</option>
+                                            <option value="april">september</option>
+                                            <option value="april">oktober</option>
+                                            <option value="april">november</option>
+                                            <option value="april">december</option>
+                                        </select>
+                                        <input type="number" placeholder="jaar">
+
+                                        <label>Einddatum</label>
+                                        <select class="basic-select2">
+                                            <option value="januari">januari</option>
+                                            <option value="februari">februari</option>
+                                            <option value="maart">maart</option>
+                                            <option value="april">april</option>
+                                            <option value="april">mei</option>
+                                            <option value="april">juni</option>
+                                            <option value="april">juli</option>
+                                            <option value="april">augustus</option>
+                                            <option value="april">september</option>
+                                            <option value="april">oktober</option>
+                                            <option value="april">november</option>
+                                            <option value="april">december</option>
+                                        </select>
+                                        <input type="number" placeholder="jaar">
+                                    </div>
+
 
                                     <span class="btn add_education">Een opleiding toevoegen</span>
 
@@ -180,22 +227,27 @@
     </div>
 
     <script type="text/javascript">
-        $('.basic-select2').select2();
+
 
         $(".js-example-tags").select2({
             tags: true
         });
 
+
         $(document).on('click', '.add_education', function (e) {
 
 
-            $('.added_education').last().clone().insertAfter(this);
+
+            $('.make_new_education').clone().insertAfter(this).removeClass('make_new_education').addClass('added_education');
+
+
             $('.edit_education').append('<span class="btn add_education">Een opleiding toevoegen</span>');
 
             $('.remove_education_wrapper').children().remove();
             $('.remove_education_wrapper').append('<div class="btn remove_education">Verwijderen</div>');
 
             $(this).remove();
+
 
         });
 

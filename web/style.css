@@ -639,3 +639,10 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+
+
+
+.make_new_education {
+    display: none;
+}
