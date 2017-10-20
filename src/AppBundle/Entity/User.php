@@ -67,7 +67,7 @@ class User extends BaseUser
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank()
      */
-    private $geboorteDatum = '';
+    private $geboorteDatum;
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
@@ -77,7 +77,7 @@ class User extends BaseUser
      * @ORM\Column(type="boolean")
      *
      */
-    private $vog = '';
+    private $vog = false;
     /**
      * @ORM\Column(type="boolean")
      *
@@ -150,6 +150,7 @@ class User extends BaseUser
         parent::__construct();
         $this->tags = [];
         $this->trainings = new ArrayCollection();
+        $this->geboorteDatum = new \DateTime();
     }
 
     public function setEmail($email)
