@@ -70,13 +70,23 @@ class DefaultController extends Controller
     /**
      * @Route("/trainers/{slug}/bewerken")
      */
-    public function editProfile(Request $request, $slug)
+    public function editProfileAction(Request $request, $slug)
     {
+        /* Haalt user repository op */
         $repo = $this->getDoctrine()->getRepository('AppBundle:User');
 
         return $this->render('default/edit_profile.html.twig', [
+            /* Haalt een user uit de database. Als gebruiker enabled is, geef slug */
             'item' => $repo->findOneBy(['enabled' => true, 'slug' => $slug])
         ]);
+    }
+
+    /**
+     * @Route("/over-ons")
+     */
+    public function overOnsAction()
+    {
+        return $this->render('default/over_ons.html.twig');
     }
 
 
