@@ -1,5 +1,20 @@
 {% extends 'base.html.twig' %}
 
+
+{% set final_avatar %}{% if item.avatar %}{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_profile') }}{% else %}/media/test_logo.png{% endif %}{% endset %}
+
+{# Title with name and job title #}
+{% block title %}{{ item.firstName }} {{ item.lastName }} - {{ item.typeTrainer }}{% endblock %}
+
+{# SEO information #}
+{% block metadescription %}{{ item.firstName }} {{ item.lastName }} - {{ item.typeTrainer }}, {{item.description|length > 100 ? item.description|slice(0, 100) ~ '...' : item.description }}{% endblock %}
+{% block tw_pagetitle %}{{ item.firstName }} {{ item.lastName }} - {{ item.typeTrainer }}{% endblock %}
+{% block tw_pagedescription %}{{item.description|length > 150 ? item.description|slice(0, 150) ~ '...' : item.description }}{% endblock %}
+{% block tw_image %}{{final_avatar}}{% endblock %}
+{% block fb_pagetitle %}{{ item.firstName }} {{ item.lastName }} - {{ item.typeTrainer }}{% endblock %}
+{% block fb_image %}{{final_avatar}}{% endblock %}
+{% block fb_description %}{{item.description}}{% endblock %}
+
 {% block body %}
     <div id="wrapper">
         <div id="header" class="trainer-header">
@@ -10,7 +25,9 @@
             <div class="row">
                 <div class="col col-sm-4 trainerprofile">
 
-                    <img class="profile-photo" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_profile') }}">
+                    <img class="profile-photo" src="
+
+                    ">
                     <div class="content">
                         <h1>{{ item.firstName }} {{ item.lastName }}</h1>
                         <h2>{{ item.typeTrainer }}</h2>

@@ -1,18 +1,35 @@
+{% set url %}https://ervarentrainers.nl{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}{% endset %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>{% block title %}Welcome!{% endblock %}</title>
-
-        {% block stylesheets %}{% endblock %}
-
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <!-- SEO -->
+        <title>{% block title %}{% endblock %} | Ervaren Trainers</title>
+        <meta type="description" content="{% block metadescription %}{% endblock %}">
+        <link rel="canonical" href="{{url}}">
+
+        <!-- Social Media -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@ervarentrainers">
+        <meta name="twitter:title" content="{% block tw_pagetitle %}{% endblock %} | Ervaren Trainers">
+        <meta name="twitter:description" content="{% block tw_pagedescription %}{% endblock %}">
+        <meta name="twitter:image" content="{% block tw_image %}{% endblock %}">
+
+        <meta property="og:title" content="{% block fb_pagetitle %}{% endblock %} | Ervaren Trainers" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{url}}" />
+        <meta property="og:image" content="{% block fb_image %}{% endblock %}" />
+        <meta property="og:description" content="{% block fb_description %}{% endblock %}" />
+        <meta property="og:site_name" content="Ervaren Trainers" />
+        <meta property="fb:admins" content="Facebook numeric ID" />
 
         <!-- Styles -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}" />
+        {% block stylesheets %}{% endblock %}
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:200,400,700" rel="stylesheet">
