@@ -11,6 +11,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Algolia\AlgoliaSearchBundle\Mapping\Annotation as Algolia;
 
 /**
  * Class User
@@ -41,26 +42,30 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
+     * @Algolia\Attribute()
      */
     private $firstName = '';
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
+     * @Algolia\Attribute()
      */
     private $lastName = '';
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
+     * @Algolia\Attribute()
      */
     private $ervaring = '';
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
+     * @Algolia\Attribute()
      */
     private $typeTrainer = '';
     /**
      * @ORM\Column(type="text")
-     *
+     * @Algolia\Attribute()
      */
     private $motto = '';
     /**
@@ -71,21 +76,23 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
+     * @Algolia\Attribute()
      */
     private $geslacht = '';
     /**
      * @ORM\Column(type="boolean")
-     *
+     * @Algolia\Attribute()
      */
     private $vog = false;
     /**
      * @ORM\Column(type="boolean")
-     *
+     * @Algolia\Attribute()
      */
     private $verified = '';
     /**
      * @ORM\Column(type="string", unique=true)
      * @Gedmo\Slug(fields={"firstName", "lastName"})
+     * @Algolia\Attribute()
      */
     private $slug;
     /**
@@ -110,10 +117,12 @@ class User extends BaseUser
     private $city = '';
     /**
      * @ORM\Column(type="text", options={"default": ""})
+     * @Algolia\Attribute()
      */
     private $description = '';
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Algolia\Attribute()
      */
     private $avatar;
     /**
@@ -130,10 +139,12 @@ class User extends BaseUser
     private $coverPhotoFile;
     /**
      * @ORM\Column(type="array")
+     * @Algolia\Attribute()
      */
     private $tags;
     /**
      * @ORM\Column(type="array")
+     * @Algolia\Attribute()
      */
     private $usps;
     /**
