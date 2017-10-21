@@ -21,3 +21,6 @@ parameters:
     secret: ThisTokenIsNotSoSecretChangeIt
 
     locale: nl
+
+    algolia.application_id: YOUR_APP_ID
+    algolia.api_key: YOUR_API_KEY

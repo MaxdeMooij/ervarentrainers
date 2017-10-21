@@ -1,0 +1,36 @@
+\AppBundle\Entity\User:
+    male_{1..50}:
+        geslacht: 'male'
+        enabled: '1'
+        email: '<email()>'
+        firstName: '<firstName()>'
+        lastName: '<lastName()>'
+        ervaring: '<sentence()>'
+        motto: '<paragraph()>'
+        description: '<paragraph()>'
+        geboorteDatum: '<dateTimeThisCentury()>'
+        vog: '1'
+        street: '<streetName()>'
+        streetNumber: '<buildingNumber()>'
+        zipcode: '<postcode()>'
+        city: '<city()>'
+        phoneNumber: '<phoneNumber()>'
+        password: '\$2y\$13\$MpYG9zrazGVsM03hPhUSrOWDFNEKINAVLVBZtLxOTkOVaugD.CXbK' # testtest
+
+    female_{1..50}:
+        geslacht: 'female'
+        enabled: '1'
+        email: '<email()>'
+        firstName: '<firstName()>'
+        lastName: '<lastName()>'
+        ervaring: '<sentence()>'
+        motto: '<paragraph()>'
+        description: '<paragraph()>'
+        geboorteDatum: '<dateTimeThisCentury()>'
+        vog: '1'
+        street: '<streetName()>'
+        streetNumber: '<buildingNumber()>'
+        zipcode: '<postcode()>'
+        city: '<city()>'
+        phoneNumber: '<phoneNumber()>'
+        password: '\$2y\$13\$MpYG9zrazGVsM03hPhUSrOWDFNEKINAVLVBZtLxOTkOVaugD.CXbK' # testtest
