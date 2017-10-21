@@ -1,4 +1,7 @@
 {% extends 'base.html.twig' %}
+{% block javascripts %}
+
+{% endblock %}
 
 {% block body %}
     <div id="wrapper" class="home">
@@ -9,9 +12,9 @@
             <div class="row">
                 {% for item in items %}
                     <a href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}">
-                        <div class="trainerblock col-md-3">
-                            <img class="avatar" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_overview') }}">
-                            <div class="content">
+                        <div class="trainerblock col-md-3" data-tilt>
+                            <img data-til class="avatar" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_overview') }}">
+                            <div data-til class="content">
                                 <h3>{{ item.firstName }} {{ item.lastName }}</h3>
                                 <p>{{ item.description|length > 150 ? item.description|slice(0, 150) ~ '...' : item.description }}</p>
                             </div>
@@ -22,4 +25,3 @@
         </div>
     </div>
 {% endblock %}
-
