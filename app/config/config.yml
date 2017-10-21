@@ -201,3 +201,6 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             sluggable: true
+# cmf_seo:
+#     sitemap:
+#         enabled: true
