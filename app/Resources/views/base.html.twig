@@ -68,7 +68,9 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span>{{ app.user.firstName }} {{ app.user.lastName }}</span>
                                 {% if app.user.avatar %}
-                                    <img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}" alt="Avatar">
+                                    <img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}" alt="Avatar" class="small-avatar">
+                                {% else %}
+                                  <div class="small-avatar avatar_placeholder">{{ app.user.firstName|slice(0,1)}}</div>
                                 {% endif %}
                             </a>
                             <ul class="dropdown-menu">
