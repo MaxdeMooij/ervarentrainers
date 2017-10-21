@@ -201,6 +201,8 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             sluggable: true
-# cmf_seo:
-#     sitemap:
-#         enabled: true
+services:
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }

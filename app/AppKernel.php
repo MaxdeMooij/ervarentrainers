@@ -22,8 +22,6 @@ class AppKernel extends Kernel
             new Vich\UploaderBundle\VichUploaderBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new AppBundle\AppBundle(),
-            // new Sonata\SeoBundle\SonataSeoBundle(),
-            // new Symfony\Cmf\Bundle\SeoBundle\CmfSeoBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
