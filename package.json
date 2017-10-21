@@ -1,0 +1,32 @@
+{
+  "name": "ervarentrainers",
+  "description": "training ========",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "watch": "encore dev --watch",
+    "build": "encore production"
+  },
+  "dependencies": {
+    "vue-instantsearch": "^1.2.2"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.16.0",
+    "vue": "^2.5.2",
+    "vue-loader": "^13.3.0",
+    "vue-template-compiler": "^2.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxdeMooij/ervarentrainers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxdeMooij/ervarentrainers/issues"
+  },
+  "homepage": "https://github.com/MaxdeMooij/ervarentrainers#readme"
+}

@@ -23,4 +23,5 @@ parameters:
     locale: nl
 
     algolia.application_id: YOUR_APP_ID
+    algolia.search_key: YOUR_SEARCH_KEY
     algolia.api_key: YOUR_API_KEY

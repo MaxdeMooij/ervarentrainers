@@ -654,3 +654,7 @@ input:checked + .slider:before {
 .make_new_education {
     display: none;
 }
+
+.ais-highlight em {
+    background-color: lightgreen; /* change this or remove if you dont want search-term highlight styling */
+}
