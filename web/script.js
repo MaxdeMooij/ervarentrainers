@@ -1,13 +1,3 @@
-$(document).ready(function(){
-  $('.navbar-right').click(function(){
-    $('.dropdown-menu').addClass('opening-menu-animation');
-    console.log('gelukt');
-  });
-
-  console.log('geladen');
-});
-
-
 $('.js-tilt').tilt({
     glare: true,
     maxGlare: 1,
