@@ -228,6 +228,7 @@ margin-right: 15px;
     height: 45px;
     width: 45px;
     display: inline-block;
+    border-radius: 3px;
 }
 
 .user-menu .avatar_placeholder {
@@ -243,7 +244,11 @@ margin-right: 15px;
 
 .user-menu span {
     display: inline-block;
-    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.user-menu span:after {
+  /*content: '&caron';*/
 }
 
 .dropdown-menu>li>a {
