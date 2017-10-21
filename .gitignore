@@ -24,3 +24,4 @@
 /web/media/cache/*
 !/web/media/cache/.gitkeep
 /.idea
+node_modules

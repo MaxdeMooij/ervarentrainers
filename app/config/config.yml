@@ -37,6 +37,9 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        algolia_app_id: '%algolia.application_id%'
+        algolia_search_key: '%algolia.search_key%'
 
 # Doctrine Configuration
 doctrine:

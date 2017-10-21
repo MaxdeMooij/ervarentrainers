@@ -3,6 +3,9 @@
 
 {% block body %}
     <div id="wrapper" class="home">
+
+        <div id="app" app-id="{{ algolia_app_id }}" api-key="{{ algolia_search_key }}" index-name="User_dev"></div>
+
             <div id="header">
                 <div class="headerbox">
                     <h1>Vind de ervaren trainers die bij je passen</h1>
@@ -11,5 +14,9 @@
                     </div>
                 </div>
             </div>
+
     </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('build/search.js') }}"></script>
 {% endblock %}
