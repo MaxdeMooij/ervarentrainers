@@ -29,6 +29,7 @@
         <!-- Styles -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
         {% block stylesheets %}{% endblock %}
 
         <!-- Fonts -->
@@ -38,7 +39,7 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/df3219cf9e.js"></script>
-        <script src="/script.js" type="text/javascript">
+
 
         </script>
         {% block scripts %}{% endblock %}
@@ -76,12 +77,12 @@
                               {% endif %}
                                 <span>{{ app.user.firstName }} {{ app.user.lastName }} <i class="fa fa-angle-down" aria-hidden="true"></i></span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{{ path('app_default_trainerdetail', {'slug': app.user.slug }) }}"><i class="fa fa-user" aria-hidden="true"></i> Profiel</a></li>
-                                <li><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Mijn trainingen</a></li>
-                                <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Berichten</a></li>
-                                <li><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i> Aanmeldingen</a></li>
-                                <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Uitloggen</a></li>
+                            <ul class="dropdown-menu" data-til>
+                                <li data-til><a href="{{ path('app_default_trainerdetail', {'slug': app.user.slug }) }}"><i class="fa fa-user" aria-hidden="true"></i> Profiel</a><span class="menu-item-highlighter"></span></li>
+                                <li data-til><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Mijn trainingen</a><span class="menu-item-highlighter"></span></li>
+                                <li data-til><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Berichten</a><span class="menu-item-highlighter"></span></li>
+                                <li data-til><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i> Aanmeldingen</a><span class="menu-item-highlighter"></span></li>
+                                <li data-til><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Uitloggen</a><span class="menu-item-highlighter"></span></li>
                             </ul>
                         </li>
                         {% else %}
@@ -94,5 +95,8 @@
         </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.1.21/tilt.jquery.min.js"></script>
+        <script src="/script.js" type="text/javascript"></script>
     </body>
 </html>
