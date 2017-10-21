@@ -392,11 +392,13 @@ h1 {
     -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
     padding: 0;
+    transform-style: preserve-3d;
 }
 
 .trainerblock .content,
 .trainingblock .content {
     text-align: left;
+    /*transform: translateZ(20px);*/
 }
 
 .trainerblock .coverphoto,
@@ -410,9 +412,18 @@ h1 {
 .trainingblock .avatar {
     position: relative;
     width: 100%;
+    transform: translateZ(0px);
+    transition: all .1s cubic-bezier(.03,.98,.52,.99);
+}
+.trainerblock:hover .avatar,
+.trainingblock:hover .avatar {
+transform: translateZ(20px);
 }
 
-
+.trainerblock h3,
+.trainerblock p {
+  transform: translateZ(20px);
+}
 
 
 
