@@ -421,23 +421,29 @@ background: linear-gradient(#ffa785, #ffce85);
   right: 0px;
   margin: auto;
   background-color: #fff;
+  align-items: center;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
 }
 
 .categories a {
   margin: 40px 20px;
   border-radius: 3px;
   padding: 20px;
-  height: 150px;
+  /*min-height: 150px;*/
+  height: 200px;
   background-size: cover;
   transform-style: preserve-3d;
+  display: block;
 }
 
 .categories a:first-of-type {
-  margin-left: 0px !important;
+  margin-left: 40px !important;
 }
 
 .categories a:last-of-type {
-  margin-right: 0px !important;
+  margin-right: 40px !important;
 }
 
 .categories h3 {
