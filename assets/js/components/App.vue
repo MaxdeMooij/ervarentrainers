@@ -5,8 +5,8 @@
                 <div class="headerbox">
                     <h1>Vind de ervaren trainers die bij je passen</h1>
                     <div class="search-area">
-                        <ais-input placeholder="Search users..." class="search"></ais-input>
-                        <div class="search-button">Zoeken</div>
+                        <ais-input placeholder="Zoek een training..." class="search"></ais-input>
+                        <div data-tilt class="search-button">Zoeken</div>
                     </div>
                 </div>
             </div>

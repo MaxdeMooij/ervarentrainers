@@ -412,6 +412,7 @@ background: linear-gradient(#ffa785, #ffce85);
     margin-left: -130px;
     position: absolute;
     cursor: pointer;
+    transform-style: preserve-3d;
 
 }
 
