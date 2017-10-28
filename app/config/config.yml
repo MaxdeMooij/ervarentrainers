@@ -156,7 +156,7 @@ easy_admin:
                     allow_add: true
                     allow_delete: true
                 - property: 'user'
-                  type: '\Symfony\Component\Form\Extension\Core\Type\EntityType'
+                  type: 'entity'
                   type_options:
                     class: '\AppBundle\Entity\User'
                     choice_label: 'email'
