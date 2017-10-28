@@ -90,6 +90,19 @@ class DefaultController extends Controller
     }
 
 
+    /**
+     * @Route("/zoekresultaten")
+     */
+    public function searchResultsPageListAction(Request $request)
+    {
+        $repo = $this->getDoctrine()->getRepository('AppBundle:Training');
+
+        return $this->render('default/searchresults.html.twig', [
+            'items' => $repo->findBy([])
+        ]);
+    }
+
+
 
 
 }

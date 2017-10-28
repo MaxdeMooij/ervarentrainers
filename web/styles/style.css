@@ -502,6 +502,40 @@ h3 {
 }
 
 
+
+
+/* Search results */
+
+.search_result {
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
+  padding: 0;
+}
+
+.search_result .avatar {
+  width: 185px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.search_result .content {
+  display: inline-block;
+  width: 635px;
+  vertical-align: top;
+}
+
+.filters {
+  background-color: #fff;
+}
+
+
+
+
+
+
+
+
+
 /* Trainer and training page */
 
 .trainerblock, .trainingblock {
