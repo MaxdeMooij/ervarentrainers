@@ -95,11 +95,23 @@ class DefaultController extends Controller
      */
     public function searchResultsPageListAction(Request $request)
     {
-        $repo = $this->getDoctrine()->getRepository('AppBundle:Training');
+        $TrainingRepo = $this->getDoctrine()->getRepository('AppBundle:Training');
+        $UserRepo = $this->getDoctrine()->getRepository('AppBundle:User');
 
         return $this->render('default/searchresults.html.twig', [
-            'items' => $repo->findBy([])
+            'trainingItem' => $TrainingRepo->findBy([]),
+            'userItem' => $UserRepo->findBy([]),
+
+            // Haal alle users op uit de database en stop ze in een array / lijst
+            'users' => $UserRepo->findAll(),
+            // Haal alle actieve users op als lijst
+            'activeUsers' => $UserRepo->findBy(['enabled' => true]),
+            // Haal de 1e actieve user in de database op
+            'firstActiveUser' => $UserRepo->findOneBy(['enabled' => true]),
+            // Haal user nummer 5 op
+            // 'userFive' => $UaserRepo->find(5)
         ]);
+
     }
 
 
