@@ -176,15 +176,15 @@ liip_imagine:
     filter_sets:
         cache: ~
         basic_thumbnail:
-            quality: 75
+            quality: 100
             filters:
                 thumbnail: { size: [45,45], mode: outbound }
         avatar_profile:
-            quality: 75
+            quality: 100
             filters:
                 thumbnail: { size: [390,390], mode: outbound }
         avatar_overview:
-            quality: 75
+            quality: 100
             filters:
                 thumbnail: { size: [293,293], mode: outbound }
 

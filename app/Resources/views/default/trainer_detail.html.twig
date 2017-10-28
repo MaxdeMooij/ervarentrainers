@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col col-sm-4 trainerprofile">
 
-                    <img class="profile-photo" src="
+                    <img class="profile-photo" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_profile') }}
 
                     ">
                     <div class="content">
