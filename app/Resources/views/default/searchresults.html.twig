@@ -13,9 +13,9 @@
                   <div class="search_result">
                     <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}">
                     <div class="content">
-                      <h3 class="titel">{{ trainingItem.title }}</h3>
-                      <p>{{ trainingItem.description|length > 150 ? activeUsers.description|slice(0, 150) ~ '...' : trainingItem.description }}</p>
-                      <span class="trainer">{% if item.user is not null %}{{ item.activeUsers.firstName }} {{ item.user.lastName }}{% endif %}</span>
+                      <h3 class="titel">{{ item.title }}</h3>
+                      <p>{{ item.description|length > 150 ? item.description|slice(0, 150) ~ '...' : item.description }}</p>
+                      <span class="trainer">{% if item.user is not null %}{{ item.user.firstName }} {{ item.user.lastName }}{% endif %}</span>
                       <span class="tags">{{ item.tags|join(', ') }}</span>
                     </div>
                   </div>
