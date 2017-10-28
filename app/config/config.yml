@@ -155,7 +155,11 @@ easy_admin:
                     entry_type: '\AppBundle\Form\TrainingPriceType'
                     allow_add: true
                     allow_delete: true
-
+                - property: 'user'
+                  type: '\Symfony\Component\Form\Extension\Core\Type\EntityType'
+                  type_options:
+                    class: '\AppBundle\Entity\User'
+                    choice_label => 'email'
 vich_uploader:
     db_driver: orm
     mappings:
