@@ -53,13 +53,13 @@ class User extends BaseUser
     private $lastName = '';
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"Profile"})
      * @Algolia\Attribute()
      */
     private $ervaring = '';
     /**
      * @ORM\Column(type="string")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(groups={"Profile"})
      * @Algolia\Attribute()
      */
     private $typeTrainer = '';

@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
               <div class="col-md-12 search_results">
-                {% for user.item in trainingItem %}
+                {% for item in trainingItem %}
                 <a href="{{ path('app_default_trainingdetail', {'slug': item.slug }) }}">
                   <div class="search_result">
                     <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}">
