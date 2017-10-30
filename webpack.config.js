@@ -13,16 +13,18 @@ Encore
 
     // will output as web/build/app.js
     .addEntry('search', './assets/js/search.js')
+    .addEntry('main', './assets/js/main.js')
 
-    // .addStyleEntry('main', './assets/css/main.css')
-
-    // // allow sass/scss files to be processed
-    // .enableSassLoader()
+    // allow sass/scss files to be processed
+    .enableSassLoader()
 
     .enableVueLoader()
 
     // allow legacy applications to use $/jQuery as a global variable
     .autoProvidejQuery()
+    .autoProvideVariables({
+        Popper: ['popper.js', 'default']
+    })
 
     .enableSourceMaps(!Encore.isProduction())
 

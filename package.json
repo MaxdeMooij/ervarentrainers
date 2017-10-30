@@ -1,6 +1,6 @@
 {
   "name": "ervarentrainers",
-  "description": "training ========",
+  "description": "Ervaren trainers",
   "version": "1.0.0",
   "main": "index.js",
   "directories": {
@@ -11,13 +11,22 @@
     "build": "encore production"
   },
   "dependencies": {
+    "bootstrap": "4.0.0-beta.2",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.6",
+    "tilt.js": "^1.2.0",
+    "vue": "^2.5.2",
     "vue-instantsearch": "^1.2.2"
   },
   "devDependencies": {
     "@symfony/webpack-encore": "^0.16.0",
-    "vue": "^2.5.2",
+    "css-loader": "^0.28.7",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
     "vue-loader": "^13.3.0",
-    "vue-template-compiler": "^2.5.2"
+    "vue-template-compiler": "^2.5.2",
+    "webpack": "^3.8.1"
   },
   "repository": {
     "type": "git",
