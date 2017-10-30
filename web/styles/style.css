@@ -53,6 +53,15 @@ hr {
 
 .row {
   margin: 0;
+  padding: 10px 0px;
+}
+
+.row:first-of-type {
+  padding-top: 0px !important;
+}
+
+.row:last-of-type {
+  padding-bottom: 0px !important
 }
 
 .background-white {
@@ -65,7 +74,7 @@ hr {
 
 .content {
   background-color: #fff;
-  padding: 40px;
+  padding: 30px;
   text-align: left;
 }
 
@@ -506,6 +515,10 @@ h3 {
 
 /* Search results */
 
+.search_results {
+  padding-left: 0px !important;
+}
+
 .search_result {
   background-color: #fff;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
@@ -514,26 +527,89 @@ h3 {
 
 .search_result .avatar {
   width: 185px;
+  position: relative;
   display: inline-block;
   vertical-align: top;
+  background-color: #b6d5ff;
 }
 
 .search_result .content {
   display: inline-block;
-  width: 635px;
+  width: 72%;
   vertical-align: top;
+}
+
+.search_results .trainer {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  padding: 10px 0px;
+  display: block;
+}
+
+.search_results .trainer span {
+  display: block;
 }
 
 .filters {
   background-color: #fff;
 }
 
+.tags span {
+  background-color: #f1f4fe;
+  padding: 5px 10px;
+  margin: 0px 5px;
+  color: gray;
+}
 
+.tags span:first-of-type {
+  margin-left: 0px;
+}
 
+input[type="radio"] {
+  width: auto;
+  display: inline-block;
+}
 
+.radiobuttons label {
+  font-weight: 400;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 5px;
+  display: inline-block;
+}
 
+.search_results .properties span {
+  padding: 5px 10px;
+  margin: 0px 1px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+}
 
+.search_results .properties span:first-of-type {
+  margin-left: 0px;
+}
 
+.search_results .price {
+  background: #ffa785;
+  background: -webkit-linear-gradient(#ffa785, #ffce85);
+  background: -o-linear-gradient(#ffa785, #ffce85);
+  background: -moz-linear-gradient(#ffa785, #ffce85);
+  background: linear-gradient(#ffa785, #ffce85);
+}
+
+.search_results .timeframe {
+  background-color: #85BAFF;
+}
+
+.search_results .type {
+  background-color: #85BAFF;
+}
+
+.duration_number {
+  width: 45px;
+}
 
 
 /* Trainer and training page */

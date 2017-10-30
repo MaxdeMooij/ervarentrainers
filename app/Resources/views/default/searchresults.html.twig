@@ -1,4 +1,6 @@
 {% extends 'base.html.twig' %}
+{% block title %}zoekresultaten{% endblock %}
+
 
 {% block body %}
     <div id="wrapper" class="home">
@@ -11,12 +13,27 @@
                 {% for item in trainingItem %}
                 <a href="{{ path('app_default_trainingdetail', {'slug': item.slug }) }}">
                   <div class="search_result">
-                    <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}">
+                    <div class="avatar">
+                      <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}">
+                      <div class="trainer">
+                        <span>{% if item.user is not null %}{{ item.user.firstName }} {{ item.user.lastName }}{% endif %}</span>
+                        <span>{% if item.user is not null %}{{ item.user.typeTrainer }} {{ item.user.lastName }}{% endif %}</span>
+                      </div>
+                    </div>
+
                     <div class="content">
                       <h3 class="titel">{{ item.title }}</h3>
-                      <p>{{ item.description|length > 150 ? item.description|slice(0, 150) ~ '...' : item.description }}</p>
-                      <span class="trainer">{% if item.user is not null %}{{ item.user.firstName }} {{ item.user.lastName }}{% endif %}</span>
-                      <span class="tags">{{ item.tags|join(', ') }}</span>
+                      <p class="properties">
+                        <span class="price">$ 723</span>
+                        <span class="timeframe">3 dagen</span>
+                        <span class="type">Individueel / groep</span>
+                      </p>
+                      <p>{{ item.description|length > 350 ? item.description|slice(0, 350) ~ '...' : item.description }}</p>
+                      <span class="tags">
+                        {% for item in item.tags %}
+                        <span> TAG HERE </span>
+                        {% endfor %}
+                      <!-- {{ item.tags|join(', ') }}</span> -->
                     </div>
                   </div>
                 </a>
@@ -24,8 +41,48 @@
 
               </div>
               <div class="col-md-3 filters content">
-                <h3>Filter</h3>
-                <p>do stuff</p>
+                <div class="row">
+                  <h3>Sorteren op</h3>
+                  <div class="sorteren">Relevantie <i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                  <!--
+                    - Relevantie
+                    - Prijs oplopend
+                    - Prijs aflopend
+                  -->
+                </div>
+                <div class="row">
+                  <h3>Filter</h3>
+
+                  <label>Price range</label>
+                  <p>Slider</p>
+
+                  <label for="typetraining">Type training</label>
+                  <div class="radiobuttons">
+                    <input type="checkbox" name="typetraining" id="Individueel" value="Individueel">
+                      <label for="Individueel">Individueel (amount)</label><br>
+                    <input type="checkbox" name="typetraining" id="Groep" value="Groep">
+                      <label for="Groep">Groep (amount)</label>
+                  </div>
+
+                  <label for="vog">Verklaring omtrend gedrag</label>
+                  <div class="radiobuttons">
+                    <input type="checkbox" id="vog" name="vog" value="vog">
+                    <label for="vog">Overhandigbaar (amount)</label><br>
+                  </div>
+
+                  <label for="duur">Trainingsduur</label>
+                  <input type="number" name="duration" class="duration_number" value="1" step="1" min="1" max="7">
+                  <select class="duration" name="duration">
+                    <option value="dagen" selected>Dagen</option>
+                    <option value="dagen">Uren</option>
+                  </select>
+                  <!--
+                    - Aantal uur
+                    - Aantal dagdelen
+                    - Aantal dagen
+                  -->
+
+                </div>
               </div>
             </div>
         </div>
