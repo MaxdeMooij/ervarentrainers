@@ -12,8 +12,8 @@
             </div>
             <ais-results>
                 <template slot-scope="{ result }">
-                    <div class="panel">
-                        <div class="panel-body">
+                    <div class="card">
+                        <div class="card-body">
                             <h1>{{ result.firstName }} {{ result.lastName }}</h1>
                             <h4><ais-highlight :result="result" attribute-name="motto"></ais-highlight></h4>
                         </div>

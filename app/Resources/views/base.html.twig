@@ -1,108 +1,97 @@
 {% set url %}https://ervarentrainers.nl{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}{% endset %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
-        <!-- SEO -->
-        <title>{% block title %}{% endblock %} | Ervaren Trainers</title>
-        <meta type="description" content="{% block metadescription %}{% endblock %}">
-        <link rel="canonical" href="{{url}}">
+    <!-- SEO -->
+    <title>{% block title %}{% endblock %} | Ervaren Trainers</title>
+    <meta type="description" content="{% block metadescription %}{% endblock %}">
+    <link rel="canonical" href="{{ url }}">
 
-        <!-- Social Media -->
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:site" content="@ervarentrainers">
-        <meta name="twitter:title" content="{% block tw_pagetitle %}{% endblock %} | Ervaren Trainers">
-        <meta name="twitter:description" content="{% block tw_pagedescription %}{% endblock %}">
-        <meta name="twitter:image" content="{% block tw_image %}{% endblock %}">
+    <!-- Social Media -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ervarentrainers">
+    <meta name="twitter:title" content="{% block tw_pagetitle %}{% endblock %} | Ervaren Trainers">
+    <meta name="twitter:description" content="{% block tw_pagedescription %}{% endblock %}">
+    <meta name="twitter:image" content="{% block tw_image %}{% endblock %}">
 
-        <meta property="og:title" content="{% block fb_pagetitle %}{% endblock %} | Ervaren Trainers" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="{{url}}" />
-        <meta property="og:image" content="{% block fb_image %}{% endblock %}" />
-        <meta property="og:description" content="{% block fb_description %}{% endblock %}" />
-        <meta property="og:site_name" content="Ervaren Trainers" />
-        <meta property="fb:admins" content="Facebook numeric ID" />
+    <meta property="og:title" content="{% block fb_pagetitle %}{% endblock %} | Ervaren Trainers"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ url }}"/>
+    <meta property="og:image" content="{% block fb_image %}{% endblock %}"/>
+    <meta property="og:description" content="{% block fb_description %}{% endblock %}"/>
+    <meta property="og:site_name" content="Ervaren Trainers"/>
+    <meta property="fb:admins" content="Facebook numeric ID"/>
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="/styles/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
-        <link rel="stylesheet" href="/styles/font-awesome-4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('/styles/style.css') }}" />
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-        {% block stylesheets %}{% endblock %}
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('build/main.css') }}"/>
+    {% block stylesheets %}{% endblock %}
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:200,400,700" rel="stylesheet">
+    {% block scripts %}{% endblock %}
+</head>
+<body>
+<div class="navwrapper">
+    <nav class="navbar navbar-expand-lg container">
+        <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcollapse"
+                    aria-controls="navbarcollapse aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:200,400,700" rel="stylesheet">
-
-        <!-- Scripts -->
-        <script src="scripts/jquery-3.2.1.min.js"></script>
-        <script src="scripts/bootstrap.min.js"></script>
-        <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
-        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-        <!-- <script src="https://use.fontawesome.com/df3219cf9e.js"></script> -->
-
-
-        </script>
-        {% block scripts %}{% endblock %}
-
-    </head>
-    <body>
-        <div class="navwrapper">
-            <nav class="navbar container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarcollapse" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <a href="{{ path('app_default_index') }}"><img src="/media/concept-logo2.svg" class="navbar-brand"></a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="navbarcollapse">
-
-                    <ul class="nav navbar-nav navbar-left">
-                        <li><a href="{{ path('app_default_traininglist') }}">Vind een training</a></li>
-                        <li><a href="{{ path('app_default_trainerlist') }}">Vind een trainer</a></li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        {% if app.user %}
-                        <li class="dropdown user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                              {% if app.user.avatar %}
-                                <img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}" alt="Avatar" class="small-avatar">
-                              {% else %}
-                                <div class="small-avatar avatar_placeholder">{{ app.user.firstName|slice(0,1)}}</div>
-                              {% endif %}
-                                <span>{{ app.user.firstName }} {{ app.user.lastName }} <i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                            </a>
-                            <ul class="dropdown-menu" data-til>
-                                <li data-til><a href="{{ path('app_default_trainerdetail', {'slug': app.user.slug }) }}"><i class="fa fa-user" aria-hidden="true"></i> Profiel</a><span class="menu-item-highlighter"></span></li>
-                                <li data-til><a href="/mijn-trainingen"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Mijn trainingen</a><span class="menu-item-highlighter"></span></li>
-                                <!-- <li data-til><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Berichten</a><span class="menu-item-highlighter"></span></li> -->
-                                <li data-til><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i> Aanmeldingen</a><span class="menu-item-highlighter"></span></li>
-                                <li data-til><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Uitloggen</a><span class="menu-item-highlighter"></span></li>
-                            </ul>
-                        </li>
-                        {% else %}
-                            <li><a href="{{ path('fos_user_registration_register') }}" class="registrer">Registreren als trainer</a></li>
-                            <li><a href="{{ path('fos_user_security_login') }}" class="login btnsecond">Inloggen voor trainers</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </nav>
+            <a href="{{ path('app_default_index') }}"><img src="/media/concept-logo2.svg" class="navbar-brand"></a>
         </div>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.1.21/tilt.jquery.min.js"></script> -->
-        <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
-        <script src="/scripts/tilt.min.js"></script>
-        <script src="/scripts/script.js" type="text/javascript"></script>
-    </body>
+
+        <div class="collapse navbar-collapse" id="navbarcollapse">
+
+            <ul class="nav navbar-nav mr-auto">
+                <li><a href="{{ path('app_default_traininglist') }}">Vind een training</a></li>
+                <li><a href="{{ path('app_default_trainerlist') }}">Vind een trainer</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav ml-auto">
+                {% if app.user %}
+                    <li class="dropdown user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">
+                            {% if app.user.avatar %}
+                                <img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}"
+                                     alt="Avatar" class="small-avatar">
+                            {% else %}
+                                <div class="small-avatar avatar_placeholder">{{ app.user.firstName|slice(0,1) }}</div>
+                            {% endif %}
+                            <span>{{ app.user.firstName }} {{ app.user.lastName }} <i class="fa fa-angle-down"
+                                                                                      aria-hidden="true"></i></span>
+                        </a>
+                        <ul class="dropdown-menu" data-til>
+                            <li data-til><a href="{{ path('app_default_trainerdetail', {'slug': app.user.slug }) }}"><i
+                                            class="fa fa-user" aria-hidden="true"></i> Profiel</a><span
+                                        class="menu-item-highlighter"></span></li>
+                            <li data-til><a href="/mijn-trainingen"><i class="fa fa-graduation-cap"
+                                                                       aria-hidden="true"></i> Mijn trainingen</a><span
+                                        class="menu-item-highlighter"></span></li>
+                            <!-- <li data-til><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Berichten</a><span class="menu-item-highlighter"></span></li> -->
+                            <li data-til><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i> Aanmeldingen</a><span
+                                        class="menu-item-highlighter"></span></li>
+                            <li data-til><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"
+                                                                                             aria-hidden="true"></i>
+                                    Uitloggen</a><span class="menu-item-highlighter"></span></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="{{ path('fos_user_registration_register') }}" class="registrer">Registreren als
+                            trainer</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}" class="login btnsecond">Inloggen voor
+                            trainers</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+<script src="{{ asset('build/main.js') }}"></script>
 </html>
