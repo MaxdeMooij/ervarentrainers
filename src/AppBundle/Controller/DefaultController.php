@@ -49,9 +49,11 @@ class DefaultController extends Controller
     public function trainerdetailAction(Request $request, $slug)
     {
         $repo = $this->getDoctrine()->getRepository('AppBundle:User');
+        $TrainingRepo = $this->getDoctrine()->getRepository('AppBundle:Training');
 
         return $this->render('default/trainer_detail.html.twig', [
-            'item' => $repo->findOneBy(['enabled' => true, 'slug' => $slug])
+            'item' => $repo->findOneBy(['enabled' => true, 'slug' => $slug]),
+            'trainingItem' => $TrainingRepo->findBy([]),
         ]);
     }
 
