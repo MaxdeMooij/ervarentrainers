@@ -115,6 +115,30 @@ class DefaultController extends Controller
     }
 
 
+    /**
+     * @Route("/mijn-trainingen")
+     */
+    public function myTrainingsListAction(Request $request)
+    {
+        $TrainingRepo = $this->getDoctrine()->getRepository('AppBundle:Training');
+        $UserRepo = $this->getDoctrine()->getRepository('AppBundle:User');
+
+        return $this->render('default/my_trainings.html.twig', [
+            'trainingItem' => $TrainingRepo->findBy([]),
+            'userItem' => $UserRepo->findBy([]),
+
+            // Haal alle users op uit de database en stop ze in een array / lijst
+            'users' => $UserRepo->findAll(),
+            // Haal alle actieve users op als lijst
+            'activeUsers' => $UserRepo->findBy(['enabled' => true]),
+            // Haal de 1e actieve user in de database op
+            'firstActiveUser' => $UserRepo->findOneBy(['enabled' => true]),
+            // Haal user nummer 5 op
+            // 'userFive' => $UaserRepo->find(5)
+        ]);
+
+    }
+
 
 
 }
