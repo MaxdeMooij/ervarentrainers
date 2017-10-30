@@ -14,62 +14,32 @@
                     {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
                 <div class="row">
                     <div class="col col-md-5">
-                        <!-- {{ form_label(form.firstName) }} -->
-                        <label for="">Voornaam</label>
+                        {{ form_label(form.firstName) }}
                         {{ form_errors(form.firstName) }}
                         {{ form_widget(form.firstName) }}
                     </div>
                     <div class="col col-md-6 col-md-offset-1">
-                        <!-- {{ form_label(form.lastName) }} -->
-                        <label for="">Achternaam</label>
+                        {{ form_label(form.lastName) }}
                         {{ form_errors(form.lastName) }}
                         {{ form_widget(form.lastName) }}
                     </div>
                 </div>
-                <div>
-                    <!-- {{ form_label(form.email) }} -->
-                    <label for="">E-mailadres</label>
-                    {{ form_errors(form.email) }}
-                    {{ form_widget(form.email) }}
-                </div>
-                <div>
-                    <!-- {{ form_label(form.phoneNumber) }} -->
-                    <label for="">Telefoonnummer</label>
-                    {{ form_errors(form.phoneNumber) }}
-                    {{ form_widget(form.phoneNumber) }}
-                </div>
+                {{ form_row(form.geslacht) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.phoneNumber) }}
                 <div class="row">
                     <div class="col col-md-8">
-                        <!-- {{ form_label(form.street) }} -->
-                        <label for="">Straatnaam</label>
-                        {{ form_errors(form.street) }}
-                        {{ form_widget(form.street) }}
+                        {{ form_row(form.street) }}
                     </div>
                     <div class="col col-md-3 col-md-offset-1">
-                        <!-- {{ form_label(form.streetNumber) }} -->
-                        <label for="">Huisnummer</label>
-                        {{ form_errors(form.streetNumber) }}
-                        {{ form_widget(form.streetNumber) }}
+                        {{ form_row(form.streetNumber) }}
                     </div>
                 </div>
+                {{ form_row(form.zipcode) }}
+                {{ form_row(form.city) }}
+                {{ form_row(form.plainPassword) }}
                 <div>
-                    <!-- {{ form_label(form.zipcode) }} -->
-                    <label for="">Postcode</label>
-                    {{ form_errors(form.zipcode) }}
-                    {{ form_widget(form.zipcode) }}
-                </div>
-                <div>
-                    <!-- {{ form_label(form.city) }} -->
-                    <label for="">Stad</label>
-                    {{ form_errors(form.city) }}
-                    {{ form_widget(form.city) }}
-                </div>
-                <div>
-                    {{ form_errors(form.plainPassword) }}
-                    {{ form_widget(form.plainPassword) }}
-                </div>
-                <div>
-                    <input class="btnfirst" type="submit" value="{{ 'Profiel aanmaken'|trans }}"/>
+                    <input class="btnfirst" type="submit" value="{{ 'Create profile'|trans }}"/>
                 </div>
                 {{ form_widget(form._token) }}
                 {{ form_end(form, {'render_rest': false}) }}
