@@ -76,12 +76,12 @@ hr {
 input, textarea {
   padding: 5px 10px;
   width: 100%;
-  border: 2px solid #C5C5C5;
+  border: 1px solid #C5C5C5;
 }
 
 input:focus, textarea:focus {
   outline: none;
-  border: 2px solid #FFA621;
+  border: 1px solid #FFA621;
   color: #FFA621;
 }
 

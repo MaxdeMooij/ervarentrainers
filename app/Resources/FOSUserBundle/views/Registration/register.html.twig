@@ -6,51 +6,59 @@
             <h1>Maak een gratis profiel aan</h1>
         </div>
 
-        <div class="content col-md-4 col-centered">
+        <div class="content col-md-5 col-centered">
             {% trans_default_domain 'FOSUserBundle' %}
             {% block fos_user_content %}
                     {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
                 <div class="row">
                     <div class="col col-md-5">
-                        {{ form_label(form.firstName) }}
+                        <!-- {{ form_label(form.firstName) }} -->
+                        <label for="">Voornaam</label>
                         {{ form_errors(form.firstName) }}
                         {{ form_widget(form.firstName) }}
                     </div>
                     <div class="col col-md-6 col-md-offset-1">
-                        {{ form_label(form.lastName) }}
+                        <!-- {{ form_label(form.lastName) }} -->
+                        <label for="">Achternaam</label>
                         {{ form_errors(form.lastName) }}
                         {{ form_widget(form.lastName) }}
                     </div>
                 </div>
                 <div>
-                    {{ form_label(form.email) }}
+                    <!-- {{ form_label(form.email) }} -->
+                    <label for="">E-mailadres</label>
                     {{ form_errors(form.email) }}
                     {{ form_widget(form.email) }}
                 </div>
                 <div>
-                    {{ form_label(form.phoneNumber) }}
+                    <!-- {{ form_label(form.phoneNumber) }} -->
+                    <label for="">Telefoonnummer</label>
                     {{ form_errors(form.phoneNumber) }}
                     {{ form_widget(form.phoneNumber) }}
                 </div>
                 <div class="row">
                     <div class="col col-md-8">
-                        {{ form_label(form.street) }}
+                        <!-- {{ form_label(form.street) }} -->
+                        <label for="">Straatnaam</label>
                         {{ form_errors(form.street) }}
                         {{ form_widget(form.street) }}
                     </div>
                     <div class="col col-md-3 col-md-offset-1">
-                        {{ form_label(form.streetNumber) }}
+                        <!-- {{ form_label(form.streetNumber) }} -->
+                        <label for="">Huisnummer</label>
                         {{ form_errors(form.streetNumber) }}
                         {{ form_widget(form.streetNumber) }}
                     </div>
                 </div>
                 <div>
-                    {{ form_label(form.zipcode) }}
+                    <!-- {{ form_label(form.zipcode) }} -->
+                    <label for="">Postcode</label>
                     {{ form_errors(form.zipcode) }}
                     {{ form_widget(form.zipcode) }}
                 </div>
                 <div>
-                    {{ form_label(form.city) }}
+                    <!-- {{ form_label(form.city) }} -->
+                    <label for="">Stad</label>
                     {{ form_errors(form.city) }}
                     {{ form_widget(form.city) }}
                 </div>
