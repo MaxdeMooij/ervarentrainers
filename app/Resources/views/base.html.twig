@@ -1,13 +1,15 @@
 {% set url %}https://ervarentrainers.nl{{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}{% endset %}
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
     <!-- SEO -->
-    <title>{% block title %}{% endblock %} | Ervaren Trainers</title>
+    <title>
+      {% block title %}{% endblock %}
+      | Ervaren Trainers</title>
     <meta type="description" content="{% block metadescription %}{% endblock %}">
     <link rel="canonical" href="{{ url }}">
 
@@ -32,66 +34,80 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:200,400,700" rel="stylesheet">
     {% block scripts %}{% endblock %}
-</head>
-<body>
-<div class="navwrapper">
-    <nav class="navbar navbar-expand-lg container">
+  </head>
+  <body>
+    <div class="navwrapper">
+      <nav class="navbar navbar-expand-lg container">
         <div class="navbar-header">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcollapse"
-                    aria-controls="navbarcollapse aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <a href="{{ path('app_default_index') }}"><img src="/media/concept-logo2.svg" class="navbar-brand"></a>
+          <a href="{{ path('app_default_index') }}"><img src="/media/concept-logo2.svg" class="navbar-brand"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbarcollapse">
 
-            <ul class="nav navbar-nav mr-auto">
-                <li><a href="{{ path('app_default_traininglist') }}">Vind een training</a></li>
-                <li><a href="{{ path('app_default_trainerlist') }}">Vind een trainer</a></li>
-            </ul>
+          <ul class="nav navbar-nav mr-auto">
+            <li>
+              <a href="{{ path('app_default_traininglist') }}">Vind een training</a>
+            </li>
+            <li>
+              <a href="{{ path('app_default_trainerlist') }}">Vind een trainer</a>
+            </li>
+          </ul>
 
-            <ul class="nav navbar-nav ml-auto">
-                {% if app.user %}
-                    <li class="dropdown user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">
-                            {% if app.user.avatar %}
-                                <img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}"
-                                     alt="Avatar" class="small-avatar">
-                            {% else %}
-                                <div class="small-avatar avatar_placeholder">{{ app.user.firstName|slice(0,1) }}</div>
-                            {% endif %}
-                            <span>{{ app.user.firstName }} {{ app.user.lastName }} <i class="fa fa-angle-down"
-                                                                                      aria-hidden="true"></i></span>
-                        </a>
-                        <ul class="dropdown-menu" data-til>
-                            <li data-til><a href="{{ path('app_default_trainerdetail', {'slug': app.user.slug }) }}"><i
-                                            class="fa fa-user" aria-hidden="true"></i> Profiel</a><span
-                                        class="menu-item-highlighter"></span></li>
-                            <li data-til><a href="/mijn-trainingen"><i class="fa fa-graduation-cap"
-                                                                       aria-hidden="true"></i> Mijn trainingen</a><span
-                                        class="menu-item-highlighter"></span></li>
-                            <!-- <li data-til><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Berichten</a><span class="menu-item-highlighter"></span></li> -->
-                            <li data-til><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i> Aanmeldingen</a><span
-                                        class="menu-item-highlighter"></span></li>
-                            <li data-til><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"
-                                                                                             aria-hidden="true"></i>
-                                    Uitloggen</a><span class="menu-item-highlighter"></span></li>
-                        </ul>
-                    </li>
-                {% else %}
-                    <li><a href="{{ path('fos_user_registration_register') }}" class="registrer">Registreren als
-                            trainer</a></li>
-                    <li><a href="{{ path('fos_user_security_login') }}" class="login btnsecond">Inloggen voor
-                            trainers</a></li>
-                {% endif %}
-            </ul>
+          <ul class="nav navbar-nav ml-auto">
+            {% if app.user %}
+              <li class="dropdown user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  {% if app.user.avatar %}
+                    <img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('basic_thumbnail') }}" alt="Avatar" class="small-avatar">
+                  {% else %}
+                    <div class="small-avatar avatar_placeholder">{{ app.user.firstName|slice(0,1) }}</div>
+                  {% endif %}
+                  <span>{{ app.user.firstName }}
+                    {{ app.user.lastName }}
+                    <!-- <i class="fa fa-angle-down" aria-hidden="true"></i> -->
+                  </span>
+                </a>
+                <ul class="dropdown-menu" data-til="data-til">
+                  <li data-til="data-til">
+                    <a href="{{ path('app_default_trainerdetail', {'slug': app.user.slug }) }}">
+                      <i class="fa fa-user" aria-hidden="true"></i>
+                      Profiel</a>
+                    <span class="menu-item-highlighter"></span></li>
+                  <li data-til="data-til">
+                    <a href="/mijn-trainingen">
+                      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                      Mijn trainingen</a>
+                    <span class="menu-item-highlighter"></span></li>
+                  <!-- <li data-til><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Berichten</a><span class="menu-item-highlighter"></span></li> -->
+                  <li data-til="data-til">
+                    <a href="#">
+                      <i class="fa fa-file-text" aria-hidden="true"></i>
+                      Aanmeldingen</a>
+                    <span class="menu-item-highlighter"></span></li>
+                  <li data-til="data-til">
+                    <a href="{{ path('fos_user_security_logout') }}">
+                      <i class="fa fa-sign-out" aria-hidden="true"></i>
+                      Uitloggen</a>
+                    <span class="menu-item-highlighter"></span></li>
+                </ul>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ path('fos_user_registration_register') }}" class="registrer">Registreren als trainer</a>
+              </li>
+              <li>
+                <a href="{{ path('fos_user_security_login') }}" class="login btnsecond">Inloggen voor trainers</a>
+              </li>
+            {% endif %}
+          </ul>
         </div>
-    </nav>
-</div>
-{% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
-<script src="{{ asset('build/main.js') }}"></script>
-</html>
+      </nav>
+    </div>
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+    <script src="{{ asset('build/main.js') }}"></script>
+  </html>
