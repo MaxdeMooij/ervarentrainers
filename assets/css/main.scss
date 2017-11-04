@@ -7,12 +7,52 @@
   word-wrap: break-word;
 }
 
+/* Colors */
+
+@mixin gradientBlue {
+  background: -webkit-linear-gradient(#c221ff, #9d85ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+$primaryBlue: blue;
+$darkBlue: #0056b3;
+$lightBlue: #85BAFF;
+
+@mixin gradientYellow {
+  background: -webkit-linear-gradient(#c221ff, #9d85ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+$primaryYellow: #ffa621;
+$darkYellow: #ffa785;
+$lightYellow: #ffce85;
+
+@mixin gradientPurple {
+  background: -webkit-linear-gradient(#c221ff, #9d85ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+$primaryPurple: #c221ff;
+$darkPurple: #c221ff;
+$lightPurple: #9d85ff;
+
+$darkGray: #696969;
+$lightGray: #f1f4fd;
+$white: #fff;
+
+$blueGray: #d6dcf1;
+$lightGrayBlue: #f1f4fd;
+
+
 body {
-  background-color: #f1f4fd;
+  background-color: $lightGray;
 }
 
 p, label {
-  color: #545454;
+  color: $darkGray;
 }
 
 #header > h1 {
@@ -26,28 +66,23 @@ hr {
 
 .btnfirst {
   padding: 10px 20px !important;
-  color: #85BAFF;
+  color: $primaryYellow;
   border: 2px solid #ffa621;
   background-color: #ffa621;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
-  color: #fff;
+  color: $white;
   margin-top: 25px;
 }
 
 .btnsecond {
   padding: 10px 20px !important;
-  color: #85BAFF;
-  border: 2px solid #85BAFF;
+  color: $lightBlue;
+  border: 2px solid $lightBlue;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
-}
-
-.col {
-  background-color: #fff;
-  padding: 0;
 }
 
 .col-centered {
@@ -67,7 +102,7 @@ hr {
 }
 
 .background-white {
-  background-color: #fff;
+  background-color: $white;
 }
 
 .fa {
@@ -75,9 +110,10 @@ hr {
 }
 
 .content {
-  background-color: #fff;
+  background-color: $white;
   padding: 30px;
   text-align: left;
+  width: 100%;
 }
 
 .block {
@@ -87,13 +123,13 @@ hr {
 input, textarea {
   padding: 5px 10px;
   width: 100%;
-  border: 1px solid #C5C5C5;
+  border: 1px solid $darkGray;
 }
 
 input:focus, textarea:focus {
   outline: none;
-  border: 1px solid #FFA621;
-  color: #FFA621;
+  border: 1px solid $primaryYellow;
+  color: $primaryYellow;
 }
 
 input[type='checkbox'] {
@@ -118,20 +154,20 @@ label {
   display: block;
   margin-top: 10px;
   padding: 10px;
-  color: #545454;
+  color: $darkGray;
 }
 
 /* Navigation */
 
 .navwrapper {
   width: 100%;
-  background-color: #fff;
-  border-bottom: solid 1px #d6dcf1;
+  background-color: $white;
+  border-bottom: solid 1px $white;
 }
 
 nav {
   width: 100%;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .navbar {
@@ -180,7 +216,7 @@ nav {
     align-items: center;
   }
   a {
-    color: #3E396B;
+    color: $darkGray;
     font-size: 14px;
     padding: 30px 15px;
     text-decoration: none;
@@ -216,7 +252,7 @@ nav .search {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border: 2px solid #f4f4f4;
+  border: 2px solid $lightGray;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
@@ -231,8 +267,8 @@ nav .search {
 
 nav .dropdown-menu i {
   margin-right: 10px;
-  background: #c221ff;
-  background: -webkit-linear-gradient(#c221ff, #9d85ff);
+  background: $primaryPurple;
+  background: -webkit-linear-gradient(#darkPurple, $lightPurple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -248,8 +284,8 @@ nav .dropdown-menu i {
     border-radius: 3px;
   }
   .avatar_placeholder {
-    background-color: #FFA621;
-    color: #fff;
+    background-color: $primaryYellow;
+    color: $white;
     text-align: center;
     padding: 13px;
   }
@@ -277,7 +313,7 @@ nav .dropdown-menu i {
   box-shadow: none;
   border: none;
   min-width: 200px;
-  border-bottom: solid 5px #d6dcf1;
+  border-bottom: solid 5px $blueGray;
   transform-style: preserve-3d;
   &:before {
     content: '';
@@ -287,7 +323,7 @@ nav .dropdown-menu i {
     top: -20px;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
+    border-bottom: 10px solid $white;
     left: 0px;
     right: 0px;
     margin: auto;
@@ -311,20 +347,20 @@ nav .dropdown-menu i {
 .dropdown-menu {
   > li > a:hover {
     /*box-shadow: 0px 5px 50px rgba(151, 72, 255, 0.12);*/
-    background-color: #fff;
+    background-color: $white;
   }
   li {
     z-index: 4;
     position: relative;
   }
   a {
-    background-color: #fff;
+    background-color: $white;
     position: relative;
     z-index: 4;
   }
   .menu-item-highlighter {
     display: inline !important;
-    width: 150px;
+    width: 100%;
     height: 100%;
     left: 0px;
     right: 0px;
@@ -354,7 +390,7 @@ nav .dropdown-menu i {
 }
 
 .home #header {
-  background-color: #f1f4fd;
+  background-color: $lightGrayBlue;
   width: 100%;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -390,7 +426,7 @@ nav .dropdown-menu i {
     max-width: 80%;
     box-shadow: 0 14px 43px rgba(0, 0, 0, 0.06);
     font-size: 16px;
-    color: gray;
+    color: $darkGray;
     padding: 15px 20px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -401,12 +437,12 @@ nav .dropdown-menu i {
     border-radius: 100px;
   }
   .search-button {
-    color: #fff;
-    background: #ffa785;
-    background: -webkit-linear-gradient(#ffa785, #ffce85);
-    background: -o-linear-gradient(#ffa785, #ffce85);
-    background: -moz-linear-gradient(#ffa785, #ffce85);
-    background: linear-gradient(#ffa785, #ffce85);
+    color: $white;
+    background: $primaryYellow;
+    background: -webkit-linear-gradient($darkYellow, $lightYellow);
+    background: -o-linear-gradient($darkYellow, $lightYellow);
+    background: -moz-linear-gradient($darkYellow, $lightYellow);
+    background: linear-gradient($darkYellow, $lightYellow);
     width: 130px;
     font-size: 16px;
     font-weight: 200;
@@ -429,7 +465,7 @@ nav .dropdown-menu i {
   left: 0px;
   right: 0px;
   margin: auto;
-  background-color: #fff;
+  background-color: $white;
   align-items: center;
   display: flex;
   display: -webkit-flex;
@@ -451,7 +487,7 @@ nav .dropdown-menu i {
     }
   }
   h3 {
-    color: #fff;
+    color: $white;
     margin: 0 auto;
     margin-top: 90px;
     font-size: 16px;
@@ -494,17 +530,15 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  color: #FFA621;
+  color: $primaryPurple;
   font-size: 33px;
   margin: 0;
-  background: -webkit-linear-gradient(#c221ff, #9d85ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @include gradientPurple();
 }
 
 h3 {
   font-size: 18px;
-  color: #ad5dff;
+  color: $lightPurple;
 }
 
 /* Search results */
@@ -514,7 +548,6 @@ h3 {
 }
 
 .search_result {
-  background-color: #fff;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
   padding: 0;
   .avatar {
@@ -522,7 +555,7 @@ h3 {
     position: relative;
     display: inline-block;
     vertical-align: top;
-    background-color: #b6d5ff;
+    background-color: $blueGray;
   }
   .content {
     display: inline-block;
@@ -543,14 +576,14 @@ h3 {
 }
 
 .filters {
-  background-color: #fff;
+  background-color: $white;
 }
 
 .tags span {
-  background-color: #f1f4fe;
+  background-color: $blueGray;
   padding: 5px 10px;
   margin: 0px 5px;
-  color: gray;
+  color: $darkGray;
   &:first-of-type {
     margin-left: 0px;
   }
@@ -573,7 +606,7 @@ input[type="radio"] {
   .properties span {
     padding: 5px 10px;
     margin: 0px 1px;
-    color: #fff;
+    color: $white;
     font-weight: bold;
     border-radius: 3px;
     &:first-of-type {
@@ -581,14 +614,11 @@ input[type="radio"] {
     }
   }
   .price {
-    background: #ffa785;
-    background: -webkit-linear-gradient(#ffa785, #ffce85);
-    background: -o-linear-gradient(#ffa785, #ffce85);
-    background: -moz-linear-gradient(#ffa785, #ffce85);
-    background: linear-gradient(#ffa785, #ffce85);
+    background: $primaryYellow;
+    @include gradientYellow;
   }
   .timeframe, .type {
-    background-color: #85BAFF;
+    background-color: $lightBlue;
   }
 }
 
@@ -599,7 +629,7 @@ input[type="radio"] {
 /* Trainer and training page */
 
 .trainerblock, .trainingblock {
-  background-color: #fff;
+  background-color: $white;
   box-sizing: border-box;
   -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
   -moz-box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
@@ -672,34 +702,31 @@ input[type="radio"] {
 }
 
 .trainerprofile {
-  background-color: #fff;
   position: relative;
   z-index: 2;
   box-sizing: border-box;
-  padding: 0;
   margin-top: -140px;
-  /*border: 4px solid #fff;*/
   h1 {
-    color: #FFA621;
+    color: $primaryYellow;
     font-size: 26px;
     font-weight: 900;
     margin: 0;
   }
   h2 {
     font-size: 18px;
-    color: #696969;
-    margin-top: 10px;
+    color: $darkGray;
+    // margin-top: 10px;
   }
   h3 {
     font-size: 16px;
     font-weight: normal;
-    color: #ffa621;
+    color: $primaryYellow;
   }
   span {
-    color: #696969;
+    color: $darkGray;
     &.duration {
       font-style: italic;
-      color: #a2a2ab;
+      color: $darkGray;
     }
   }
   .block:before {
@@ -708,7 +735,7 @@ input[type="radio"] {
     position: relative;
     height: 2px;
     width: 100%;
-    background-color: #f5f5f5;
+    background-color: $lightGray;
     margin-bottom: 18px;
   }
   .content {
@@ -731,9 +758,9 @@ input[type="radio"] {
     position: absolute;
     top: -80px;
     left: 0;
-    background-color: #ffa621;
+    background-color: $primaryYellow;
     padding: 10px 16px;
-    color: #fff;
+    color: $white;
     font-size: 16px;
     border-radius: 100px;
   }
@@ -741,18 +768,18 @@ input[type="radio"] {
 
 .trainer-about {
   margin-top: 40px;
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: -30px;
-    top: 20px;
-    width: 0;
-    height: 0;
-    border-top: 30px solid transparent;
-    border-bottom: 30px solid transparent;
-    border-right: 30px solid white;
-  }
+  // &:before {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   left: -30px;
+  //   top: 20px;
+  //   width: 0;
+  //   height: 0;
+  //   border-top: 30px solid transparent;
+  //   border-bottom: 30px solid transparent;
+  //   border-right: 30px solid white;
+  // }
   p {
     font-size: 16px;
     line-height: 1.5em;
@@ -777,13 +804,13 @@ input[type="radio"] {
         padding-bottom: 40px;
       }
       a {
-        color: #545454;
+        color: $lightGray;
         padding: 20px 40px;
         display: block;
         font-size: 16px;
         &:hover {
           text-decoration: none;
-          color: #FFA621;
+          color: $primaryYellow;
         }
       }
     }
@@ -791,7 +818,7 @@ input[type="radio"] {
 }
 
 .added_education {
-  border: 2px solid #c5c5c5;
+  border: 2px solid $darkGray;
   padding: 40px;
 }
 
@@ -818,7 +845,7 @@ input[type="radio"] {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: $lightGray;
   -webkit-transition: .4s;
   transition: .4s;
   &:before {
@@ -828,7 +855,7 @@ input[type="radio"] {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: $white;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -836,10 +863,10 @@ input[type="radio"] {
 
 input {
   &:checked + .slider {
-    background-color: #2196F3;
+    background-color: $lightBlue;
   }
   &:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px $lightBlue;
   }
   &:checked + .slider:before {
     -webkit-transform: translateX(26px);
@@ -862,6 +889,6 @@ input {
 }
 
 .ais-highlight em {
-  background-color: lightgreen;
+  background-color: $lightBlue;
   /* change this or remove if you dont want search-term highlight styling */
 }
