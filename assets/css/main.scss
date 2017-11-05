@@ -55,9 +55,16 @@ p, label {
   color: $darkGray;
 }
 
-#header > h1 {
-  margin: 80px 0px;
-  text-align: center;
+#header {
+  padding: 50px 0px;
+  width: 100%;
+  h1 {
+    margin: 25px 0px;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
 }
 
 hr {
@@ -75,13 +82,18 @@ form .col:last-of-type {
 .btnfirst {
   padding: 10px 20px !important;
   color: $primaryYellow;
-  border: 1px solid #ffa621;
-  background-color: #ffa621;
+  border: 1px solid $primaryYellow;
+  background-color: $primaryYellow;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
   color: $white;
   margin-top: 25px;
+}
+
+.btnfirst:hover {
+  cursor: pointer;
+  background-color: $lightYellow
 }
 
 .btnsecond {
@@ -91,6 +103,10 @@ form .col:last-of-type {
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
+}
+
+.btnsecond {
+  cursor: pointer;
 }
 
 .col-centered {
@@ -397,7 +413,7 @@ nav .dropdown-menu i {
 
 /* Home page */
 
-#header h1 {
+.home #header h1 {
   height: 40px;
 }
 
