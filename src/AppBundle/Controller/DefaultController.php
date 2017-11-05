@@ -70,6 +70,18 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/trainingen/{slug}/boeken")
+     */
+    public function bookTrainingAction(Request $request, $slug)
+    {
+        $repo = $this->getDoctrine()->getRepository('AppBundle:Training');
+
+        return $this->render('default/book_training.html.twig', [
+            'item' => $repo->findOneBy(['slug' => $slug])
+        ]);
+    }
+
+    /**
      * @Route("/trainers/{slug}/bewerken")
      */
     public function editProfileAction(Request $request, $slug)

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div id="wrapper">
+    <div id="header" class="trainer-header">
+
+      <div class="container">
+        <div class="row">
+          <h1>Boek deze training</h1>
+          <p>Wij sturen je aanmelding door naar de trainer. Deze zal vervolvens contact met je opnemen voor de betaling.</p>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <form class="book content" action="index.html" method="post">
+              <label for="">Voornaam</label>
+              <input type="text" name="" value="">
+
+              <label for="">Achternaam</label>
+              <input type="text" name="" value="">
+
+              <label for="">E-mailadres</label>
+              <input type="email" name="" value="">
+
+              <label for="">Telefoonnummer</label>
+              <input type="tel" name="" value="">
+
+              <label for="">Opmerkingen</label>
+              <input type="textarea" name="" value="">
+
+              <button type="button" name="button">Boek de training</button>
+            </form>
+          </div>
+
+          <div class="col">
+            <div class="content">
+              <h3>Beschrijving</h3>
+              <p>{{ item.description }}</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
