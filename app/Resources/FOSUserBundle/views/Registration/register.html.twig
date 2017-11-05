@@ -8,17 +8,17 @@
             <h1>Maak een gratis profiel aan</h1>
         </div>
 
-        <div class="content col-md-5 col-centered">
+        <div class="content col-md-6 col-centered">
             {% trans_default_domain 'FOSUserBundle' %}
             {% block fos_user_content %}
                     {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
                 <div class="row">
-                    <div class="col col-md-5">
+                    <div class="col">
                         {{ form_label(form.firstName) }}
                         {{ form_errors(form.firstName) }}
                         {{ form_widget(form.firstName) }}
                     </div>
-                    <div class="col col-md-6 col-md-offset-1">
+                    <div class="col">
                         {{ form_label(form.lastName) }}
                         {{ form_errors(form.lastName) }}
                         {{ form_widget(form.lastName) }}
@@ -28,10 +28,10 @@
                 {{ form_row(form.email) }}
                 {{ form_row(form.phoneNumber) }}
                 <div class="row">
-                    <div class="col col-md-8">
+                    <div class="col">
                         {{ form_row(form.street) }}
                     </div>
-                    <div class="col col-md-3 col-md-offset-1">
+                    <div class="col col-md-4 col-md-offset-1">
                         {{ form_row(form.streetNumber) }}
                     </div>
                 </div>

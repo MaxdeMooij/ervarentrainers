@@ -64,6 +64,14 @@ hr {
   margin: 0px;
 }
 
+form .col:first-of-type {
+  padding-left: 0px;
+}
+
+form .col:last-of-type {
+  padding-right: 0px;
+}
+
 .btnfirst {
   padding: 10px 20px !important;
   color: $primaryYellow;
