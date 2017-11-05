@@ -1,5 +1,5 @@
 {% block php %}
-  <?php
+  <!-- <?php
 
   require_once 'Mollie/API/Autoloader.php';
 
@@ -32,52 +32,46 @@
     echo " on field " . htmlspecialchars($e->getField());
   }
 
-  ?>
+  ?> -->
 {% endblock %}
 
 
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+{% if app.user %}
+
   <div id="wrapper">
-    <div id="header" class="trainer-header">
+    <div id="header">
+      <h1>Ontvang de gegevens van de cursist</h1>
+      <p>Een cursist wil de training (NAAM) van je afnemen voor (PRIJS).</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <form class="book content" action="index.html" method="post">
+            <h2>Mollie payments info voor betaling</h2>
 
-      <div class="container">
-        <div class="row">
-          <h1>Ontvang de gegevens van de cursist</h1>
-          <p>Een cursist wil de training (NAAM) van je afnemen voor (PRIJS).</p>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <form class="book content" action="index.html" method="post">
-              <label for="">Voornaam</label>
-              <input type="text" name="" value="">
-
-              <label for="">Achternaam</label>
-              <input type="text" name="" value="">
-
-              <label for="">E-mailadres</label>
-              <input type="email" name="" value="">
-
-              <label for="">Telefoonnummer</label>
-              <input type="tel" name="" value="">
-
-              <label for="">Opmerkingen</label>
-              <input type="textarea" name="" value="">
-
-              <button type="button" name="button">Boek de training</button>
-            </form>
-          </div>
-
-          <div class="col">
-            <div class="content">
-              <h3>Beschrijving</h3>
-            </div>
-          </div>
-
+            <button class="btnfirst" type="button" name="button">Naar de betaalpagina</button>
+          </form>
         </div>
 
+        <div class="col">
+          <div class="content">
+            <h2>Beschrijving van de order</h2>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+{% else %}
+
+<h1>Inloggen</h1>
+<!-- Willem, hoe krijgen we hier een inlogvenster? -->
+
+
+{% endif %}
+
 {% endblock %}

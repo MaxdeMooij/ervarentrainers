@@ -159,7 +159,11 @@ class DefaultController extends Controller
      */
     public function buyCandidateAction()
     {
-        return $this->render('default/buy_candidate.html.twig');
+      $repo = $this->getDoctrine()->getRepository('AppBundle:User');
+
+      return $this->render('default/buy_candidate.html.twig', [
+          'items' => $repo->findBy(['enabled' => true])
+      ]);
     }
 
 
