@@ -154,5 +154,14 @@ class DefaultController extends Controller
     }
 
 
+    /**
+     * @Route("/aanmelding-ontvangen")
+     */
+    public function buyCandidateAction()
+    {
+        return $this->render('default/buy_candidate.html.twig');
+    }
+
+
 
 }
