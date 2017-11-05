@@ -67,7 +67,7 @@ hr {
 .btnfirst {
   padding: 10px 20px !important;
   color: $primaryYellow;
-  border: 2px solid #ffa621;
+  border: 1px solid #ffa621;
   background-color: #ffa621;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
@@ -79,7 +79,7 @@ hr {
 .btnsecond {
   padding: 10px 20px !important;
   color: $lightBlue;
-  border: 2px solid $lightBlue;
+  border: 1px solid $lightBlue;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
@@ -130,6 +130,10 @@ input:focus, textarea:focus {
   outline: none;
   border: 1px solid $primaryYellow;
   color: $primaryYellow;
+}
+
+input[type='submit']:focus {
+  color: $white;
 }
 
 input[type='checkbox'] {
