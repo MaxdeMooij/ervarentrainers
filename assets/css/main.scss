@@ -62,7 +62,7 @@ p, label {
     margin: 25px 0px;
     text-align: center;
   }
-  p {
+  * {
     text-align: center;
   }
 }
@@ -564,6 +564,11 @@ h1 {
   @include gradientPurple();
 }
 
+h2 {
+  font-size: 18px;
+  color: $darkGray;
+}
+
 h3 {
   font-size: 18px;
   color: $lightPurple;
@@ -902,6 +907,25 @@ input {
     transform: translateX(26px);
   }
 }
+
+
+
+/* Order ontvangen */
+.ordernummer {
+  background: -webkit-linear-gradient(#c221ff, #9d85ff);
+  color: $white !important;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 14px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+
+
+
+
+
 
 /* Rounded sliders */
 
