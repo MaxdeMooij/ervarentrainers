@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Algolia\AlgoliaSearchBundle\Mapping\Annotation as Algolia;
 
 /**
  * Class TrainingPrice
@@ -21,10 +22,12 @@ class TrainingPrice
     /**
      * @ORM\Id()
      * @ORM\Column(type="string")
+     * @Algolia\Attribute
      */
     private $type;
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
+     * @Algolia\Attribute
      */
     private $price;
 

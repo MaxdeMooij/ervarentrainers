@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-
+use Algolia\AlgoliaSearchBundle\Mapping\Annotation as Algolia;
 
 /**
  * Class Training
@@ -29,31 +29,38 @@ class Training
     private $id;
     /**
      * @ORM\Column(type="string")
+     * @Algolia\Attribute
      */
     private $title;
     /**
      * @ORM\Column(type="text")
+     * @Algolia\Attribute
      */
     private $description;
     /**
      * @ORM\Column(type="string", unique=true)
      * @Gedmo\Slug(fields={"title"})
+     * @Algolia\Attribute
      */
     private $slug;
     /**
      * @ORM\Column(type="array")
+     * @Algolia\Attribute
      */
     private $tags;
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="trainings")
+     * @Algolia\Attribute
      */
     private $user;
     /**
      * @ORM\OneToMany(targetEntity="TrainingPrice", mappedBy="training")
+     * @Algolia\Attribute
      */
     private $prices;
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Algolia\Attribute
      */
     private $photo;
     /**
@@ -67,6 +74,15 @@ class Training
     public function __construct()
     {
         $this->prices = new ArrayCollection();
+    }
+
+    /**
+     * @return null
+     * @Algolia\Attribute
+     */
+    public function searchPrice()
+    {
+        return $this->prices->isEmpty() ? null : (float)$this->prices->first()->getPrice();
     }
 
     /**
