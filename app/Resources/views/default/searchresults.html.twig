@@ -18,7 +18,7 @@
                 {% for item in trainingItem %}
 
                   <div class="search_result">
-                    <a href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}">
+                    <a href="{{ path('app_default_trainerdetail', {'slug': item.user.slug }) }}">
                       <div class="avatar">
                         <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}">
                         <div class="trainer">
