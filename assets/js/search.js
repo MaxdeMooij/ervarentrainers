@@ -20,7 +20,7 @@ let app = new Vue({
             props: {
                 appId: this.rootElem.getAttribute('app-id'),
                 apiKey: this.rootElem.getAttribute('api-key'),
-                indexName: this.rootElem.getAttribute('index-name'),
+                indexSuffix: this.rootElem.getAttribute('index-suffix'),
             }
         })
     }

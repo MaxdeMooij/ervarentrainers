@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Algolia\AlgoliaSearchBundle\Mapping\Annotation as Algolia;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
@@ -11,6 +12,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  * @package AppBundle\Entity
  *
  * @ORM\Entity()
+ * @Algolia\Index(autoIndex=false)
  */
 class Education
 {
