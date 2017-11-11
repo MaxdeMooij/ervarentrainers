@@ -1,5 +1,5 @@
 \AppBundle\Entity\User:
-    male_{1..50}:
+    trainer_{1..50}:
         geslacht: 'male'
         enabled: '1'
         email: '<email()>'
@@ -17,7 +17,7 @@
         phoneNumber: '<phoneNumber()>'
         password: '\$2y\$13\$MpYG9zrazGVsM03hPhUSrOWDFNEKINAVLVBZtLxOTkOVaugD.CXbK' # testtest
 
-    female_{1..50}:
+    trainer_{51..100}:
         geslacht: 'female'
         enabled: '1'
         email: '<email()>'
@@ -34,3 +34,24 @@
         city: '<city()>'
         phoneNumber: '<phoneNumber()>'
         password: '\$2y\$13\$MpYG9zrazGVsM03hPhUSrOWDFNEKINAVLVBZtLxOTkOVaugD.CXbK' # testtest
+
+\AppBundle\Entity\Education:
+    eductation_{1..100}:
+        user: '@trainer_<current()>'
+        name: '<jobTitle()>'
+        schoolName: '<company()>'
+        startDate: '<dateTimeBetween("-30 years", "-15 years")>'
+        endDate: '<dateTimeBetween("-15 years", "now")>'
+
+\AppBundle\Entity\Training:
+    training_{1..100}:
+        title: '<sentence()>'
+        description: '<paragraph()>'
+        tags: '<words()>'
+        user: '@trainer_<current()>'
+
+\AppBundle\Entity\TrainingPrice:
+    training_price_{1..100}:
+        training: '@training_<current()>'
+        type: '<word()>'
+        price: '<randomFloat(2)>'
