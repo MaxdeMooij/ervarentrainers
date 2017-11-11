@@ -38,6 +38,8 @@ twig:
     globals:
         algolia_app_id: '%algolia.application_id%'
         algolia_search_key: '%algolia.search_key%'
+algolia:
+  catch_log_exceptions: true
 
 # Doctrine Configuration
 doctrine:
