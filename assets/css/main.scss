@@ -20,9 +20,7 @@ $darkBlue: #0056b3;
 $lightBlue: #85BAFF;
 
 @mixin gradientYellow {
-  background: -webkit-linear-gradient(#c221ff, #9d85ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(#ffa785, #ffce85);
 }
 
 $primaryYellow: #ffa621;
@@ -581,27 +579,30 @@ h3 {
 }
 
 .search_result {
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
+  // box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
   padding: 0;
   .avatar {
     width: 185px;
     position: relative;
     display: inline-block;
     vertical-align: top;
-    background-color: $blueGray;
+    // background-color: $blueGray;
   }
   .content {
     display: inline-block;
     width: 72%;
     vertical-align: top;
   }
+  .functie {
+    font-size: 12px;
+  }
 }
 
 .search_results .trainer {
-  text-align: center;
+  text-align: left;
   position: relative;
   width: 100%;
-  padding: 10px 0px;
+  padding: 20px;
   display: block;
   span {
     display: block;
@@ -640,14 +641,15 @@ input[type="radio"] {
     padding: 5px 10px;
     margin: 0px 1px;
     color: $white;
-    font-weight: bold;
+    font-weight: normal;
     border-radius: 3px;
     &:first-of-type {
       margin-left: 0px;
     }
   }
   .price {
-    background: $primaryYellow;
+    // background: $primaryYellow;
+    color: $white;
     @include gradientYellow;
   }
   .timeframe, .type {
@@ -685,17 +687,17 @@ input[type="radio"] {
 .trainerblock .avatar, .trainingblock .avatar {
   position: relative;
   width: 100%;
-  transform: translateZ(0px);
+  // transform: translateZ(0px);
   transition: all 0.1s cubic-bezier(0.03, 0.98, 0.52, 0.99);
 }
 
 .trainerblock:hover .avatar, .trainingblock:hover .avatar {
-  transform: translateZ(20px);
+  // transform: translateZ(20px);
 }
 
 .trainerblock {
   h3, p {
-    transform: translateZ(20px);
+    // transform: translateZ(20px);
   }
 }
 
@@ -944,3 +946,10 @@ input {
   background-color: $lightBlue;
   /* change this or remove if you dont want search-term highlight styling */
 }
+
+
+// Base Colors
+$shade-10: #2c3e50 !default;
+$shade-1: #d7dcdf !default;
+$shade-0: #fff !default;
+$teal: #1abc9c !default;

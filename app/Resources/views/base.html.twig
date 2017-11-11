@@ -8,9 +8,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
     <!-- SEO -->
-    <title>
-      {% block title %}{% endblock %}
-      | Ervaren Trainers</title>
+    <title>{% block title %}{% endblock %} | Ervaren Trainers</title>
     <meta type="description" content="{% block metadescription %}{% endblock %}">
     <link rel="canonical" href="{{ url }}">
 
@@ -32,9 +30,13 @@
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ asset('build/main.css') }}"/>
     {% block stylesheets %}{% endblock %}
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:200,400,700" rel="stylesheet">
+
+    <!-- Scripts -->
     {% block scripts %}{% endblock %}
+
   </head>
   <body>
     <div class="navwrapper">
