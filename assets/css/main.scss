@@ -159,10 +159,17 @@ input[type='submit']:focus {
 }
 
 input[type='checkbox'] {
-  width: inherit !important;
-  margin-right: 10px;
+  width: 20px !important;
+  // margin-right: 10px;
+  margin-top: 40px;
   + label {
-    display: inline-block;
+    display: inline;
+  }
+  +label:hover {
+    cursor: pointer;
+  }
+  +label a:hover {
+    text-decoration: underline !important;
   }
 }
 
@@ -196,7 +203,7 @@ label {
 .navwrapper {
   width: 100%;
   background-color: $white;
-  border-bottom: solid 1px $white;
+  border-bottom: solid 1px $blueGray;
 }
 
 nav {
@@ -589,6 +596,12 @@ h3 {
   color: $lightPurple;
 }
 
+h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: $darkGray;
+}
+
 /* Search results */
 
 .search_results {
@@ -654,24 +667,27 @@ input[type="radio"] {
 }
 
 .search_results {
-  .properties span {
-    padding: 5px 10px;
-    margin: 0px 1px;
-    color: $white;
-    font-weight: normal;
-    border-radius: 3px;
-    &:first-of-type {
-      margin-left: 0px;
-    }
+
+}
+
+.price {
+  // background: $primaryYellow;
+  color: $white;
+  @include gradientYellow;
+}
+
+.properties span {
+  padding: 5px 10px;
+  margin: 0px 1px;
+  color: $white;
+  font-weight: normal;
+  border-radius: 3px;
+  &:first-of-type {
+    margin-left: 0px;
   }
-  .price {
-    // background: $primaryYellow;
-    color: $white;
-    @include gradientYellow;
-  }
-  .timeframe, .type {
-    background-color: $lightBlue;
-  }
+}
+.timeframe, .type {
+  background-color: $lightBlue;
 }
 
 .duration_number {
@@ -943,10 +959,17 @@ input {
 
 
 
+/* Book training */
+.amount {
+  width: 50px;
+}
+
+
 
 /* Footer */
 footer {
-  margin: 40px 0px;
+  // margin-top: 40px;
+  padding: 40px 0px;
   a {
     font-size: 12px;
     display: block;

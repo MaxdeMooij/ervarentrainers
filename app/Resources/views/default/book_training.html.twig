@@ -27,13 +27,26 @@
               <label for="">Opmerkingen</label>
               <input type="textarea" name="" value="">
 
+              <div class="checkbox">
+                <input type="checkbox" name="agree" id="agree" value="">
+                <label for="agree">Ik ga akkoord met de <a href="/algemene-voorwaarden" target="_blank">Algemene voorwaarden</a> en met het <a href="/privacystatement" target="_blank">Privacy statement</a>.</label>
+              </div>
+
               <button type="submit" class="btnfirst" name="button">Boek de training</button>
             </form>
           </div>
 
           <div class="col">
             <div class="content">
-              <h3>Beschrijving</h3>
+              <h3>{{ item.title }}</h3>
+              <p class="properties">
+                <span class="price">$ 723</span>
+                <span class="timeframe">3 dagen</span>
+                <span class="type">Individueel / groep</span>
+              </p>
+
+              <h4>Aantal trainingen</h4>
+              <input type="number" name="" value="1" class="amount">
               <p>{{ item.description }}</p>
             </div>
           </div>
