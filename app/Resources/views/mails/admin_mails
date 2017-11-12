@@ -1,0 +1,19 @@
+
+Wij (admins) moeten ook een mail krijgen als:
+
+1. Een training is geboekt:
+  - Info van de cursist (naam, email, telefoonnummer)
+  - Naam van de training
+  - Prijs van de training
+  - Link naar de training
+  - Info van de trainer (naam, email, telefoonnummer)
+  - Ordernummer
+
+2. Een trainer heeft geaccepteerd en betaald
+  - Naam van de training
+  - Prijs van de training
+  - Link naar de training
+  - Hoogte van betaalde commissie (15% van de trainingsprijs)
+  - Info van de trainer (naam, email, telefoonnummer)
+  - Info van de cursist (naam, email, telefoonnummer)
+  - Ordernummer

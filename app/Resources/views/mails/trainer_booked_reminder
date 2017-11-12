@@ -1,0 +1,7 @@
+Als de trainer na 3 dagen de aanmelding niet heeft betaald, ontvangt een herinneringsmail dat een training is geboekt.
+
+Info voor de mail:
+- Naam van de training
+- Prijs van de training
+- Commissiekosten: 15% van de prijs van de training
+- Knop "Cursist accepteren" (leidt naar betaalpagin

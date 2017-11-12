@@ -1,0 +1,8 @@
+
+De trainer ontvangt een mail dat een training is geboekt.
+
+Info voor de mail:
+- Naam van de training
+- Prijs van de training
+- Commissiekosten: 15% van de prijs van de training
+- Knop "Cursist accepteren" (leidt naar betaalpagina --> default/buy_candidate)
