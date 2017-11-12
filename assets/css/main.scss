@@ -166,6 +166,14 @@ input[type='checkbox'] {
   }
 }
 
+button:focus {
+  box-shadow: none !important;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 label {
   display: block;
   margin-top: 25px;
@@ -444,6 +452,15 @@ nav .dropdown-menu i {
 .search-area {
   position: relative;
   margin-top: 40px;
+}
+
+.home .btn-group {
+  display: block;
+  margin-top: 40px;
+
+  button:first-of-type {
+    margin-right: -3px;
+  }
 }
 
 #header {
@@ -926,6 +943,15 @@ input {
 
 
 
+
+/* Footer */
+footer {
+  margin: 40px 0px;
+  a {
+    font-size: 12px;
+    display: block;
+  }
+}
 
 
 

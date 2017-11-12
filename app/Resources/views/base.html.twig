@@ -8,7 +8,9 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
     <!-- SEO -->
-    <title>{% block title %}{% endblock %} | Ervaren Trainers</title>
+    <title>
+      {% block title %}{% endblock %}
+      | Ervaren Trainers</title>
     <meta type="description" content="{% block metadescription %}{% endblock %}">
     <link rel="canonical" href="{{ url }}">
 
@@ -113,4 +115,33 @@
     {% block body %}{% endblock %}
     {% block javascripts %}{% endblock %}
     <script src="{{ asset('build/main.js') }}"></script>
-  </html>
+    <footer class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h3>Informatie</h3>
+          <a href="#">Over Ervaren Trainers</a>
+          <a href="#">Veelgestelde vragen</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="col-md-3">
+          <h3>Veelgebruikte links</h3>
+          <a href="#">Alle trainers</a>
+          <a href="#">Alle trainingen</a>
+          <a href="#">Aanmelden als trainer</a>
+        </div>
+        <div class="col-md-3">
+          <h3>Informatie</h3>
+          <a href="#">Over Ervaren Trainers</a>
+          <a href="#">Veelgestelde vragen</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="col-md-3">
+          <h3>Informatie</h3>
+          <a href="#">Over Ervaren Trainers</a>
+          <a href="#">Veelgestelde vragen</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
