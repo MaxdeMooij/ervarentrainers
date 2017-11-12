@@ -38,6 +38,12 @@
                 {{ form_row(form.zipcode) }}
                 {{ form_row(form.city) }}
                 {{ form_row(form.plainPassword) }}
+
+                <div class="checkbox">
+                  <input type="checkbox" name="agree" id="agree" value="">
+                  <label for="agree">Ik ga akkoord met de <a href="/algemene-voorwaarden" target="_blank">Algemene voorwaarden</a> en met het <a href="/privacystatement" target="_blank">Privacy statement</a>.</label>
+                </div>
+                
                 <div>
                     <input class="btnfirst" type="submit" value="{{ 'Create profile'|trans }}"/>
                 </div>
