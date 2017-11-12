@@ -44,4 +44,9 @@ $(document).ready(function(){
         $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
           " - $" + $( "#slider-range" ).slider( "values", 1 ) );
     });
+
+    $("textarea").click(function() {
+      $(this).addClass("expand_area");
+    });
+
 });

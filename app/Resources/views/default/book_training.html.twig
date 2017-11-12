@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
 
+{# Title with name and job title #}
+{% block title %}Training boeken{% endblock %}
+
 {% block body %}
   <div id="wrapper">
       <div class="container">
@@ -12,6 +15,8 @@
         <div class="row">
           <div class="col-md-6">
             <form class="book content" action="index.html" method="post">
+              <h3>Jouw gegevens voor de trainer</h3>
+
               <label for="">Voornaam</label>
               <input type="text" name="" value="">
 
@@ -25,7 +30,7 @@
               <input type="tel" name="" value="">
 
               <label for="">Opmerkingen</label>
-              <input type="textarea" name="" value="">
+              <textarea type="textarea" name="" value=""></textarea>
 
               <div class="checkbox">
                 <input type="checkbox" name="agree" id="agree" value="">
@@ -47,6 +52,8 @@
 
               <h4>Aantal trainingen</h4>
               <input type="number" name="" value="1" class="amount">
+
+              <h4>Beschrijving</h4>
               <p>{{ item.description }}</p>
             </div>
           </div>
