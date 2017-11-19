@@ -166,6 +166,18 @@ class DefaultController extends Controller
       ]);
     }
 
+    /**
+     * @Route("/aanmelding-bevestigd")
+     */
+    public function orderConfirmedAction()
+    {
+      $repo = $this->getDoctrine()->getRepository('AppBundle:User');
+
+      return $this->render('default/order_confirmed.html.twig', [
+          'items' => $repo->findBy(['enabled' => true])
+      ]);
+    }
+
 
 
 }

@@ -1,0 +1,78 @@
+{% block php %}
+  <!-- <?php
+
+  require_once 'Mollie/API/Autoloader.php';
+
+  $mollie = new Mollie_API_Client;
+  $mollie->setApiKey('test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');
+
+  try
+  {
+    $payment = $mollie->payments->create(
+    array(
+    'amount'      => 10.00,
+    'description' => 'My first payment',
+    'redirectUrl' => 'https://webshop.example.org/order/12345/',
+    'webhookUrl'  => 'https://webshop.example.org/payments/webhook/',
+    'metadata'    => array(
+    'order_id' => '12345'
+    )
+    )
+    );
+
+    /*
+    * Send the customer off to complete the payment.
+    */
+    header("Location: " . $payment->getPaymentUrl());
+    exit;
+  }
+  catch (Mollie_API_Exception $e)
+  {
+    echo "API call failed: " . htmlspecialchars($e->getMessage());
+    echo " on field " . htmlspecialchars($e->getField());
+  }
+
+  ?> -->
+{% endblock %}
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% if app.user %}
+
+  <div id="wrapper">
+    <div class="container">
+      <div id="header">
+        <h1>Gelukt! Hierbij de gegevens van je cursist</h1>
+        <p>Nu kun je de cursist benaderen. Veel succes!</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <form class="book content" action="index.html" method="post">
+            <h2>Gegevens van de cursist</h2>
+            <p>Voornaam</p>
+            <p>Achternaam</p>
+            <p>Email</p>
+            <p>Telefoonnummer</p>
+          </form>
+        </div>
+
+        <div class="col">
+          <div class="content">
+            <h2>Beschrijving van de order</h2>
+            <span class="ordernummer">#8123615</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% else %}
+
+
+{% endif %}
+
+{% endblock %}
