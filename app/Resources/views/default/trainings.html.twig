@@ -6,21 +6,88 @@
             <h1>Naam van het zoekwoord</h1>
         </div>
         <div class="container">
-            <div class="row">
-                {% for item in items %}
-                    <a href="{{ path('app_default_trainingdetail', {'slug': item.slug }) }}">
-                        <div class="trainingblock col-md-3">
-                            <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}">
-                            <div class="content">
-                                <h3 class="titel">{{ item.title }}</h3>
-                                <p>{{ item.description|length > 150 ? item.description|slice(0, 150) ~ '...' : item.description }}</p>
-                                <span class="trainer">{% if item.user is not null %}{{ item.user.firstName }} {{ item.user.lastName }}{% endif %}</span>
-                                <span class="tags">{{ item.tags|join(', ') }}</span>
-                            </div>
-                        </div>
-                    </a>
-                {% endfor %}
+          <div class="row">
+            <div class="col-md-9 search_results">
+              {% for item in items %}
+
+                <div class="search_result row">
+                  <a href="{{ path('app_default_trainerdetail', {'slug': item.user.slug }) }}" class="col col-md-3">
+                    <div class="avatar">
+                      <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}">
+                      <div class="trainer">
+                        <span>{% if item.user is not null %}{{ item.user.firstName }} {{ item.user.lastName }}{% endif %}</span>
+                        <span class="functie">{% if item.user is not null %}{{ item.user.typeTrainer }} {{ item.user.lastName }}{% endif %}</span>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="{{ path('app_default_trainingdetail', {'slug': item.slug }) }}" class="col">
+                    <div class="content">
+                      <h3 class="titel">{{ item.title }}</h3>
+                      <p class="properties">
+                        <span class="price">$ 723</span>
+                        <span class="timeframe">3 dagen</span>
+                        <span class="type">Individueel / groep</span>
+                      </p>
+                      <p>{{ item.description|length > 350 ? item.description|slice(0, 350) ~ '...' : item.description }}</p>
+                      <span class="tags">
+                        {% for item in item.tags %}
+                        <span> TAG HERE </span>
+                        {% endfor %}
+                      <!-- {{ item.tags|join(', ') }}</span> -->
+                    </div>
+                  </a>
+                </div>
+
+              {% endfor %}
+
             </div>
+            <div class="col-md-3 filters content">
+              <div class="row">
+                <h3>Sorteren op</h3>
+                <div class="sorteren">Relevantie <i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                <!--
+                  - Relevantie
+                  - Prijs oplopend
+                  - Prijs aflopend
+                -->
+              </div>
+              <div class="">
+                <h3>Filter</h3>
+                <b><label>Price range</label></b>
+
+                <p>  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> </p>
+                <label for="amount">Price range:</label>
+                <div id="slider-range"></div>
+
+                <b><label for="typetraining">Type training</label></b>
+                <div class="radiobuttons">
+                  <input type="checkbox" name="typetraining" id="Individueel" value="Individueel">
+                    <label for="Individueel">Individueel (amount)</label><br>
+                  <input type="checkbox" name="typetraining" id="Groep" value="Groep">
+                    <label for="Groep">Groep (amount)</label>
+                </div>
+
+                <b><label for="vog">Verklaring omtrend gedrag</label></b>
+                <div class="radiobuttons">
+                  <input type="checkbox" id="vog" name="vog" value="vog">
+                  <label for="vog">Overhandigbaar (amount)</label><br>
+                </div>
+
+                <label for="duur">Trainingsduur</label>
+                <input type="number" name="duration" class="duration_number" value="1" step="1" min="1" max="7">
+                <select class="duration" name="duration">
+                  <option value="dagen" selected>Dagen</option>
+                  <option value="dagen">Uren</option>
+                </select>
+                <!--
+                  - Aantal uur
+                  - Aantal dagdelen
+                  - Aantal dagen
+                -->
+
+              </div>
+            </div>
+          </div>
         </div>
     </div>
 {% endblock %}

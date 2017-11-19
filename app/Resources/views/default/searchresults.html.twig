@@ -1,11 +1,5 @@
 {% extends 'base.html.twig' %}
 {% block title %}zoekresultaten{% endblock %}
-{% block javascripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
-{% endblock %}
-{% block stylesheets %}<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">{% endblock %}
-
 
 {% block body %}
     <div id="wrapper" class="home">
@@ -17,8 +11,8 @@
               <div class="col-md-9 search_results">
                 {% for item in trainingItem %}
 
-                  <div class="search_result">
-                    <a href="{{ path('app_default_trainerdetail', {'slug': item.user.slug }) }}">
+                  <div class="search_result row">
+                    <a href="{{ path('app_default_trainerdetail', {'slug': item.user.slug }) }}" class="col col-md-3">
                       <div class="avatar">
                         <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}">
                         <div class="trainer">
@@ -27,7 +21,7 @@
                         </div>
                       </div>
                     </a>
-                    <a href="{{ path('app_default_trainingdetail', {'slug': item.slug }) }}">
+                    <a href="{{ path('app_default_trainingdetail', {'slug': item.slug }) }}" class="col">
                       <div class="content">
                         <h3 class="titel">{{ item.title }}</h3>
                         <p class="properties">
