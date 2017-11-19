@@ -82,6 +82,18 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/trainingen/{slug}/geboekt")
+     */
+    public function bookedTrainingAction(Request $request, $slug)
+    {
+        $repo = $this->getDoctrine()->getRepository('AppBundle:Training');
+
+        return $this->render('default/booked_training.html.twig', [
+            'item' => $repo->findOneBy(['slug' => $slug])
+        ]);
+    }
+
+    /**
      * @Route("/trainers/{slug}/bewerken")
      */
     public function editProfileAction(Request $request, $slug)
@@ -177,6 +189,7 @@ class DefaultController extends Controller
           'items' => $repo->findBy(['enabled' => true])
       ]);
     }
+
 
 
 
