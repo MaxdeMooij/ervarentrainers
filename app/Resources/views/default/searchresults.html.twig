@@ -11,7 +11,7 @@
               <div class="col-md-9 search_results">
                 {% for item in trainingItem %}
 
-                  <div class="search_result row">
+                  <div class="search_result row profile_picture">
                     <a href="{{ path('app_default_trainerdetail', {'slug': item.user.slug }) }}" class="col col-md-3">
                       <div class="avatar">
                         <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}">
@@ -55,10 +55,6 @@
                 <div class="">
                   <h3>Filter</h3>
                   <b><label>Price range</label></b>
-
-                  <p>  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"> </p>
-                  <label for="amount">Price range:</label>
-                  <div id="slider-range"></div>
 
                   <b><label for="typetraining">Type training</label></b>
                   <div class="radiobuttons">

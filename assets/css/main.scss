@@ -625,7 +625,7 @@ h4 {
 .search_result {
   // box-shadow: 0 0 30px rgba(0, 0, 0, 0.04);
   padding: 0;
-  margin: 10px 0px;
+  margin: 20px 0px;
   .avatar {
     width: 185px;
     position: relative;
@@ -644,6 +644,14 @@ h4 {
   .functie {
     font-size: 12px;
   }
+}
+
+.search_result:first-of-type {
+  margin-top: 0px;
+}
+
+.profile_picture a {
+  padding-left: 0px;
 }
 
 .search_results .trainer {
@@ -750,6 +758,10 @@ input[type="radio"] {
   h3, p {
     // transform: translateZ(20px);
   }
+}
+
+.filters input[type=checkbox] {
+  margin-top: 0px;
 }
 
 /* Trainer detail page */
