@@ -113,7 +113,7 @@ easy_admin:
                               male: !php/const:\AppBundle\Entity\User::GENDER_MALE
                               female: !php/const:\AppBundle\Entity\User::GENDER_FEMALE
                     - vog
-                    - verified
+                    - { property: 'verified', type: 'checkbox' }
                     - email
                     - phoneNumber
                     - street
