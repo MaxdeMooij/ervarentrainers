@@ -155,6 +155,7 @@ easy_admin:
                     entry_type: '\AppBundle\Form\TrainingPriceType'
                     allow_add: true
                     allow_delete: true
+                    by_reference: false
                 - property: 'user'
                   type: 'entity'
                   type_options:
