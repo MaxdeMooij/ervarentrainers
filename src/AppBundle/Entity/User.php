@@ -88,7 +88,7 @@ class User extends BaseUser
      * @ORM\Column(type="boolean")
      * @Algolia\Attribute()
      */
-    private $verified = '';
+    private $verified = false;
     /**
      * @ORM\Column(type="string", unique=true)
      * @Gedmo\Slug(fields={"firstName", "lastName"})

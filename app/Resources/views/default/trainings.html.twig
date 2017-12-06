@@ -25,6 +25,12 @@
                     <div class="content">
                       <h3 class="titel">{{ item.title }}</h3>
                       <p class="properties">
+                        {% for price in item.prices %}
+
+                          <span class="price">{{ price.price }}</span>
+                          <span class="type">{{ price.type }}</span>
+
+                        {% endfor %}
                         <span class="price">$ 723</span>
                         <span class="timeframe">3 dagen</span>
                         <span class="type">Individueel / groep</span>
