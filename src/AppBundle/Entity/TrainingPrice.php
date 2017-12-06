@@ -16,6 +16,7 @@ class TrainingPrice
 {
     /**
      * @ORM\Id()
+     * @ORM\JoinColumn(name="training_id", referencedColumnName="id")
      * @ORM\ManyToOne(targetEntity="Training", inversedBy="prices")
      */
     private $training;

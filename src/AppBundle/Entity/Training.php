@@ -201,6 +201,7 @@ class Training
     public function addPrice(\AppBundle\Entity\TrainingPrice $price)
     {
         $this->prices[] = $price;
+        $price->setTraining($this);
 
         return $this;
     }
@@ -213,6 +214,7 @@ class Training
     public function removePrice(\AppBundle\Entity\TrainingPrice $price)
     {
         $this->prices->removeElement($price);
+        $price->setTraining(null);
     }
 
     /**
