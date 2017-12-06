@@ -54,7 +54,7 @@ class Training
      */
     private $user;
     /**
-     * @ORM\OneToMany(targetEntity="TrainingPrice", mappedBy="training", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="TrainingPrice", mappedBy="training", indexBy="type", cascade={"persist"})
      * @Algolia\Attribute
      */
     private $prices;

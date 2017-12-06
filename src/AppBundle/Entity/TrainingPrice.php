@@ -84,11 +84,11 @@ class TrainingPrice
     /**
      * Set training
      *
-     * @param \AppBundle\Entity\Training $training
+     * @param \AppBundle\Entity\Training|null $training
      *
      * @return TrainingPrice
      */
-    public function setTraining(\AppBundle\Entity\Training $training)
+    public function setTraining($training)
     {
         $this->training = $training;
 
