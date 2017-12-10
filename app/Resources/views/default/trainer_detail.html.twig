@@ -64,15 +64,15 @@
 
                     <!-- Trainings of the trainer go here -->
                     <div class="row search_results">
-                      {% for item in trainingItem %}
-                      <a href="{{ path('app_default_trainingdetail', {'slug': item.slug }) }}">
+                      {% for training in item.trainings %}
+                      <a href="{{ path('app_default_trainingdetail', {'slug': training.slug }) }}">
                         <div class="search_result content">
-                          <!-- <img class="avatar" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_overview') }}"> -->
+                          <!-- <img class="avatar" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_overview') }}"> -->
                           <div class="content">
-                            <h3 class="titel">{{ item.title }}</h3>
-                            <p>{{ item.description|length > 150 ? item.description|slice(0, 150) ~ '...' : item.description }}</p>
-                            <!-- <span class="trainer">{% if item.user is not null %}{{ item.user.firstName }} {{ item.user.lastName }}{% endif %}</span> -->
-                            <span class="tags">{{ item.tags|join(', ') }}</span>
+                            <h3 class="titel">{{ training.title }}</h3>
+                            <p>{{ training.description|length > 150 ? training.description|slice(0, 150) ~ '...' : training.description }}</p>
+                            <!-- <span class="trainer">{% if training.user is not null %}{{ training.user.firstName }} {{ training.user.lastName }}{% endif %}</span> -->
+                            <span class="tags">{{ training.tags|join(', ') }}</span>
                           </div>
                         </div>
                       </a>

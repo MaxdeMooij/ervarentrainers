@@ -54,7 +54,7 @@ class Training
      */
     private $user;
     /**
-     * @ORM\OneToMany(targetEntity="TrainingPrice", mappedBy="training", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="TrainingPrice", mappedBy="training", indexBy="type", cascade={"persist"})
      * @Algolia\Attribute
      */
     private $prices;
@@ -201,6 +201,7 @@ class Training
     public function addPrice(\AppBundle\Entity\TrainingPrice $price)
     {
         $this->prices[] = $price;
+        $price->setTraining($this);
 
         return $this;
     }
@@ -213,6 +214,7 @@ class Training
     public function removePrice(\AppBundle\Entity\TrainingPrice $price)
     {
         $this->prices->removeElement($price);
+        $price->setTraining(null);
     }
 
     /**
