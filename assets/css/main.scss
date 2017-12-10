@@ -822,6 +822,8 @@ input[type="radio"] {
   }
   span {
     color: $darkGray;
+    font-size: 13px;
+    display: block;
     &.duration {
       font-style: italic;
       color: $darkGray;
