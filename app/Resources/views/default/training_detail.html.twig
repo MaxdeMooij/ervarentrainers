@@ -4,60 +4,53 @@
 
 
 {% block body %}
-    <div id="wrapper">
-        <div id="header" class="trainer-header">
-            <div class="cover"></div>
-            {#<div class="coverphoto" style="background-image: url('{{ asset('upload/image/'~item.coverPhoto) | imagine_filter('cover_full') }}')">#}
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col col-sm-4 trainerprofile">
+  <div id="wrapper">
+    <div class="container">
+      <div class="row">
+          <div class="col col-sm-3 trainerprofile">
 
-                        <img class="profile-photo" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_profile') }}">
-                        <div class="content">
-                          <h1>{{ item.user.firstName }} {{ item.user.lastName }}</h1>
-                          <h2>Communicatietrainer</h2>
+              <img class="profile-photo" src="{{ asset('upload/image/'~item.user.avatar) | imagine_filter('avatar_profile') }}">
+              <div class="content">
+                <h1>{{ item.user.firstName }} {{ item.user.lastName }}</h1>
+                <h2>Communicatietrainer</h2>
 
 
-                          <div class="block">
-                              <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Opleiding</h3>
-                              <span class="education">Human Information Design & Strategy</span>
-                              <span class="school">Aan Saxion Hogeschool Deventer</span>
-                              <span class="duration">augustus 2013 - juli 2017</span>
-                          </div>
-
-                          <div class="block">
-                              <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Opleiding</h3>
-                              <span class="education">Human Information Design & Strategy</span>
-                              <span class="school">Aan Saxion Hogeschool Deventer</span>
-                              <span class="duration">augustus 2013 - juli 2017</span>
-                          </div>
-                        </div>
-                    </div>
-                    <!-- <div class="general-info col-sm-7 col-sm-offset-1">
-                        <span class="experience">15 jaar ervaring</span>
-                    </div> -->
-                    <div class="col">
-
-                      <div class="row">
-                        <a href="{{ path('app_default_trainingdetail', {'slug': item.slug }) }}/boeken" class="btnfirst">Training boeken</a>
-                        <div class="trainer-about">
-                          <div class="content">
-                            <h3>Beschrijving</h3>
-                            <p>{{ item.description }}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="trainings">
-                        <div class="row">
-                            <!-- Trainings of the trainer go here -->
-
-                        </div>
-
-                    </div>
+                <div class="block">
+                    <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Opleiding</h3>
+                    <span class="education">Human Information Design & Strategy</span>
+                    <span class="school">Aan Saxion Hogeschool Deventer</span>
+                    <span class="duration">augustus 2013 - juli 2017</span>
                 </div>
+
+                <div class="block">
+                    <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Opleiding</h3>
+                    <span class="education">Human Information Design & Strategy</span>
+                    <span class="school">Aan Saxion Hogeschool Deventer</span>
+                    <span class="duration">augustus 2013 - juli 2017</span>
+                </div>
+              </div>
+          </div>
+          <!-- <div class="general-info col-sm-7 col-sm-offset-1">
+              <span class="experience">15 jaar ervaring</span>
+          </div> -->
+          <div class="col">
+
+            <div class="row">
+              <a href="{{ path('app_default_trainingdetail', {'slug': item.slug }) }}/boeken" class="btnfirst">Training boeken</a>
+              <div class="trainer-about">
+                <div class="content">
+                  <h3>Beschrijving</h3>
+                  <p>{{ item.description }}</p>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+          <div class="trainings">
+              <div class="row">
+                  <!-- Trainings of the trainer go here -->
+              </div>
+          </div>
+      </div>
     </div>
+  </div>
 {% endblock %}

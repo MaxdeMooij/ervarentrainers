@@ -8,38 +8,32 @@
 
         <div class="container">
             <div class="row">
-              <div class="col-md-9 search_results">
-                {% for training in trainingItem %}
+              <div class="col-md-9">
 
-                  <div class="search_result row profile_picture">
-                    <a href="{{ path('app_default_trainerdetail', {'slug': training.user.slug }) }}" class="col col-md-3">
-                      <div class="avatar">
-                        <img class="avatar" src="{{ asset('upload/image/'~training.user.avatar) | imagine_filter('avatar_overview') }}">
-                        <div class="trainer">
-                          <span>{% if training.user is not null %}{{ training.user.firstName }} {{ training.user.lastName }}{% endif %}</span>
-                          <span class="functie">{% if training.user is not null %}{{ training.user.typeTrainer }} {{ training.user.lastName }}{% endif %}</span>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="{{ path('app_default_trainingdetail', {'slug': training.slug }) }}" class="col">
+                <!-- Trainings of the trainer go here -->
+                <div class="row search_results">
+                  {% for training in item.trainings %}
+                  <a href="{{ path('app_default_trainingdetail', {'slug': training.slug }) }}">
+                    <div class="search_result content">
                       <div class="content">
                         <h3 class="titel">{{ training.title }}</h3>
                         <p class="properties">
-                          <span class="price">$ 723</span>
-                          <span class="timeframe">3 dagen</span>
-                          <span class="type">Individueel / groep</span>
-                        </p>
-                        <p>{{ training.description|length > 350 ? training.description|slice(0, 350) ~ '...' : training.description }}</p>
-                        <span class="tags">
-                          {% for training in training.tags %}
-                          <span> TAG HERE </span>
-                          {% endfor %}
-                        <!-- {{ training.tags|join(', ') }}</span> -->
-                      </div>
-                    </a>
-                  </div>
+                          {% for price in training.prices %}
 
-                {% endfor %}
+                            <span class="price">{{ price.price }}</span>
+                            <span class="type">{{ price.type }}</span>
+
+                          {% endfor %}
+                          <!-- <span class="timeframe">3 dagen</span> -->
+                        </p>
+                        <p>{{ training.description|length > 150 ? training.description|slice(0, 150) ~ '...' : training.description }}</p>
+                        <span class="tags">{{ training.tags|join(', ') }}</span>
+                      </div>
+                    </div>
+                  </a>
+                  {% endfor %}
+                </div>
+
 
               </div>
               <div class="col-md-3 filters content">

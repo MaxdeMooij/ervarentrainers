@@ -803,15 +803,16 @@ input[type="radio"] {
   position: relative;
   z-index: 2;
   box-sizing: border-box;
-  margin-top: -140px;
+  margin-top: 25px;
+  padding-left: 0px;
   h1 {
     color: $primaryYellow;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 900;
     margin: 0;
   }
   h2 {
-    font-size: 18px;
+    font-size: 14px;
     color: $darkGray;
     // margin-top: 10px;
   }

@@ -48,10 +48,15 @@ class DefaultController extends Controller
      */
     public function trainerdetailAction(Request $request, $slug)
     {
+        $TrainingRepo = $this->getDoctrine()->getRepository('AppBundle:Training');
         $repo = $this->getDoctrine()->getRepository('AppBundle:User');
+
 
         return $this->render('default/trainer_detail.html.twig', [
             'item' => $repo->findOneBy(['enabled' => true, 'slug' => $slug]),
+
+            'trainingItem' => $TrainingRepo->findBy([]),
+
         ]);
     }
 
@@ -122,6 +127,7 @@ class DefaultController extends Controller
         $TrainingRepo = $this->getDoctrine()->getRepository('AppBundle:Training');
         $UserRepo = $this->getDoctrine()->getRepository('AppBundle:User');
 
+
         return $this->render('default/searchresults.html.twig', [
             'trainingItem' => $TrainingRepo->findBy([]),
             'userItem' => $UserRepo->findBy([]),
@@ -150,6 +156,8 @@ class DefaultController extends Controller
         return $this->render('default/my_trainings.html.twig', [
             'trainingItem' => $TrainingRepo->findBy([]),
             'userItem' => $UserRepo->findBy([]),
+            'item' => $UserRepo->findOneBy(['enabled' => true]),
+
 
             // Haal alle users op uit de database en stop ze in een array / lijst
             'users' => $UserRepo->findAll(),

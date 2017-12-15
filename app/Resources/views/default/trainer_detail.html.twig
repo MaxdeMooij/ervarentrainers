@@ -17,13 +17,9 @@
 
 {% block body %}
     <div id="wrapper">
-        <div id="header" class="trainer-header">
-            <div class="cover"></div>
-            <div class="coverphoto" style="background-image: url('{{ asset('upload/image/'~item.coverPhoto) | imagine_filter('cover_full') }}')"></div>
-        </div>
         <div class="container">
             <div class="row">
-              <div class="col col-sm-4 trainerprofile">
+              <div class="col col-sm-3 trainerprofile">
 
                 <img class="profile-photo" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_profile') }}">
                 <div class="content">
@@ -49,8 +45,8 @@
               </div>
                 <!-- <div class="general-info col col-sm-7 col-sm-offset-1">
                     <span class="experience">{{ item.ervaring }} jaar ervaring</span>
-                    {% if app.user %}
-                        <a class="bewerken" href="{{ path('app_default_trainerdetail', {'slug': app.user.slug }) }}/bewerken">Profiel bewerken</a>
+                    {% if app %}
+                        <a class="bewerken" href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}/bewerken">Profiel bewerken</a>
                     {% endif %}
                 </div> -->
               <div class="col">
@@ -67,11 +63,18 @@
                       {% for training in item.trainings %}
                       <a href="{{ path('app_default_trainingdetail', {'slug': training.slug }) }}">
                         <div class="search_result content">
-                          <!-- <img class="avatar" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_overview') }}"> -->
                           <div class="content">
                             <h3 class="titel">{{ training.title }}</h3>
+                            <p class="properties">
+                              {% for price in training.prices %}
+
+                                <span class="price">{{ price.price }}</span>
+                                <span class="type">{{ price.type }}</span>
+
+                              {% endfor %}
+                              <!-- <span class="timeframe">3 dagen</span> -->
+                            </p>
                             <p>{{ training.description|length > 150 ? training.description|slice(0, 150) ~ '...' : training.description }}</p>
-                            <!-- <span class="trainer">{% if training.user is not null %}{{ training.user.firstName }} {{ training.user.lastName }}{% endif %}</span> -->
                             <span class="tags">{{ training.tags|join(', ') }}</span>
                           </div>
                         </div>

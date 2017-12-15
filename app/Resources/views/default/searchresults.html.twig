@@ -25,9 +25,13 @@
                       <div class="content">
                         <h3 class="titel">{{ item.title }}</h3>
                         <p class="properties">
-                          <span class="price">$ 723</span>
-                          <span class="timeframe">3 dagen</span>
-                          <span class="type">Individueel / groep</span>
+                          {% for price in item.prices %}
+
+                            <span class="price">{{ price.price }}</span>
+                            <span class="type">{{ price.type }}</span>
+
+                          {% endfor %}
+                          <!-- <span class="timeframe">3 dagen</span> -->
                         </p>
                         <p>{{ item.description|length > 350 ? item.description|slice(0, 350) ~ '...' : item.description }}</p>
                         <span class="tags">
