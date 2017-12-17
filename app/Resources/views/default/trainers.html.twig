@@ -6,12 +6,12 @@
 {% block body %}
     <div id="wrapper" class="home">
         <div id="header">
-                <h1>Trainers</h1>
+          <h1>Trainers</h1>
         </div>
         <div class="container">
             <div class="row">
                 {% for item in items %}
-                    <a href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}" class="col col-md-4">
+                    <a href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}" class="col col-md-3">
                         <div class="trainerblock"> <!-- Later data-tilt toevoegen -->
                             <img class="avatar" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_overview') }}">
                             <div class="content">
