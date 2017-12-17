@@ -2,235 +2,362 @@
 {% block title %}Profiel bewerken{% endblock %}
 
 {% block stylesheets %}<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />{% endblock %}
-{% block scripts %}<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>{% endblock %}
+{% block scripts %}<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script><script src="/jquery-temp.min.js"></script>{% endblock %}
 
 
 {% block body %}
+
+{% if app.user %}
+  {% if item.slug == app.user.slug %}
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $(".editprofile .content").append('<button type="button" name="button">Alles opslaan</button>');
+  });
+  </script>
     <div id="wrapper">
-        <div id="header" class="trainer-header">
-            {#<div class="cover"></div>#}
-            <div class="coverphoto" style="background-image: url('{{ asset('upload/image/'~item.coverPhoto) | imagine_filter('cover_full') }}')">
-            </div>
-            <div class="container">
-                <div class="row editprofile">
-                    <div class=" col col-sm-8">
-                        <form action="#" method="POST">
+      <div class="container">
+          <div class="row editprofile">
+              <div class=" col col-sm-8">
+                  <form action="#" method="POST">
 
-                            <div class="content">
-                                <h3>Jouw gegevens</h3>
+                      <div class="content" id="algemenegegevens">
+                          <h3>Jouw gegevens</h3>
 
-                                <label>Voornaam</label>
-                                <input type="text" value="{{item.firstName}}">
+                          <label>Voornaam</label>
+                          <input type="text" value="{{item.firstName}}">
 
-                                <label>Achternaam</label>
-                                <input type="text" value="{{item.lastName}}">
+                          <label>Achternaam</label>
+                          <input type="text" value="{{item.lastName}}">
 
-                                <label>E-mailadres</label>
-                                <input type="email" value="{{item.email}}">
+                          <label>E-mailadres</label>
+                          <input type="email" value="{{item.email}}">
 
-                                <label>Telefoonnummer</label>
-                                <input type="tel" value="{{item.phoneNumber}}">
+                          <label>Telefoonnummer</label>
+                          <input type="tel" value="{{item.phoneNumber}}">
 
-                                <label>Straatnaam</label>
-                                <input type="text" value="{{item.street}}">
+                          <label>Straatnaam</label>
+                          <input type="text" value="{{item.street}}">
 
-                                <label>Straatnummer (en toevoeging)</label>
-                                <input type="text" value="{{item.streetNumber}}">
+                          <label>Straatnummer (en toevoeging)</label>
+                          <input type="text" value="{{item.streetNumber}}">
 
-                                <label>Postcode</label>
-                                <input type="text" value="{{item.zipcode}}">
+                          <label>Postcode</label>
+                          <input type="text" value="{{item.zipcode}}">
 
-                                <label>Stad</label>
-                                <input type="text" value="{{item.city}}">
+                          <label>Stad</label>
+                          <input type="text" value="{{item.city}}">
 
-                                <label>Geboortedatum</label>
-                                <input type="date" value="{{item.geboorteDatum|date("d-m-Y")}}">
+                          <label>Geboortedatum</label>
+                          <input type="date" value="{{item.geboorteDatum|date("d-m-Y")}}">
 
-                                <label>Geslacht</label>
-                                <input type="checkbox" name="geslacht" value="Man"> Man<br>
-                                <input type="checkbox" name="geslacht" value="Vrouw"> Vrouw<br>
-                            </div>
+                          <label>Geslacht</label>
+                          <input type="checkbox" name="geslacht" value="Man"> Man<br>
+                          <input type="checkbox" name="geslacht" value="Vrouw"> Vrouw<br>
+                      </div>
 
-                            <div class="content">
-                                <h3>Over jou</h3>
+                      <div class="content" id="overjou">
+                          <h3>Over jou</h3>
 
-                                <label>Profielfoto</label>
-                                <input type="file" name="pic" accept="image/*">
+                          <label>Profielfoto</label>
+                          <input type="file" name="pic" accept="image/*">
 
-                                <label>Omslagfoto</label>
-                                <input type="file" name="pic" accept="image/*">
+                          <label>Omslagfoto</label>
+                          <input type="file" name="pic" accept="image/*">
 
-                                <label>Functie</label>
-                                <input type="text" value="{{item.typeTrainer}}">
+                          <label>Functie</label>
+                          <input type="text" value="{{item.typeTrainer}}">
 
-                                <label>Jouw motto</label>
-                                <input type="text" value="{{item.motto}}">
+                          <label>Jouw motto</label>
+                          <input type="text" value="{{item.motto}}">
 
-                                <label>Een omschrijving van jezelf</label>
-                                <textarea rows="10">{{item.description}}</textarea>
+                          <label>Een omschrijving van jezelf</label>
+                          <textarea rows="10">{{item.description}}</textarea>
 
-                                <label>Aantal jaar ervaring</label>
-                                <input type="number" value="{{item.ervaring}}">
+                          <label>Aantal jaar ervaring</label>
+                          <input type="number" value="{{item.ervaring}}">
 
-                                <!-- Multiple USP's are possible. Users can create their own USP's if they're not in the options -->
-                                <label for="select_usps">Wat zijn jouw USP's?</label>
-                                <p>Gebruik enter om nieuwe toe te voegen</p>
-                                <select name="select_usps" id="select_usps" class="js-example-tags" multiple="multiple">
-                                    <option value="dynamisch">Dynamisch</option>
-                                    <option value="Lessen op maat">Lessen op maat</option>
-                                    <option value="Een USP">Een USP</option>
+                          <!-- Multiple USP's are possible. Users can create their own USP's if they're not in the options -->
+                          <label for="select_usps">Wat zijn jouw USP's?</label>
+                          <p>Gebruik enter om nieuwe toe te voegen</p>
+                          <select name="select_usps" id="select_usps" class="js-example-tags" multiple="multiple">
+                              <option value="dynamisch">Dynamisch</option>
+                              <option value="Lessen op maat">Lessen op maat</option>
+                              <option value="Een USP">Een USP</option>
+                          </select>
+
+                          <label for="vog">Verklaring omtrend gedrag</label>
+                          <input type="checkbox" value="vog" name="vog"> Ja, ik kan een verklaring omtrend gedrag (VOG) aanleveren<br>
+                      </div>
+
+                      <div class="content" id="opleidingen">
+                        <h3>Opleidingen</h3>
+
+                        <div class="edit_education">
+                            <div class="added_education">
+                                <h4>Opleiding</h4>
+
+                                <div class="remove_education_wrapper"></div>
+
+                                <label>Naam van de instantie</label>
+                                <input type="text" value="">
+
+                                <label>Naam van het diploma</label>
+                                <input type="text" value="">
+
+                                <label>Startdatum</label>
+                                <select class="basic-select2">
+                                    <option value="januari">januari</option>
+                                    <option value="februari">februari</option>
+                                    <option value="maart">maart</option>
+                                    <option value="april">april</option>
+                                    <option value="april">mei</option>
+                                    <option value="april">juni</option>
+                                    <option value="april">juli</option>
+                                    <option value="april">augustus</option>
+                                    <option value="april">september</option>
+                                    <option value="april">oktober</option>
+                                    <option value="april">november</option>
+                                    <option value="april">december</option>
                                 </select>
+                                <input type="number" placeholder="jaar">
 
-                                <label for="vog">Verklaring omtrend gedrag</label>
-                                <input type="checkbox" value="vog" name="vog"> Ja, ik kan een verklaring omtrend gedrag (VOG) aanleveren<br>
+                                <label>Einddatum</label>
+                                <select class="basic-select2">
+                                    <option value="januari">januari</option>
+                                    <option value="februari">februari</option>
+                                    <option value="maart">maart</option>
+                                    <option value="april">april</option>
+                                    <option value="april">mei</option>
+                                    <option value="april">juni</option>
+                                    <option value="april">juli</option>
+                                    <option value="april">augustus</option>
+                                    <option value="april">september</option>
+                                    <option value="april">oktober</option>
+                                    <option value="april">november</option>
+                                    <option value="april">december</option>
+                                </select>
+                                <input type="number" placeholder="jaar">
                             </div>
 
-                            <div class="content">
-                                <h3>Opleidingen</h3>
+                            {#Empty for adding a new form#}
+                            <div class="make_new_education">
+                                <h4>Opleiding</h4>
 
-                                <div class="edit_education">
-                                    <div class="added_education">
-                                        <h4>Opleiding</h4>
+                                <div class="remove_education_wrapper"></div>
 
-                                        <div class="remove_education_wrapper"></div>
+                                <label>Naam van de instantie</label>
+                                <input type="text" value="">
 
-                                        <label>Naam van de instantie</label>
-                                        <input type="text" value="">
+                                <label>Naam van het diploma</label>
+                                <input type="text" value="">
 
-                                        <label>Naam van het diploma</label>
-                                        <input type="text" value="">
+                                <label>Startdatum</label>
+                                <select class="basic-select2">
+                                    <option value="januari">januari</option>
+                                    <option value="februari">februari</option>
+                                    <option value="maart">maart</option>
+                                    <option value="april">april</option>
+                                    <option value="april">mei</option>
+                                    <option value="april">juni</option>
+                                    <option value="april">juli</option>
+                                    <option value="april">augustus</option>
+                                    <option value="april">september</option>
+                                    <option value="april">oktober</option>
+                                    <option value="april">november</option>
+                                    <option value="april">december</option>
+                                </select>
+                                <input type="number" placeholder="jaar">
 
-                                        <label>Startdatum</label>
-                                        <select class="basic-select2">
-                                            <option value="januari">januari</option>
-                                            <option value="februari">februari</option>
-                                            <option value="maart">maart</option>
-                                            <option value="april">april</option>
-                                            <option value="april">mei</option>
-                                            <option value="april">juni</option>
-                                            <option value="april">juli</option>
-                                            <option value="april">augustus</option>
-                                            <option value="april">september</option>
-                                            <option value="april">oktober</option>
-                                            <option value="april">november</option>
-                                            <option value="april">december</option>
-                                        </select>
-                                        <input type="number" placeholder="jaar">
-
-                                        <label>Einddatum</label>
-                                        <select class="basic-select2">
-                                            <option value="januari">januari</option>
-                                            <option value="februari">februari</option>
-                                            <option value="maart">maart</option>
-                                            <option value="april">april</option>
-                                            <option value="april">mei</option>
-                                            <option value="april">juni</option>
-                                            <option value="april">juli</option>
-                                            <option value="april">augustus</option>
-                                            <option value="april">september</option>
-                                            <option value="april">oktober</option>
-                                            <option value="april">november</option>
-                                            <option value="april">december</option>
-                                        </select>
-                                        <input type="number" placeholder="jaar">
-                                    </div>
-
-                                    {#Empty for adding a new form#}
-                                    <div class="make_new_education">
-                                        <h4>Opleiding</h4>
-
-                                        <div class="remove_education_wrapper"></div>
-
-                                        <label>Naam van de instantie</label>
-                                        <input type="text" value="">
-
-                                        <label>Naam van het diploma</label>
-                                        <input type="text" value="">
-
-                                        <label>Startdatum</label>
-                                        <select class="basic-select2">
-                                            <option value="januari">januari</option>
-                                            <option value="februari">februari</option>
-                                            <option value="maart">maart</option>
-                                            <option value="april">april</option>
-                                            <option value="april">mei</option>
-                                            <option value="april">juni</option>
-                                            <option value="april">juli</option>
-                                            <option value="april">augustus</option>
-                                            <option value="april">september</option>
-                                            <option value="april">oktober</option>
-                                            <option value="april">november</option>
-                                            <option value="april">december</option>
-                                        </select>
-                                        <input type="number" placeholder="jaar">
-
-                                        <label>Einddatum</label>
-                                        <select class="basic-select2">
-                                            <option value="januari">januari</option>
-                                            <option value="februari">februari</option>
-                                            <option value="maart">maart</option>
-                                            <option value="april">april</option>
-                                            <option value="april">mei</option>
-                                            <option value="april">juni</option>
-                                            <option value="april">juli</option>
-                                            <option value="april">augustus</option>
-                                            <option value="april">september</option>
-                                            <option value="april">oktober</option>
-                                            <option value="april">november</option>
-                                            <option value="april">december</option>
-                                        </select>
-                                        <input type="number" placeholder="jaar">
-                                    </div>
-
-
-                                    <span class="btn add_education">Een opleiding toevoegen</span>
-
-                                </div>
-                                {#<div class="new_education"></div>#}
-
+                                <label>Einddatum</label>
+                                <select class="basic-select2">
+                                    <option value="januari">januari</option>
+                                    <option value="februari">februari</option>
+                                    <option value="maart">maart</option>
+                                    <option value="april">april</option>
+                                    <option value="april">mei</option>
+                                    <option value="april">juni</option>
+                                    <option value="april">juli</option>
+                                    <option value="april">augustus</option>
+                                    <option value="april">september</option>
+                                    <option value="april">oktober</option>
+                                    <option value="april">november</option>
+                                    <option value="april">december</option>
+                                </select>
+                                <input type="number" placeholder="jaar">
                             </div>
 
-                            <div class="content">
-                                <h3>Wachtwoord veranderen</h3>
+                            <span class="btn add_education">Een opleiding toevoegen</span>
 
-                                <label>Oude wachtwoord</label>
-                                <input type="password">
+                          </div>
+                      </div>
 
-                                <label>Nieuwe wachtwoord</label>
-                                <input type="password">
-                            </div>
+                      <div class="content" id="wachtwoordveranderen">
+                          <h3>Wachtwoord veranderen</h3>
 
-                            <div class="content">
-                                <h3>Account</h3>
+                          <label>Oude wachtwoord</label>
+                          <input type="password">
 
-                                <label>Je account tijdelijk pauzeren</label>
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
+                          <label>Nieuwe wachtwoord</label>
+                          <input type="password">
+                      </div>
 
-                                <label>Je account definitief verwijderen</label>
-                                <button>Verwijder mijn account</button>
-                            </div>
-                        </div>
-                        {#<div class="col col-sm-3 col-sm-offset-1 sidemenu">#}
+                      <div class="content" id="account">
+                          <h3>Account</h3>
 
-                            {#<ul>#}
-                                {#<li><a href="">Algemene gegevens</a></li>#}
-                                {#<hr>#}
-                                {#<li><a href="">Over jou</a></li>#}
-                                {#<hr>#}
-                                {#<li><a href="">Wachtwoord herstellen</a></li>#}
-                                {#<hr>#}
-                                {#<li><a href="">Meldingen</a></li>#}
-                            {#</ul>#}
-                        {#</div>#}
-                    </form>
-                </div>
-            </div>
-        </div>
+                          <label>Je account tijdelijk pauzeren</label>
+                          <label class="switch">
+                              <input type="checkbox">
+                              <span class="slider round"></span>
+                          </label>
+
+                          <label>Je account definitief verwijderen</label>
+                          <button>Verwijder mijn account</button>
+                      </div>
+                  </div>
+
+                  <div class="col col-sm-offset-1 sidemenu">
+                    <script type="text/javascript">
+
+                      $(document).ready(function(){
+
+                        // Define the progress
+                        progresscounter = 0;
+
+                        // Define the amount of steps to complete
+                        amount = 8;
+                        count = 100/amount;
+
+                        //
+                        // Check for each step if the data has been filled in.
+                        // If no, show the step.
+                        // If yes, don't show and add a number to the progress bar.
+                        //
+                        {% if item.avatar %}
+                          progresscounter = progresscounter + count;
+                          console.log("Avatar - check");
+                          {% else %}
+                            console.log("LEEG - Avatar");
+                            $(".completionsteps").append('<div class="step"><span></span> Stel een profielfoto in</div>');
+                        {% endif %}
+
+                        {% if item.ervaring %}
+                          progresscounter = progresscounter + count;
+                          console.log("Ervaring - check");
+                          {% else %}
+                            console.log("LEEG - Ervaring");
+                            $(".completionsteps").append('<div class="step"><span></span> Hoeveel jaar ervaring heb je?</div>');
+                        {% endif %}
+
+                        {% if item.typeTrainer %}
+                          progresscounter = progresscounter + count;
+                          console.log("Functie - check");
+                          {% else %}
+                            console.log("LEEG - Functie");
+                            $(".completionsteps").append('<div class="step"><span></span> Wat voor soort trainer ben je?</div>');
+                        {% endif %}
+
+                        {% if item.motto %}
+                          progresscounter = progresscounter + count;
+                          console.log("Motto - check");
+                          {% else %}
+                            console.log("LEEG - Motto");
+                            $(".completionsteps").append('<div class="step"><span></span> Wat is je motto?</div>');
+                        {% endif %}
+
+                        {% if item.vog %}
+                          progresscounter = progresscounter + count;
+                          console.log("VOG - check");
+                          {% else %}
+                            console.log("LEEG - VOG");
+                            $(".completionsteps").append('<div class="step"><span></span> Kun je een VOG aanleveren?</div>');
+                        {% endif %}
+
+                        {% if item.description %}
+                          progresscounter = progresscounter + count;
+                          console.log("Omschrijving - check");
+                          {% else %}
+                            console.log("LEEG - Omschrijving");
+                            $(".completionsteps").append('<div class="step"><span></span> Schrijf een korte samenvatting over jezelf</div>');
+                        {% endif %}
+
+                        {% if item.education %}
+                          progresscounter = progresscounter + count;
+                          console.log("Opleiding - check");
+                          {% else %}
+                            console.log("LEEG - Opleiding");
+                            $(".completionsteps").append('<div class="step"><span></span> Voeg je afgeronde opleidingen toe</div>');
+                        {% endif %}
+
+                        {% if item.usps %}
+                          progresscounter = progresscounter + count;
+                          console.log("USP's - check");
+                          {% else %}
+                            console.log("LEEG - USP's");
+                            $(".completionsteps").append('<div class="step"><span></span> Wat zijn je unique selling points?</div>');
+                        {% endif %}
+
+                        // Show the progress bar
+                        $(".profile_progressbar span").width(progresscounter+'%');
+
+                        // If the profile progress isn't complete, show the processbar with steps
+                        if ($(".profile_progressbar span").width() < count*8) {
+                          $(".profile_progress").fadeIn();
+
+                          // Set the first step as 1
+                          var current = 1;
+                          // Define the amount of the progress bar when the last step is reached
+                          var lastprogresscount = 100-count;
+
+                          // If the last step is reached, change the wording, else, count the steps
+                          if (progresscounter >= 100-count) {
+                            $(".completionsteps span").append("Laatste stap");
+                          } else {
+                            $(".completionsteps span").append("Stap ");
+
+                            $(".completionsteps .step").each(function(){
+                              $(this).find("span").append(current);
+                              current++;
+                            });
+                          };
+
+                          // Change the title bases on the amount of steps
+                          if (current-1 < 2) {
+                            $(".profile_progress h2").append(". <span>De laatste stap!</span>")
+                          } else {
+                            $(".profile_progress h2").append(". <span>Nog "+(current-1)+" stappen te gaan.</span>")
+                          };
+                        };
+                      });
+                    </script>
+
+                    <div class="profile_progress row">
+                      <h2>Maak je profiel compleet</h2>
+                      <div class="profile_progressbar"><span></span></div>
+
+                      <div class="completionsteps"></div>
+                    </div>
+                    <div class="row">
+                      <h2>Categorieen</h2>
+                      <ul>
+                        <li><a href="#algemenegegevens">Jouw gegevens</a></li>
+                        <hr>
+                        <li><a href="#overjou">Over jou</a></li>
+                        <hr>
+                        <li><a href="#opleidingen">Opleidingen</a></li>
+                        <hr>
+                        <li><a href="#wachtwoordveranderen">Wachtwoord veranderen</a></li>
+                        <hr>
+                        <li><a href="#account">Account</a></li>
+                      </ul>
+                    </div>
+                  </div>
+              </form>
+          </div>
+      </div>
     </div>
-
+  {% endif %}
+{% endif %}
     <script type="text/javascript">
 
 

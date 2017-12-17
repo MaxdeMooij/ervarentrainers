@@ -211,6 +211,7 @@ label {
 
 .navwrapper {
   width: 100%;
+  margin-bottom: 25px;
   background-color: $white;
   border-bottom: solid 1px $blueGray;
 }
@@ -803,7 +804,6 @@ input[type="radio"] {
   position: relative;
   z-index: 2;
   box-sizing: border-box;
-  margin-top: 25px;
   padding-left: 0px;
 
   .avatar_placeholder {
@@ -864,11 +864,7 @@ input[type="radio"] {
 }
 
 .profile_progress {
-  margin-top: 25px;
   display: none;
-}
-
-.profile_progress {
   h2 span {
     color: $primaryYellow;
   }
@@ -901,10 +897,8 @@ input[type="radio"] {
 .general-info {
   position: relative;
   z-index: 2;
+  margin-top: 20px;
   .experience {
-    position: absolute;
-    top: -80px;
-    left: 0;
     background-color: $primaryYellow;
     padding: 10px 16px;
     color: $white;
@@ -938,21 +932,28 @@ input[type="radio"] {
 /* Edit profile */
 
 .editprofile {
-  margin-top: -140px;
+  .content {
+    margin: 25px 0px;
+  }
+  .content:first-of-type {
+    margin: 0px;
+  }
+  button {
+    margin-top: 25px;
+    background-color: $primaryYellow;
+    padding: 10px 20px;
+    color: $white;
+    border: none;
+  }
   ul {
     padding: 0px;
+    width: 100%;
     margin-bottom: 0px;
     li {
       list-style: none;
-      &:first-of-type a {
-        padding-top: 40px;
-      }
-      &:last-of-type a {
-        padding-bottom: 40px;
-      }
       a {
-        color: $lightGray;
-        padding: 20px 40px;
+        color: $darkGray;
+        padding: 20px;
         display: block;
         font-size: 16px;
         &:hover {

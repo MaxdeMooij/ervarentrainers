@@ -48,12 +48,7 @@
                 </div>
 
               </div>
-                <!-- <div class="general-info col col-sm-7 col-sm-offset-1">
-                    <span class="experience">{{ item.ervaring }} jaar ervaring</span>
-                    {% if app %}
-                        <a class="bewerken" href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}/bewerken">Profiel bewerken</a>
-                    {% endif %}
-                </div> -->
+
               <div class="col">
                 {% if app.user %}
                   {% if item.slug == app.user.slug %}
@@ -180,10 +175,26 @@
                     </div>
                   {% endif %}
                 {% endif %}
+
+                <div class="general-info row">
+                    {% if item.ervaring %}
+                      <span class="experience">{{ item.ervaring }} jaar ervaring</span>
+                    {% endif %}
+                    {% if app %}
+                        <a class="bewerken" href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}/bewerken">Profiel bewerken</a>
+                    {% endif %}
+                </div>
+
                 <div class="trainer-about row">
                   <div class="content">
                       <h3>Over mij</h3>
-                      <p>{{ item.description }}</p>
+                      <p>
+                      {% if item.description %}
+                        {{ item.description }}
+                        {% else %}
+                        <p>Je hebt nog geen beschrijving van jezelf ingevuld.</p>
+                      {% endif %}
+                      </p>
                   </div>
                   <div class="trainings row">
 
