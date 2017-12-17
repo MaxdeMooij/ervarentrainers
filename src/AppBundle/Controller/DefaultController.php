@@ -51,12 +51,9 @@ class DefaultController extends Controller
         $TrainingRepo = $this->getDoctrine()->getRepository('AppBundle:Training');
         $repo = $this->getDoctrine()->getRepository('AppBundle:User');
 
-
         return $this->render('default/trainer_detail.html.twig', [
             'item' => $repo->findOneBy(['enabled' => true, 'slug' => $slug]),
-
             'trainingItem' => $TrainingRepo->findBy([]),
-
         ]);
     }
 
