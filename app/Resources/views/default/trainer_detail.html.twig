@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block scripts %}<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>{% endblock %}
+{% block scripts %}<script src="/jquery-temp.min.js"></script>{% endblock %}
 
 {% set final_avatar %}{% if item.avatar %}{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_profile') }}{% else %}/media/test_logo.png{% endif %}{% endset %}
 
@@ -166,7 +166,7 @@
                           if (current-1 < 2) {
                             $(".profile_progress h2").append(". <span>De laatste stap!</span>")
                           } else {
-                            $(".profile_progress h2").append(". <span>Nog "+(current-1)+" stappen te gaan</span>")
+                            $(".profile_progress h2").append(". <span>Nog "+(current-1)+" stappen te gaan.</span>")
                           };
                         };
                       });
