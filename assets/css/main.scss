@@ -805,6 +805,17 @@ input[type="radio"] {
   box-sizing: border-box;
   margin-top: 25px;
   padding-left: 0px;
+
+  .avatar_placeholder {
+    text-align: center;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #fff;
+    background-color: $lightPurple;
+  }
   h1 {
     color: $primaryYellow;
     font-size: 20px;
@@ -850,6 +861,44 @@ input[type="radio"] {
 
 .trainerprofile i {
   margin-right: 10px;
+}
+
+.profile_progress {
+  margin-top: 25px;
+  display: none;
+}
+
+.profile_progress {
+  h2 span {
+    color: $lightYellow;
+  }
+  .step {
+    padding: 20px;
+    background-color: $white;
+    margin-top: 10px;
+    span {
+      background-color: $lightYellow;
+      padding: 5px 10px;
+      margin-right: 10px;
+      color: $white;
+    }
+  }
+}
+
+.profile_progressbar {
+  height: 25px;
+  width: 100%;
+  background-color: $white;
+  span {
+    height: 100%;
+    display: block;
+    width: 0%;
+    transition: all .2s ease-in-out;
+  }
+}
+
+.profile_progressbar span {
+  background-color: $lightYellow;
 }
 
 .general-info {
