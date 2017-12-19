@@ -152,7 +152,6 @@ class DefaultController extends Controller
 
         return $this->render('default/my_trainings.html.twig', [
             'trainingItem' => $TrainingRepo->findBy([]),
-            'userItem' => $UserRepo->findBy([]),
             'item' => $UserRepo->findOneBy(['enabled' => true]),
 
 

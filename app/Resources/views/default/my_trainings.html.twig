@@ -12,7 +12,7 @@
 
                 <!-- Trainings of the trainer go here -->
                 <div class="row search_results">
-                  {% for training in item.trainings %}
+                  {% for training in app.user.trainings %}
                   <a href="{{ path('app_default_trainingdetail', {'slug': training.slug }) }}">
                     <div class="search_result content">
                       <div class="content">
