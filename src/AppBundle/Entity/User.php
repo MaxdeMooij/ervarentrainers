@@ -152,7 +152,7 @@ class User extends BaseUser
      */
     private $trainings;
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Education", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Education", mappedBy="user", cascade={"persist"})
      */
     private $education;
 
