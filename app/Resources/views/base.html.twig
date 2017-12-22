@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}"/>
+
     <!-- SEO -->
     <title>
       {% block title %}{% endblock %} | Ervaren Trainers</title>
