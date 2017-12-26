@@ -15,17 +15,17 @@
   -webkit-text-fill-color: transparent;
 }
 
-$primaryBlue: blue;
-$darkBlue: #0056b3;
-$lightBlue: #85BAFF;
+// $primaryBlue: blue;
+// $darkBlue: #0056b3;
+// $lightBlue: #85BAFF;
 
 @mixin gradientYellow {
   background: -webkit-linear-gradient(#ffa785, #ffce85);
 }
 
-$primaryYellow: #ffa621;
-$darkYellow: #ffa785;
-$lightYellow: #ffce85;
+// $primary_Yellow: #ffa621;
+// $darkYellow: #ffa785;
+// $lightYellow: #ffce85;
 
 @mixin gradientPurple {
   background: -webkit-linear-gradient(#c221ff, #9d85ff);
@@ -33,24 +33,122 @@ $lightYellow: #ffce85;
   -webkit-text-fill-color: transparent;
 }
 
-$primaryPurple: #c221ff;
-$darkPurple: #c221ff;
-$lightPurple: #9d85ff;
+// $primaryPurple: #c221ff;
+// $darkPurple: #c221ff;
+// $lightPurple: #9d85ff;
 
-$darkGray: #696969;
-$lightGray: #f1f4fd;
-$white: #fff;
+// $darkGray: #696969;
+// $darkGray: #8097ae;
+// $light_Gray: #f1f4fd;
+// $white: #fff;
 
-$blueGray: #d6dcf1;
-$lightGrayBlue: #f1f4fd;
+// $blueGray: #d6dcf1;
+// $light_GrayBlue: #f1f4fd;
 
 
-body {
-  background-color: $lightGray;
+
+
+
+
+// New palette
+$white: #FFFFFF;
+
+$lighter_Gray: #f1f4fd;
+$light_Gray: #d6dcf1;
+$primary_Gray: #8097ae;
+$dark_Gray: #627582;
+$darker_Gray: #3a4347;
+
+$lighter_Air: #D3EBF1;
+$light_Air: #9AD0DE;
+$primary_Air: #62B6CB;
+$dark_Air: #478595;
+$darker_Air: #2D535D;
+
+$lighter_Blue: #a1aaff;
+$light_Blue: #6e80ed;
+$primary_Blue: #5058ed;
+$dark_Blue: #3642ad;
+$darker_Blue: #212759;
+
+$lighter_Yellow: #FFF0C3;
+$light_Yellow: #FFE188;
+$primary_Yellow: #FFC826;
+$dark_Yellow: #DD9E21;
+$darker_Yellow: #8E6415;
+
+$lighter_Red: #F9B7BB;
+$light_Red: #F15D66;
+$primary_Red: #F03A47;
+$dark_red: #99252C;
+$darker_red: #58161A;
+
+
+
+
+
+
+
+
+/* Type system */
+
+h1, h2, h3 {
+  font-family: 'Roboto Slab', serif;
+  margin-top: 0px;
+}
+
+p, nav a {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  color: $primary_Blue;
+  font-size: 33px;
+  margin: 0;
+  // @include gradientPurple();
+}
+
+h2 {
+  font-size: 20px;
+  color: $primary_Blue;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 16px;
+  color: $dark_Gray;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: $dark_Gray;
+  margin-top: 20px;
 }
 
 p, label {
-  color: $darkGray;
+  color: $darker_Gray;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+a {
+  color: $primary_Blue;
+}
+
+a:hover {
+  color: $light_Blue;
+}
+
+
+
+
+
+
+
+
+body {
+  background-color: $lighter_Gray;
 }
 
 #header {
@@ -79,9 +177,9 @@ form .col:last-of-type {
 
 .btnfirst {
   padding: 10px 20px !important;
-  color: $primaryYellow;
-  border: 1px solid $primaryYellow;
-  background-color: $primaryYellow;
+  color: $primary_Yellow;
+  border: 1px solid $primary_Yellow;
+  background-color: $primary_Yellow;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
@@ -91,13 +189,13 @@ form .col:last-of-type {
 
 .btnfirst:hover {
   cursor: pointer;
-  background-color: $lightYellow
+  background-color: $light_Yellow;
 }
 
 .btnsecond {
   padding: 10px 20px !important;
-  color: $lightBlue;
-  border: 1px solid $lightBlue;
+  color: $primary_Blue;
+  border: 1px solid $primary_Air;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
@@ -145,13 +243,13 @@ form .col:last-of-type {
 input, textarea {
   padding: 5px 10px;
   width: 100%;
-  border: 1px solid $darkGray;
+  border: 1px solid $dark_Gray;
 }
 
 input:focus, textarea:focus {
   outline: none;
-  border: 1px solid $primaryYellow;
-  color: $primaryYellow;
+  border: 1px solid $primary_Yellow;
+  color: $primary_Yellow;
 }
 
 textarea {
@@ -204,16 +302,16 @@ label {
   display: block;
   margin-top: 10px;
   padding: 10px;
-  color: $darkGray;
+  color: $primary_Red;
 }
 
 /* Navigation */
 
 .navwrapper {
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
   background-color: $white;
-  border-bottom: solid 1px $blueGray;
+  border-bottom: solid 1px $light_Gray;
 }
 
 nav {
@@ -267,7 +365,7 @@ nav {
     align-items: center;
   }
   a {
-    color: $darkGray;
+    color: $dark_Gray;
     font-size: 14px;
     padding: 30px 15px;
     text-decoration: none;
@@ -303,7 +401,7 @@ nav .search {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border: 2px solid $lightGray;
+  border: 2px solid $light_Gray;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
@@ -318,10 +416,7 @@ nav .search {
 
 nav .dropdown-menu i {
   margin-right: 10px;
-  background: $primaryPurple;
-  background: -webkit-linear-gradient(#darkPurple, $lightPurple);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: $primary_Blue;
 }
 
 .user-menu {
@@ -332,10 +427,10 @@ nav .dropdown-menu i {
     height: 45px;
     width: 45px;
     display: inline-block;
-    border-radius: 3px;
+    border-radius: 0px;
   }
   .avatar_placeholder {
-    background-color: $primaryYellow;
+    background-color: $primary_Yellow;
     color: $white;
     text-align: center;
     padding: 13px;
@@ -364,7 +459,7 @@ nav .dropdown-menu i {
   box-shadow: none;
   border: none;
   min-width: 200px;
-  border-bottom: solid 5px $blueGray;
+  border-bottom: solid 5px $light_Gray;
   transform-style: preserve-3d;
   &:before {
     content: '';
@@ -441,7 +536,7 @@ nav .dropdown-menu i {
 }
 
 .home #header {
-  background-color: $lightGrayBlue;
+  background-color: $lighter_Gray;
   width: 100%;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -486,7 +581,7 @@ nav .dropdown-menu i {
     max-width: 80%;
     box-shadow: 0 14px 43px rgba(0, 0, 0, 0.06);
     font-size: 16px;
-    color: $darkGray;
+    color: $dark_Gray;
     padding: 15px 20px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -498,11 +593,11 @@ nav .dropdown-menu i {
   }
   .search-button {
     color: $white;
-    background: $primaryYellow;
-    background: -webkit-linear-gradient($darkYellow, $lightYellow);
-    background: -o-linear-gradient($darkYellow, $lightYellow);
-    background: -moz-linear-gradient($darkYellow, $lightYellow);
-    background: linear-gradient($darkYellow, $lightYellow);
+    background: $primary_Yellow;
+    background: -webkit-linear-gradient($primary_Yellow, $light_Yellow);
+    background: -o-linear-gradient($primary_Yellow, $light_Yellow);
+    background: -moz-linear-gradient($primary_Yellow, $light_Yellow);
+    background: linear-gradient($primary_Yellow, $light_Yellow);
     width: 130px;
     font-size: 16px;
     font-weight: 200;
@@ -573,45 +668,6 @@ nav .dropdown-menu i {
   border-radius: 3px;
 }
 
-/* Fonts */
-
-h1, h2, h3 {
-  font-family: 'Roboto Slab', serif;
-}
-
-p, nav a {
-  font-family: 'Roboto', sans-serif;
-}
-
-/* Title styles */
-
-h1, h2, h3 {
-  margin-top: 0px;
-}
-
-h1 {
-  color: $primaryPurple;
-  font-size: 33px;
-  margin: 0;
-  @include gradientPurple();
-}
-
-h2 {
-  font-size: 18px;
-  color: $darkGray;
-}
-
-h3 {
-  font-size: 18px;
-  color: $lightPurple;
-}
-
-h4 {
-  font-size: 16px;
-  font-weight: bold;
-  color: $darkGray;
-  margin-top: 20px;
-}
 
 /* Search results */
 
@@ -671,10 +727,11 @@ h4 {
 }
 
 .tags span {
-  background-color: $blueGray;
+  background-color: $light_Gray;
   padding: 5px 10px;
   margin: 0px 5px;
-  color: $darkGray;
+  color: $dark_Gray;
+  font-size: 12px;
   &:first-of-type {
     margin-left: 0px;
   }
@@ -698,7 +755,7 @@ input[type="radio"] {
 }
 
 .price {
-  // background: $primaryYellow;
+  // background: $primary_Yellow;
   color: $white;
   @include gradientYellow;
 }
@@ -714,7 +771,7 @@ input[type="radio"] {
   }
 }
 .timeframe, .type {
-  background-color: $lightBlue;
+  background-color: $light_Blue;
 }
 
 .duration_number {
@@ -767,6 +824,14 @@ input[type="radio"] {
 
 /* Trainer detail page */
 
+.bewerken {
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid $primary_Gray;
+  color: $primary_Gray;
+}
+
 .trainer-header {
   height: 300px;
   width: 100%;
@@ -814,31 +879,25 @@ input[type="radio"] {
     justify-content: center;
     font-size: 40px;
     color: #fff;
-    background-color: $lightPurple;
+    background-color: $primary_Yellow;
   }
   h1 {
-    color: $primaryYellow;
     font-size: 20px;
     font-weight: 900;
     margin: 0;
   }
   h2 {
     font-size: 14px;
-    color: $darkGray;
+    color: $dark_Gray;
     // margin-top: 10px;
   }
-  h3 {
-    font-size: 16px;
-    font-weight: normal;
-    color: $primaryYellow;
-  }
   span {
-    color: $darkGray;
+    color: $dark_Gray;
     font-size: 13px;
     display: block;
     &.duration {
       font-style: italic;
-      color: $darkGray;
+      color: $dark_Gray;
     }
   }
   .block:before {
@@ -847,7 +906,7 @@ input[type="radio"] {
     position: relative;
     height: 2px;
     width: 100%;
-    background-color: $lightGray;
+    background-color: $light_Gray;
     margin-bottom: 18px;
   }
   .content {
@@ -866,14 +925,14 @@ input[type="radio"] {
 .profile_progress {
   display: none;
   h2 span {
-    color: $primaryYellow;
+    color: $dark_Gray;
   }
   .step {
     padding: 20px;
     background-color: $white;
-    margin-top: 10px;
+    color: $dark_Gray;
     span {
-      background-color: $lightYellow;
+      background-color: $lighter_Blue;
       padding: 5px 10px;
       margin-right: 10px;
       color: $white;
@@ -882,33 +941,20 @@ input[type="radio"] {
 }
 
 .profile_progressbar {
-  height: 25px;
+  height: 5px;
   width: 100%;
-  background-color: $white;
+  background-color: $light_Gray;
   span {
     height: 100%;
     display: block;
     width: 0%;
     transition: all .2s ease-in-out;
-    background-color: $primaryYellow;
-  }
-}
-
-.general-info {
-  position: relative;
-  z-index: 2;
-  margin-top: 20px;
-  .experience {
-    background-color: $primaryYellow;
-    padding: 10px 16px;
-    color: $white;
-    font-size: 16px;
-    border-radius: 100px;
+    background-color: $light_Blue;
   }
 }
 
 .trainer-about {
-  margin-top: 40px;
+  // margin-top: 40px;
   // &:before {
   //   content: '';
   //   display: block;
@@ -921,10 +967,27 @@ input[type="radio"] {
   //   border-bottom: 30px solid transparent;
   //   border-right: 30px solid white;
   // }
-  p {
-    font-size: 16px;
-    line-height: 1.5em;
+}
+
+.trainings {
+  margin-top: 100px;
+  h2 {
+    color: $white;
   }
+}
+
+
+.trainings_bg {
+  background-color: $light_Blue;
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+}
+
+.trainings_bg_skew {
+  transform: skewY(3deg);
+  background-color: $primary_Blue;
+  z-index: -1;
 }
 
 /* Register */
@@ -940,7 +1003,7 @@ input[type="radio"] {
   }
   button {
     margin-top: 25px;
-    background-color: $primaryYellow;
+    background-color: $primary_Yellow;
     padding: 10px 20px;
     color: $white;
     border: none;
@@ -952,13 +1015,13 @@ input[type="radio"] {
     li {
       list-style: none;
       a {
-        color: $darkGray;
+        color: $primary_Gray;
         padding: 20px;
         display: block;
         font-size: 16px;
         &:hover {
           text-decoration: none;
-          color: $primaryYellow;
+          color: $primary_Yellow;
         }
       }
     }
@@ -966,7 +1029,7 @@ input[type="radio"] {
 }
 
 .added_education {
-  border: 2px solid $darkGray;
+  border: 2px solid $primary_Gray;
   padding: 40px;
 }
 
@@ -993,7 +1056,7 @@ input[type="radio"] {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $lightGray;
+  background-color: $light_Gray;
   -webkit-transition: .4s;
   transition: .4s;
   &:before {
@@ -1011,10 +1074,10 @@ input[type="radio"] {
 
 input {
   &:checked + .slider {
-    background-color: $lightBlue;
+    background-color: $light_Blue;
   }
   &:focus + .slider {
-    box-shadow: 0 0 1px $lightBlue;
+    box-shadow: 0 0 1px $light_Blue;
   }
   &:checked + .slider:before {
     -webkit-transform: translateX(26px);
@@ -1027,7 +1090,7 @@ input {
 
 /* Order ontvangen */
 .ordernummer {
-  background: -webkit-linear-gradient(#c221ff, #9d85ff);
+  background: primary_Yellow;
   color: $white !important;
   padding: 5px 10px;
   border-radius: 3px;
@@ -1048,11 +1111,16 @@ input {
 
 /* Footer */
 footer {
-  // margin-top: 40px;
+  margin-top: 40px;
   padding: 40px 0px;
+  background-color: $primary_Blue;
+  h3 {
+    color: $light_Gray;
+  }
   a {
     font-size: 12px;
     display: block;
+    color: $lighter_Blue;
   }
 }
 
@@ -1072,7 +1140,7 @@ footer {
 }
 
 .ais-highlight em {
-  background-color: $lightBlue;
+  background-color: $light_Blue;
   /* change this or remove if you dont want search-term highlight styling */
 }
 
