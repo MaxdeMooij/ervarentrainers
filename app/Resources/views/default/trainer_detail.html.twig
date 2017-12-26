@@ -158,7 +158,9 @@
                         {% endif %}
 
                         // Show the progress bar
-                        $(".profile_progressbar span").width(progresscounter+'%');
+                        $(".profile_progressbar span").stop().delay(1000).animate({
+                          width: progresscounter+'%'
+                        }, 1000);
 
                         // If the profile progress isn't complete, show the processbar with steps
                         if ($(".profile_progressbar span").width() < count*8) {
