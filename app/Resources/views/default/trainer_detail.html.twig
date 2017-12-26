@@ -41,7 +41,6 @@
                       <span class="experience">{{ item.ervaring }} jaar ervaring</span>
                     {% endif %}
 
-
                     <div class="block">
                         <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Opleiding</h3>
                         <p class="education">Human Information Design & Strategy aan Saxion Hogeschool Deventer</p>
@@ -182,7 +181,7 @@
                     });
                   </script>
 
-                  <div class="profile_progress">
+                  <div class="profile_progress row">
                     <h2>Maak je profiel compleet</h2>
                     <div class="profile_progressbar"><span></span></div>
 
@@ -211,8 +210,10 @@
                       <p>
                       {% if item.description %}
                         {{ item.description }}
-                      {% else %}
+                      {% elseif app.user and item.description %}
                         <p>Je hebt nog geen beschrijving van jezelf ingevuld.</p>
+                      {% else %}
+                        <p>{{ item.firstName }} heeft nog geen beschrijving ingevuld.</p>
                       {% endif %}
                       </p>
                   </div>
