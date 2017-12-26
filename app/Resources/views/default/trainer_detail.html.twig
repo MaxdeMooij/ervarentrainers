@@ -22,7 +22,7 @@
             <div class="row">
               <div class="col col-sm-3 trainerprofile">
 
-                    {% if app %}
+                    {% if app.user %}
                       <div class="row">
                         <a class="bewerken" href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}/bewerken">Profiel bewerken</a>
                       </div>
@@ -64,6 +64,14 @@
                   {{ education.id }}
                 {% endfor %}
 
+                <script type="text/javascript">
+                  $(".trainings_bg").css({
+                    'height': height,
+                    'top': offset
+                  });
+                  console.log(height);
+                  console.log(offset);
+                </script>
                 {% if app.user %}
                   {% if item.slug == app.user.slug %}
                     <script type="text/javascript">
@@ -74,12 +82,7 @@
                         var height = $(".trainings").outerHeight() + 100;
                         var offset = $(".trainings").offset().top + 80;
 
-                        $(".trainings_bg").css({
-                          'height': height,
-                          'top': offset
-                        });
-                        console.log(height);
-                        console.log(offset);
+
 
                         // Define the progress
                         progresscounter = 0;
