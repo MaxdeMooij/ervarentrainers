@@ -22,11 +22,13 @@
             <div class="row">
               <div class="col col-sm-3 trainerprofile">
 
-                    {% if app.user %}
-                      <div class="row">
-                        <a class="bewerken" href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}/bewerken">Profiel bewerken</a>
-                      </div>
-                    {% endif %}
+                {% if app.user %}
+                  {% if item.slug == app.user.slug %}
+                    <div class="row">
+                      <a class="bewerken" href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}/bewerken">Profiel bewerken</a>
+                    </div>
+                  {% endif %}
+                {% endif %}
 
                 {% if item.avatar %}
                   <img class="profile-photo" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_profile') }}">
@@ -65,12 +67,18 @@
                 {% endfor %}
 
                 <script type="text/javascript">
-                  $(".trainings_bg").css({
-                    'height': height,
-                    'top': offset
+                  $(document).ready(function(){
+                    var height = $(".trainings").outerHeight() + 100;
+                    var offset = $(".trainings").offset().top + 80;
+
+                    $(".trainings_bg").css({
+                      'height': height,
+                      'top': offset
+                    });
+                    console.log(height);
+                    console.log(offset);
+
                   });
-                  console.log(height);
-                  console.log(offset);
                 </script>
                 {% if app.user %}
                   {% if item.slug == app.user.slug %}
@@ -78,12 +86,6 @@
 
 
                       $(document).ready(function(){
-
-                        var height = $(".trainings").outerHeight() + 100;
-                        var offset = $(".trainings").offset().top + 80;
-
-
-
                         // Define the progress
                         progresscounter = 0;
 
