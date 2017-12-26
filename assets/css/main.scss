@@ -212,6 +212,7 @@ form .col:last-of-type {
 
 .row {
   margin: 0;
+  width: 100%;
   padding: 10px 0px;
   &:first-of-type {
     padding-top: 0px !important;
@@ -677,6 +678,9 @@ nav .dropdown-menu i {
 
 .search_results {
   padding-left: 0px !important;
+  a {
+    width: 100%;
+  }
 }
 
 .search_result {
