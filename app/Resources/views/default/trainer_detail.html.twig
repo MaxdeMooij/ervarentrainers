@@ -20,8 +20,13 @@
     <div id="wrapper">
         <div class="container">
             <div class="row">
-              
               <div class="col col-sm-3 trainerprofile">
+
+                    {% if app %}
+                      <div class="row">
+                        <a class="bewerken" href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}/bewerken">Profiel bewerken</a>
+                      </div>
+                    {% endif %}
 
                 {% if item.avatar %}
                   <img class="profile-photo" src="{{ asset('upload/image/'~item.avatar) | imagine_filter('avatar_profile') }}">
@@ -32,18 +37,20 @@
                     <h1>{{ item.firstName }} {{ item.lastName }}</h1>
                     <h2>{{ item.typeTrainer }}</h2>
 
+                    {% if item.ervaring %}
+                      <span class="experience">{{ item.ervaring }} jaar ervaring</span>
+                    {% endif %}
+
 
                     <div class="block">
                         <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Opleiding</h3>
-                        <span class="education">Human Information Design & Strategy</span>
-                        <span class="school">Aan Saxion Hogeschool Deventer</span>
+                        <p class="education">Human Information Design & Strategy aan Saxion Hogeschool Deventer</p>
                         <span class="duration">augustus 2013 - juli 2017</span>
                     </div>
 
                     <div class="block">
                         <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Opleiding</h3>
-                        <span class="education">Human Information Design & Strategy</span>
-                        <span class="school">Aan Saxion Hogeschool Deventer</span>
+                        <p class="education">Human Information Design & Strategy aan Saxion Hogeschool Deventer</p>
                         <span class="duration">augustus 2013 - juli 2017</span>
                     </div>
                 </div>
@@ -51,12 +58,28 @@
               </div>
 
               <div class="col">
+                {% for education in item.education %}
+                test
+                  {{ education.name }}
+                  {{ education.id }}
+                {% endfor %}
+
                 {% if app.user %}
                   {% if item.slug == app.user.slug %}
                     <script type="text/javascript">
 
 
                       $(document).ready(function(){
+
+                        var height = $(".trainings").outerHeight() + 100;
+                        var offset = $(".trainings").offset().top + 80;
+
+                        $(".trainings_bg").css({
+                          'height': height,
+                          'top': offset
+                        });
+                        console.log(height);
+                        console.log(offset);
 
                         // Define the progress
                         progresscounter = 0;
@@ -160,9 +183,10 @@
 
                           // Change the title bases on the amount of steps
                           if (current-1 < 2) {
-                            $(".profile_progress h2").append(". <span>De laatste stap!</span>")
+                            $(".appended").remove();
+                            // $(".profile_progress h2").append(". <span>De laatste stap!</span>")
                           } else {
-                            $(".profile_progress h2").append(". <span>Nog "+(current-1)+" stappen te gaan.</span>")
+                            $(".profile_progress h2").append('. <span class="appended">Nog "+(current-1)+" stappen te gaan.</span>')
                           };
                         };
                       });
@@ -177,15 +201,6 @@
                   {% endif %}
                 {% endif %}
 
-                <div class="general-info row">
-                    {% if item.ervaring %}
-                      <span class="experience">{{ item.ervaring }} jaar ervaring</span>
-                    {% endif %}
-                    {% if app %}
-                        <a class="bewerken" href="{{ path('app_default_trainerdetail', {'slug': item.slug }) }}/bewerken">Profiel bewerken</a>
-                    {% endif %}
-                </div>
-
                 <div class="trainer-about row">
                   <div class="content">
                       <h3>Over mij</h3>
@@ -198,7 +213,7 @@
                       </p>
                   </div>
                   <div class="trainings row">
-
+                    <h2>Trainingen van {{ item.firstname }}</h2>
                     <!-- Trainings of the trainer go here -->
                     <div class="row search_results">
                       {% for training in item.trainings %}
@@ -227,7 +242,31 @@
                 </div>
               </div>
             </div>
+            <div class="row categories">
+              <a data-tilt href="#" class="category col col-sm-2" style="background-image: url('http://ervarentrainers.dev/media/cache/avatar_overview/upload/image/59eb788cc8d16591584064.jpg')">
+                <h3>Communicatie</h3>
+                <div class="overlay"></div>
+              </a>
+              <a data-tilt href="#" class="category col col-sm-2" style="background-image: url('http://ervarentrainers.dev/media/cache/avatar_overview/upload/image/59eb788cc8d16591584064.jpg')">
+                <h3>Sport</h3>
+                <div class="overlay"></div>
+              </a>
+              <a data-tilt href="#" class="category col col-sm-2" style="background-image: url('http://ervarentrainers.dev/media/cache/avatar_overview/upload/image/59eb788cc8d16591584064.jpg')">
+                <h3>Dieren</h3>
+                <div class="overlay"></div>
+              </a>
+              <a data-tilt href="#" class="category col col-sm-2" style="background-image: url('http://ervarentrainers.dev/media/cache/avatar_overview/upload/image/59eb788cc8d16591584064.jpg')">
+                <h3>Lifestyle</h3>
+                <div class="overlay"></div>
+              </a>
+              <a data-tilt href="#" class="category col col-sm-2" style="background-image: url('http://ervarentrainers.dev/media/cache/avatar_overview/upload/image/59eb788cc8d16591584064.jpg')">
+                <h3>Management</h3>
+                <div class="overlay"></div>
+              </a>
+            </div>
         </div>
+        <div class="trainings_bg"></div>
+        <div class="trainings_bg trainings_bg_skew"></div>
         </div>
     </div>
 {% endblock %}
