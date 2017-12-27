@@ -20,3 +20,5 @@ production build:
 ```bash
 npm run build
 ```
+
+composer require symfony/templating

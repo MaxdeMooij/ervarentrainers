@@ -192,6 +192,14 @@ class DefaultController extends Controller
       ]);
     }
 
+    /**
+     * @Route("/phpisawesome")
+     */
+    public function testingPhpAction()
+    {
+        return $this->render('default/test.html.php');
+    }
+
 
 
 
