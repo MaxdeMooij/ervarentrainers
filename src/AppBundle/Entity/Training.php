@@ -175,7 +175,7 @@ class Training
     /**
      * Set boost
      *
-     * @param string $boost
+     * @param boolean $boost
      *
      * @return Training
      */
@@ -189,7 +189,7 @@ class Training
     /**
      * Get boost
      *
-     * @return string
+     * @return boolean
      */
     public function getBoost()
     {
