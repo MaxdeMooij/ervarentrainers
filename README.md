@@ -21,4 +21,8 @@ production build:
 npm run build
 ```
 
-composer require symfony/templating
+Use PHP as a template: composer require symfony/templating
+
+Migrations:
+1. bin/console d:m:d
+2. bin/console d:m:m

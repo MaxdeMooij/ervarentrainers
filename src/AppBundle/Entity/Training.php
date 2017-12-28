@@ -49,6 +49,11 @@ class Training
      */
     private $tags;
     /**
+     * @ORM\Column(type="boolean")
+     * @Algolia\Attribute
+     */
+    private $boost = false;
+    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="trainings")
      * @Algolia\Attribute
      */
@@ -163,6 +168,30 @@ class Training
      * @return array
      */
     public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Set boost
+     *
+     * @param string $boost
+     *
+     * @return Training
+     */
+    public function setBoost($boost)
+    {
+        $this->boost = $boost;
+
+        return $this;
+    }
+
+    /**
+     * Get boost
+     *
+     * @return string
+     */
+    public function getBoost()
     {
         return $this->tags;
     }

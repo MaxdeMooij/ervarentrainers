@@ -146,6 +146,7 @@ easy_admin:
                 - title
                 - description
                 - tags
+                - boost
                 - property: 'photoFile'
                   type: 'vich_image'
                   type_options: {imagine_pattern: 'basic_thumbnail'}
