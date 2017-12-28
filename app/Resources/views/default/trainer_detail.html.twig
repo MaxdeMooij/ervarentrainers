@@ -239,6 +239,7 @@
                             </p>
                             <p>{{ training.description|length > 150 ? training.description|slice(0, 150) ~ '...' : training.description }}</p>
                             <span class="tags">{{ training.tags|join(', ') }}</span>
+                            {{ training.boost }}
                           </div>
                         </div>
                       </a>

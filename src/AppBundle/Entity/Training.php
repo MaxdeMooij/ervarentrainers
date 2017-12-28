@@ -193,7 +193,7 @@ class Training
      */
     public function getBoost()
     {
-        return $this->tags;
+        return $this->boost;
     }
 
     /**
