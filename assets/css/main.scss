@@ -928,6 +928,7 @@ input[type="radio"] {
 
 .profile_progress {
   display: none;
+  margin-bottom: 20px;
   h2 span {
     color: $dark_Gray;
   }
@@ -998,12 +999,31 @@ input[type="radio"] {
 
 /* Edit profile */
 
+.sticky {
+  position: fixed;
+  top: 0px;
+}
+
+.unsticky_bottom {
+  position: absolute;
+  bottom: 0px;
+}
+
+.categorieen {
+  .active {
+    color: $light_Blue;
+  }
+}
+
 .editprofile {
   .content {
     margin: 25px 0px;
   }
   .content:first-of-type {
     margin: 0px;
+  }
+  .categorieen {
+    padding-top: 45px;
   }
   button {
     margin-top: 25px;

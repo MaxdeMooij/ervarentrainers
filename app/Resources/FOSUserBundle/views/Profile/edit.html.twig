@@ -1,0 +1,312 @@
+{% block scripts %}<script src="/jquery-temp.min.js"></script>{% endblock %}
+
+{% extends "@FOSUser/layout.html.twig" %}
+{% block title %}Edit profile{% endblock %}
+
+{% block body %}
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".editprofile .content").append('<input class="btnfirst" type="submit" value="Profiel bewerken"/>');
+    });
+  </script>
+  <div id="wrapper">
+    <div class="container">
+      <script type="text/javascript">
+
+        $(document).ready(function() {
+
+          // Define the progress
+          progresscounter = 0;
+
+          // Define the amount of steps to complete
+          amount = 8;
+          count = 100 / amount;
+
+          //
+          // Check for each step if the data has been filled in. If no, show the step. If yes, don't show and add a number to the progress bar.
+          //
+          {% if app.user.avatar %}
+            progresscounter = progresscounter + count;
+            console.log("Avatar - check");
+          {% else %}
+            console.log("LEEG - Avatar");
+            $(".completionsteps").append('<div class="step"><span></span> Stel een profielfoto in</div>');
+          {% endif %}
+
+          {% if app.user.ervaring %}
+            progresscounter = progresscounter + count;
+            console.log("Ervaring - check");
+          {% else %}
+            console.log("LEEG - Ervaring");
+            $(".completionsteps").append('<div class="step"><span></span> Hoeveel jaar ervaring heb je?</div>');
+          {% endif %}
+
+          {% if app.user.typeTrainer %}
+            progresscounter = progresscounter + count;
+            console.log("Functie - check");
+          {% else %}
+            console.log("LEEG - Functie");
+            $(".completionsteps").append('<div class="step"><span></span> Wat voor soort trainer ben je?</div>');
+          {% endif %}
+
+          {% if app.user.motto %}
+            progresscounter = progresscounter + count;
+            console.log("Motto - check");
+          {% else %}
+            console.log("LEEG - Motto");
+            $(".completionsteps").append('<div class="step"><span></span> Wat is je motto?</div>');
+          {% endif %}
+
+          {% if app.user.vog %}
+            progresscounter = progresscounter + count;
+            console.log("VOG - check");
+          {% else %}
+            console.log("LEEG - VOG");
+            $(".completionsteps").append('<div class="step"><span></span> Kun je een VOG aanleveren?</div>');
+          {% endif %}
+
+          {% if app.user.description %}
+            progresscounter = progresscounter + count;
+            console.log("Omschrijving - check");
+          {% else %}
+            console.log("LEEG - Omschrijving");
+            $(".completionsteps").append('<div class="step"><span></span> Schrijf een korte samenvatting over jezelf</div>');
+          {% endif %}
+
+          {% if app.user.education %}
+            progresscounter = progresscounter + count;
+            console.log("Opleiding - check");
+          {% else %}
+            console.log("LEEG - Opleiding");
+            $(".completionsteps").append('<div class="step"><span></span> Voeg je afgeronde opleidingen toe</div>');
+          {% endif %}
+
+          {% if app.user.usps %}
+            progresscounter = progresscounter + count;
+            console.log("USP's - check");
+          {% else %}
+            console.log("LEEG - USP's");
+            $(".completionsteps").append('<div class="step"><span></span> Wat zijn je unique selling points?</div>');
+          {% endif %}
+
+          // Show the progress bar
+          $(".profile_progressbar span").width(progresscounter + '%');
+
+          // If the profile progress isn't complete, show the processbar with steps
+          if ($(".profile_progressbar span").width() < count * 8) {
+            $(".profile_progress").fadeIn();
+
+            // Set the first step as 1
+            var current = 1;
+            // Define the amount of the progress bar when the last step is reached
+            var lastprogresscount = 100 - count;
+
+            // If the last step is reached, change the wording, else, count the steps
+            if (progresscounter >= 100 - count) {
+              $(".completionsteps span").append("Laatste stap");
+            } else {
+              $(".completionsteps span").append("Stap ");
+
+              $(".completionsteps .step").each(function() {
+                $(this).find("span").append(current);
+                current++;
+              });
+            };
+
+            // Change the title bases on the amount of steps
+            if (current - 1 < 2) {
+              $(".profile_progress h2").append(". <span>De laatste stap!</span>")
+            } else {
+              $(".profile_progress h2").append(". <span>Nog " + (
+                current - 1
+              ) + " stappen te gaan.</span>")
+            };
+          };
+
+          //
+          // Make side menu sticky if scrolled
+          //
+          var categories_height = $(".categorieen").outerHeight();
+          var container_position_top = $(".editprofile").offset().top;
+          var container_position_bottom = container_position_top + $(".editprofile").height();
+
+          $(document).scroll(function(){
+            var scrollPos = $(document).scrollTop();
+
+            // Scrolled down, so nav sidebar should stick
+            if (container_position_top <= scrollPos && scrollPos < (container_position_bottom - categories_height)) {
+              $(".categorieen").addClass("sticky");
+            } else {
+              $(".categorieen").removeClass("sticky");
+            }
+
+            // Scrolled beyond the sticky area, so stop sticking and stay there
+            if (scrollPos >= (container_position_bottom - categories_height)) {
+              $(".categorieen").addClass("unsticky_bottom");
+            } else {
+              $(".categorieen").removeClass("unsticky_bottom");
+            }
+
+            //
+            // Make sidebar nav items active when scrolled to corresponding blocks
+            //
+            $.each($(".categorieen ul li"), function() {
+              var currLink = $(this).find("a");
+              var refElement = $(currLink.attr("href"));
+
+              // Make sidemenu items active if the user scrolls to the corresponding section
+              if (refElement.offset().top <= scrollPos && refElement.offset().top + refElement.height() > scrollPos) {
+                $('.categorieen ul li a').removeClass("active");
+                currLink.addClass("active");
+              }
+              else{
+                currLink.removeClass("active");
+              }
+            });
+          });
+        });
+      </script>
+
+
+      <div class="row editprofile">
+        <div class=" col col-sm-8">
+          <div class="profile_progress row">
+            <h2>Maak je profiel compleet</h2>
+            <div class="profile_progressbar">
+              <span></span></div>
+
+            <div class="completionsteps"></div>
+          </div>
+          {% trans_default_domain 'FOSUserBundle' %}
+          {% block fos_user_content %}
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_profile_edit'), 'attr': {'class': 'fos_user_profile_edit'}}) }}
+            <div class="content" id="algemenegegevens">
+              <h3>Jouw gegevens</h3>
+
+              {{ form_label(form.firstName) }}
+              {{ form_errors(form.firstName) }}
+              {{ form_widget(form.firstName) }}
+
+              {{ form_label(form.lastName) }}
+              {{ form_errors(form.lastName) }}
+              {{ form_widget(form.lastName) }}
+
+              {{ form_label(form.email) }}
+              {{ form_errors(form.email) }}
+              {{ form_widget(form.email) }}
+
+              {{ form_label(form.phoneNumber) }}
+              {{ form_errors(form.phoneNumber) }}
+              {{ form_widget(form.phoneNumber) }}
+
+              {{ form_label(form.street) }}
+              {{ form_errors(form.street) }}
+              {{ form_widget(form.street) }}
+
+              {{ form_label(form.streetNumber) }}
+              {{ form_errors(form.streetNumber) }}
+              {{ form_widget(form.streetNumber) }}
+
+              {{ form_label(form.zipcode) }}
+              {{ form_errors(form.zipcode) }}
+              {{ form_widget(form.zipcode) }}
+
+              {{ form_label(form.city) }}
+              {{ form_errors(form.city) }}
+              {{ form_widget(form.city) }}
+
+              {{ form_label(form.geslacht) }}
+              {{ form_errors(form.geslacht) }}
+              {{ form_widget(form.geslacht) }}
+            </div>
+
+            <div class="content" id="overjou">
+              <h3>Over jou</h3>
+
+              {{ form_label(form.avatarFile) }}
+              {{ form_errors(form.avatarFile) }}
+              {{ form_widget(form.avatarFile) }}
+
+              {% if app.user.avatar %}
+                <img src="{{ asset('upload/image/'~app.user.avatar) | imagine_filter('avatar_profile') }}" alt="Profielfoto">
+              {% endif %}
+
+              {{ form_label(form.typeTrainer) }}
+              {{ form_errors(form.typeTrainer) }}
+              {{ form_widget(form.typeTrainer) }}
+
+              {{ form_label(form.motto) }}
+              {{ form_errors(form.motto) }}
+              {{ form_widget(form.motto) }}
+
+              {{ form_label(form.description) }}
+              {{ form_errors(form.description) }}
+              {{ form_widget(form.description) }}
+
+              {{ form_label(form.ervaring) }}
+              {{ form_errors(form.ervaring) }}
+              {{ form_widget(form.ervaring) }}
+
+              <!-- Multiple USP's are possible. Users can create their own USP's if they're not in the options -->
+              <label for="select_usps">Wat zijn jouw USP's?</label>
+              <p>Gebruik enter om nieuwe toe te voegen</p>
+              <select name="select_usps" id="select_usps" class="js-example-tags" multiple="multiple">
+                <option value="dynamisch">Dynamisch</option>
+                <option value="Lessen op maat">Lessen op maat</option>
+                <option value="Een USP">Een USP</option>
+              </select>
+
+            </div>
+
+            <div class="content" id="opleidingen">
+              <h3>Opleidingen</h3>
+            </div>
+
+            <div class="content" id="wachtwoordveranderen">
+              <h3>Wachtwoord veranderen</h3>
+            </div>
+
+            <div class="content" id="account">
+              <h3>Je account</h3>
+            </div>
+
+            <!-- <input type="text" id="fos_user_profile_form_firstName" name="fos_user_profile_form[firstName]" required="required" value="{{ app.user.firstName }}"> -->
+
+            {{ form_widget(form._token) }}
+            {{ form_end(form, {'render_rest': false}) }}
+
+          {% endblock fos_user_content %}
+        </div>
+
+        <div class="col col-sm-offset-1 sidemenu">
+          <div class="row">
+            <div class="categorieen">
+              <h2>Categorieen</h2>
+              <ul>
+                <li>
+                  <a href="#algemenegegevens">Jouw gegevens</a>
+                </li>
+                <hr>
+                <li>
+                  <a href="#overjou">Over jou</a>
+                </li>
+                <hr>
+                <li>
+                  <a href="#opleidingen">Opleidingen</a>
+                </li>
+                <hr>
+                <li>
+                  <a href="#wachtwoordveranderen">Wachtwoord veranderen</a>
+                </li>
+                <hr>
+                <li>
+                  <a href="#account">Account</a>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
