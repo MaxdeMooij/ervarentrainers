@@ -219,33 +219,41 @@
                   </div>
                   <div class="trainings row">
 
-                    <h2>Training{% if item.trainings|length > 1 %}en{% endif %} van {% if app.user and item.slug == app.user.slug %}jou{% else %}{{ item.firstname }}{% endif %}</h2>
+                    {% if item.trainings is not empty %}
+                      <h2>Training{% if item.trainings|length > 1 %}en{% endif %} van {% if app.user and item.slug == app.user.slug %}jou{% else %}{{ item.firstname }}{% endif %}</h2>
 
-                    <!-- Trainings of the trainer go here -->
-                    <div class="row search_results">
-                      {% for training in item.trainings %}
-                      <a href="{{ path('app_default_trainingdetail', {'slug': training.slug }) }}">
-                        <div class="search_result content">
-                          <div class="content">
-                            <h3 class="titel">{{ training.title }}</h3>
-                            <p class="properties">
-                              {% for price in training.prices %}
+                      <!-- Trainings of the trainer go here -->
+                      <div class="row search_results">
+                        {% for training in item.trainings %}
+                          <a href="{{ path('app_default_trainingdetail', {'slug': training.slug }) }}">
+                            <div class="search_result content">
+                              <div class="content">
+                                <h3 class="titel">{{ training.title }}</h3>
+                                  Dit is training {{ training.id }}, en die staat nu op {% if training.boost %}True{% else %}False{% endif%}.
+                                <p class="properties">
+                                  {% for price in training.prices %}
 
-                                <span class="price">{{ price.price }}</span>
-                                <span class="type">{{ price.type }}</span>
+                                    <span class="price">{{ price.price }}</span>
+                                    <span class="type">{{ price.type }}</span>
 
-                              {% endfor %}
-                              <!-- <span class="timeframe">3 dagen</span> -->
-                            </p>
-                            <p>{{ training.description|length > 150 ? training.description|slice(0, 150) ~ '...' : training.description }}</p>
-                            <span class="tags">{{ training.tags|join(', ') }}</span>
-                            {{ training.boost }}
-                          </div>
-                        </div>
-                      </a>
-                      {% endfor %}
-                    </div>
+                                  {% endfor %}
+                                  <!-- <span class="timeframe">3 dagen</span> -->
+                                </p>
+                                <p>{{ training.description|length > 150 ? training.description|slice(0, 150) ~ '...' : training.description }}</p>
+                                <span class="tags">{{ training.tags|join(', ') }}</span>
 
+                                <a href="/boost?{{ training.id }}" class="boost">Boost deze training</a>
+                              </div>
+                            </div>
+                          </a>
+                        {% endfor %}
+                      </div>
+                    {% else %}
+                    <h2>
+                      {% if app.user and item.slug == app.user.slug %}Je hebt{% else %}{{ item.firstName }} heeft{% endif %} nog geen trainingen aangemaakt.
+                    </h2>
+
+                    {% endif %}
                   </div>
                 </div>
               </div>
