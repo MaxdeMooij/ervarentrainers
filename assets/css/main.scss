@@ -80,10 +80,10 @@ $darker_Yellow: #8E6415;
 $lighter_Red: #F9B7BB;
 $light_Red: #F15D66;
 $primary_Red: #F03A47;
-$dark_red: #99252C;
-$darker_red: #58161A;
+$dark_Red: #99252C;
+$darker_Red: #58161A;
 
-
+$primary_Green: #0de88f;
 
 
 
@@ -996,6 +996,24 @@ input[type="radio"] {
 }
 
 /* Register */
+#strength_human {
+  display: none;
+}
+
+#passprogress {
+  position: relative;
+  top: -1px;
+  left: 0px;
+  width: 0%;
+  width: 100%;
+  background-color: $darker_Gray;
+  span {
+    height: 0px;
+    max-width: 100%;
+    display: block;
+    transition: all .2s ease-in-out;
+  }
+}
 
 /* Edit profile */
 

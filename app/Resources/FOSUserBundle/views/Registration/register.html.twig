@@ -1,4 +1,6 @@
 {% extends "@FOSUser/layout.html.twig" %}
+{% block scripts %}<script src="/jquery-temp.min.js"></script>{% endblock %}
+
 {% block title %}Registreren{% endblock %}
 
 {% block body %}
@@ -43,12 +45,14 @@
                   <input type="checkbox" name="agree" id="agree" value="">
                   <label for="agree">Ik ga akkoord met de <a href="/algemene-voorwaarden" target="_blank">Algemene voorwaarden</a> en met het <a href="/privacystatement" target="_blank">Privacy statement</a>.</label>
                 </div>
-                
+
                 <div>
                     <input class="btnfirst" type="submit" value="{{ 'Create profile'|trans }}"/>
                 </div>
                 {{ form_widget(form._token) }}
                 {{ form_end(form, {'render_rest': false}) }}
+
+                {% include 'components/form_validation.html.twig' %}
 
             {% endblock fos_user_content %}
         </div>

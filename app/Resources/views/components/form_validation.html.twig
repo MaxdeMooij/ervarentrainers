@@ -1,0 +1,99 @@
+<script type="text/javascript">
+
+  function scorePassword(pass) {
+    var score = 0;
+    if (!pass)
+        return score;
+
+    // award every unique letter until 5 repetitions
+    var letters = new Object();
+    for (var i=0; i<pass.length; i++) {
+        letters[pass[i]] = (letters[pass[i]] || 0) + 1;
+        score += 5.0 / letters[pass[i]];
+    }
+
+    // bonus points for mixing it up
+    var variations = {
+        digits: /\d/.test(pass),
+        lower: /[a-z]/.test(pass),
+        upper: /[A-Z]/.test(pass),
+        nonWords: /\W/.test(pass),
+    }
+
+    variationCount = 0;
+    for (var check in variations) {
+        variationCount += (variations[check] == true) ? 1 : 0;
+    }
+    score += (variationCount - 1) * 10;
+    if (score > 100){
+      score == 100;
+    }
+    return parseInt(score);
+  }
+
+  function checkPassStrength(pass) {
+    var score = scorePassword(pass);
+    if (score > 80) {
+      $("#passprogress span").css("background-color", "#0de88f");
+      $("#fos_user_registration_form_plainPassword_first").css({
+        "border-color": "#0de88f",
+        "color": "#0de88f"
+      });
+      $("#passprogress").css("background-color", "#97f3cd");
+
+      return "Yes, dit is het!";
+    };
+
+    if (score > 60) {
+      $("#passprogress span").css("background-color", "#FFC826");
+      $("#fos_user_registration_form_plainPassword_first").css({
+        "border-color": "#FFC826",
+        "color": "#FFC826"
+      });
+      $("#passprogress").css("background-color", "#FFF0C3");
+
+      return "Dit is redelijk veilig.";
+    };
+
+    if (score => 10) {
+      $("#passprogress span").css("background-color", "#F03A47");
+      $("#fos_user_registration_form_plainPassword_first").css({
+        "border-color": "#F03A47",
+        "color": "#F03A47"
+      });
+
+      $("#passprogress").css("background-color", "#F9B7BB");
+
+      return "Hmm.. Kan beter!";
+    };
+
+    if (score < 5) {
+      $("#fos_user_registration_form_plainPassword_first").css({
+        "border-color": "#FFC826",
+        "color": "#FFC826"
+      });
+    };
+
+    return "";
+  }
+
+  $(document).ready(function() {
+    $("#fos_user_registration_form_plainPassword_first")
+      .after('<div id="passprogress"><span></span></div><div class="figure" id="strength_human">apples</div>')
+      .on("keypress keyup keydown focusout", function() {
+        var pass = $(this).val();
+        $("#strength_human").text(checkPassStrength(pass));
+        $("#passprogress span").css({
+          width: scorePassword(pass) + '%'
+        });
+        if (scorePassword(pass) > 4) {
+          $("#passprogress span").css("height", "3px");
+          $("#strength_human").fadeIn();
+        }
+        if (scorePassword(pass) < 4) {
+          $("#passprogress span").css("height", "0px");
+        }
+    });
+  });
+
+</script>
