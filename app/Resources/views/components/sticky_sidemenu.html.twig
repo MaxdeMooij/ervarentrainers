@@ -1,0 +1,46 @@
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    //
+    // Make side menu sticky if scrolled
+    //
+    var categories_height = $(".categorieen").outerHeight();
+    var container_position_top = $(".editprofile").offset().top;
+    var container_position_bottom = container_position_top + $(".editprofile").height();
+
+    $(document).scroll(function(){
+      var scrollPos = $(document).scrollTop();
+
+      // Scrolled down, so nav sidebar should stick
+      if (container_position_top <= scrollPos && scrollPos < (container_position_bottom - categories_height)) {
+        $(".categorieen").addClass("sticky");
+      } else {
+        $(".categorieen").removeClass("sticky");
+      }
+
+      // Scrolled beyond the sticky area, so stop sticking and stay there
+      if (scrollPos >= (container_position_bottom - categories_height)) {
+        $(".categorieen").addClass("unsticky_bottom");
+      } else {
+        $(".categorieen").removeClass("unsticky_bottom");
+      }
+
+      //
+      // Make sidebar nav items active when scrolled to corresponding blocks
+      //
+      $.each($(".categorieen ul li"), function() {
+        var currLink = $(this).find("a");
+        var refElement = $(currLink.attr("href"));
+
+        // Make sidemenu items active if the user scrolls to the corresponding section
+        if (refElement.offset().top <= scrollPos && refElement.offset().top + refElement.height() > scrollPos) {
+          $('.categorieen ul li a').removeClass("active");
+          currLink.addClass("active");
+        }
+        else{
+          currLink.removeClass("active");
+        }
+      });
+    });
+  });
+</script>
