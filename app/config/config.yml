@@ -105,7 +105,7 @@ easy_admin:
                     - { property: 'ervaring', type: 'text', type_options: { required: false } }
                     - { property: 'typeTrainer', type: 'text', type_options: { required: false } }
                     - { property: 'motto', type: 'text', type_options: { required: false } }
-                    - { property: 'geboorteDatum', type: 'date' }
+                    - { property: 'geboorteDatum', type: 'birthday' }
                     - property: 'geslacht'
                       type: 'choice'
                       type_options:
