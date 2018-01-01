@@ -184,7 +184,7 @@ liip_imagine:
         basic_thumbnail:
             quality: 100
             filters:
-                thumbnail: { size: [45,45], mode: outbound }
+                thumbnail: { size: [45,45], mode: inset }
         avatar_profile:
             quality: 100
             filters:
