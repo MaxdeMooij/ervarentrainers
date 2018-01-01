@@ -997,6 +997,21 @@ input[type="radio"] {
 
 /* Register */
 
+.fos_user_registration_register ul {
+  padding-left: 0px;
+  text-decoration: none;
+  list-style: none;
+  font-size: 12px;
+  padding: 2px 10px;
+  margin-bottom: 0px;
+  background-color: $lighter_Red;
+  color: $primary_Red;
+}
+
+.fos_user_registration_register ul + input {
+  border-color: $primary_Red;
+}
+
 .showpassword {
   cursor: pointer;
   position: absolute;
