@@ -87,7 +87,7 @@
                   <div class="content">
                       <p>
                       {% if item.description %}
-                        {{ item.description }}
+                        {{ item.description | raw }}
                       {% elseif app.user and item.description %}
                         <p>Je hebt nog geen beschrijving van jezelf ingevuld.</p>
                       {% else %}

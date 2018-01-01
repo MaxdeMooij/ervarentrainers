@@ -30,3 +30,9 @@ Migrations:
 Algoila reindex:
 bin/console algolia:reindex "\AppBundle\Entity\User"
 bin/console algolia:reindex "\AppBundle\Entity\Training"
+
+WYSIWYG Texteditor:
+composer require egeloen/ckeditor-bundle
+php bin/console ckeditor:install
+php bin/console assets:install --symlink
+https://symfony.com/doc/current/bundles/EasyAdminBundle/integration/ivoryckeditorbundle.html

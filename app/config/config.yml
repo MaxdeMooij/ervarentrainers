@@ -120,7 +120,7 @@ easy_admin:
                     - streetNumber
                     - zipcode
                     - city
-                    - { property: 'description', type: 'text', type_options: { required: false } }
+                    - { property: 'description', type: 'ckeditor', type_options: { required: false } }
                     - enabled
                     # if administrators are allowed to edit users' passwords and roles, add this:
                     - { property: 'plainPassword', type: 'text', type_options: { required: false } }
