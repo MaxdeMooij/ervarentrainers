@@ -37,6 +37,19 @@
                     <h1>{{ item.firstName }} {{ item.lastName }}</h1>
                     <h2>{{ item.typeTrainer }}</h2>
 
+                    {% if item.geboorteDatum %}
+                      <script type="text/javascript">
+                      $(document).ready(function(){
+                        var dob = new Date("{{ item.geboorteDatum|date('m-d-Y') }}");
+                        var today = new Date();
+                        var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+                        $('.birthday').html(age+' jaar oud');
+                      });
+                      </script>
+                      {{ item.geboorteDatum|date('Y-m-d') }}
+                      <span class="birthday"></span>
+                    {% endif %}
+
                     {% if item.ervaring %}
                       <span class="experience">{{ item.ervaring }} jaar ervaring</span>
                     {% endif %}
@@ -58,7 +71,6 @@
 
               <div class="col">
                 {% for education in item.education %}
-                test
                   {{ education.name }}
                   {{ education.id }}
                 {% endfor %}
@@ -107,20 +119,15 @@
                             <div class="search_result content">
                               <div class="content">
                                 <h3 class="titel">{{ training.title }}</h3>
-                                  Dit is training {{ training.id }}, en die staat nu op {% if training.boost %}True{% else %}False{% endif%}.
                                 <p class="properties">
                                   {% for price in training.prices %}
-
                                     <span class="price">{{ price.price }}</span>
                                     <span class="type">{{ price.type }}</span>
-
                                   {% endfor %}
                                   <!-- <span class="timeframe">3 dagen</span> -->
                                 </p>
                                 <p>{{ training.description|length > 150 ? training.description|slice(0, 150) ~ '...' : training.description }}</p>
                                 <span class="tags">{{ training.tags|join(', ') }}</span>
-
-                                <a href="/boost?{{ training.id }}" class="boost">Boost deze training</a>
                               </div>
                             </div>
                           </a>
