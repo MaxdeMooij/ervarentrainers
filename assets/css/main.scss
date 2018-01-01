@@ -996,6 +996,16 @@ input[type="radio"] {
 }
 
 /* Register */
+
+.showpassword {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: $primary_Gray;
+  padding: 10px;
+}
+
 #strength_human {
   display: none;
 }

@@ -33,6 +33,8 @@
 
   function checkPassStrength(pass) {
     var score = scorePassword(pass);
+    var passfirstsafe = $("#fos_user_registration_form_plainPassword_first").val();
+
     if (score > 80) {
       $("#passprogress span").css("background-color", "#0de88f");
       $("#fos_user_registration_form_plainPassword_first").css({
@@ -78,8 +80,90 @@
   }
 
   $(document).ready(function() {
+
+    // If input is empty after off-focus, make it red. If not, green!
+    $("input").focusout(function() {
+      var contents = $(this).val();
+      if (contents == 0) {
+        $(this).css({
+          'border-color': '#F03A47',
+          'color': '#F03A47'
+        });
+      } else {
+        $(this).css({
+          'border-color': '#0de88f',
+          'color': '#0de88f'
+        });
+      };
+    });
+
+    // Make input yellow on active state
+    $("input").on("keypress keyup keydown", function() {
+      $(this).css({
+        'border-color': '#FFC826',
+        'color': '#FFC826'
+      });
+    });
+
+    //
+    // Show password when user clicks on the icon
+    //
+    $("#fos_user_registration_form_plainPassword_first").before('<div class="showpassword"><i class="fa fa-eye" aria-hidden="true"></i></div>');
+    $(".showpassword").parent().css('position', 'relative');
+
+    $(".showpassword").click(function() {
+      var x = $("#fos_user_registration_form_plainPassword_first");
+      if ($("#fos_user_registration_form_plainPassword_first").get(0).type === "password") {
+          $("#fos_user_registration_form_plainPassword_first").get(0).type = "text";
+          $("#fos_user_registration_form_plainPassword_second").get(0).type = "text";
+
+          $(".showpassword").find("i").addClass("fa-eye-slash");
+          $(".showpassword").find("i").removeClass("fa-eye");
+      } else {
+          $("#fos_user_registration_form_plainPassword_first").get(0).type = "password";
+          $("#fos_user_registration_form_plainPassword_second").get(0).type = "password";
+
+          $(".showpassword").find("i").addClass("fa-eye");
+          $(".showpassword").find("i").removeClass("fa-eye-slash");
+      }
+    });
+
+    //
+    // Input frontend validation
+    //
+
+    // Check if email is correct
+    function validateEmail(email) {
+      var re =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
+    $("input[type='email']").on("keypress keyup keydown", function() {
+      $("input[type='email']").text("");
+      var email = $("input[type='email']").val();
+      if (validateEmail(email)) {
+        $("input[type='email']").css({
+          'border-color': '#0de88f',
+          'color': '#0de88f'
+        });
+      }
+    });
+
+    $("input[type='email']").focusout(function(){
+      var email = $("input[type='email']").val();
+      if (validateEmail(email) == false) {
+        $("input[type='email']").css({
+          'border-color': '#F03A47',
+          'color': '#F03A47'
+        });
+      }
+    });
+
+    //
+    // Password strength indicator
+    //
     $("#fos_user_registration_form_plainPassword_first")
-      .after('<div id="passprogress"><span></span></div><div class="figure" id="strength_human">apples</div>')
+      .after('<div id="passprogress"><span></span></div><div class="figure" id="strength_human"></div>')
       .on("keypress keyup keydown focusout", function() {
         var pass = $(this).val();
         $("#strength_human").text(checkPassStrength(pass));
@@ -93,7 +177,52 @@
         if (scorePassword(pass) < 4) {
           $("#passprogress span").css("height", "0px");
         }
-    });
+
+        // Password match validator (there must be ways to code this cleaner, but hey, it works!)
+        var passfirst = $("#fos_user_registration_form_plainPassword_first").val();
+        var passcheck = $("#fos_user_registration_form_plainPassword_second").val();
+
+        if (passcheck !== '' && passfirst == passcheck) {
+          $("#fos_user_registration_form_plainPassword_second").css({
+            'border-color': '#0de88f',
+            'color': '#0de88f'
+          });
+        }
+
+        var passfirst = $("#fos_user_registration_form_plainPassword_first").val();
+        var passcheck = $("#fos_user_registration_form_plainPassword_second").val();
+
+        if (passcheck !== '' && passfirst !== passcheck) {
+          $("#fos_user_registration_form_plainPassword_second").css({
+            'border-color': '#F03A47',
+            'color': '#F03A47'
+          });
+        }
+      });
+
+      $("#fos_user_registration_form_plainPassword_second").on("keypress keyup keydown", function() {
+        var passfirst = $("#fos_user_registration_form_plainPassword_first").val();
+        var passcheck = $("#fos_user_registration_form_plainPassword_second").val();
+
+        if (passfirst == passcheck) {
+          $("#fos_user_registration_form_plainPassword_second").css({
+            'border-color': '#0de88f',
+            'color': '#0de88f'
+          });
+        }
+      });
+
+      $("#fos_user_registration_form_plainPassword_second").focusout(function(){
+        var passfirst = $("#fos_user_registration_form_plainPassword_first").val();
+        var passcheck = $("#fos_user_registration_form_plainPassword_second").val();
+
+        if (passfirst !== passcheck) {
+          $("#fos_user_registration_form_plainPassword_second").css({
+            'border-color': '#F03A47',
+            'color': '#F03A47'
+          });
+        }
+      });
   });
 
 </script>
